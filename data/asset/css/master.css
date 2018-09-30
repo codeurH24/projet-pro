@@ -1,0 +1,15 @@
+html,body{
+  min-width: 300px; /* empeche de réduire le site en dessous de 300px*/
+}
+
+.banner{
+  color: #FF1B1C;
+}
+.vignette{
+  height: 200px;
+}
+
+main{
+  min-height: 800px;
+  padding: 40px 0;
+}
