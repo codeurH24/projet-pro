@@ -8,6 +8,9 @@
       case 'composants-processeur':
         require_once("data/view/composants/processeurs.php");
         break;
+      case 'composants-carte-graphique':
+        require_once("data/view/composants/cartes-graphique.php");
+        break;
       case 'registration':
         require_once("data/view/user/registration.php");
         break;

@@ -2,6 +2,7 @@ DirectoryIndex index.php
 RewriteEngine on
 
 RewriteRule composants-processeur.php ?page=composants-processeur [L]
+RewriteRule composants-carte-graphique.php ?page=composants-carte-graphique [L]
 RewriteRule inscription.php ?page=registration [L]
 RewriteRule inscription-reussi.php ?page=registration-success [L]
 RewriteRule connexion.php ?page=login [L]
