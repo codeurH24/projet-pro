@@ -13,3 +13,27 @@ main{
   min-height: 800px;
   padding: 40px 0;
 }
+
+.composants img{
+  width:100%;
+  min-width: 230px;
+}
+
+.composants .label{
+  width: 110px;
+  display: inline-block;
+}
+.page-item{
+  margin: 0 auto;
+}
+
+@media all and (min-width: 300px) and (max-width: 575px){
+  .composants img{
+    width:50%;
+  }
+}
+@media all and (min-width: 490px){
+  .composants img{
+    width:230px;
+  }
+}
