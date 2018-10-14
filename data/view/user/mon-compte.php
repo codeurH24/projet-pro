@@ -1,17 +1,5 @@
 <?php
-if( !empty($_FILES["imageComposantUpdate"]) ) {
-  $mysqli = bddConnect();
-  $target_dir = "./data/asset/image/composants/";
-  $target_file = $target_dir . basename($_FILES["imageComposantUpdate"]["name"]);
-  move_uploaded_file($_FILES["imageComposantUpdate"]["tmp_name"], $target_file);
-  $query = "UPDATE `image_composant`
-            SET `image` = '".$_FILES["imageComposantUpdate"]["name"]."'
-            WHERE `image_composant`.`id_composant` = ".$_POST['idComposantUpdate'].";";
-  if (!$mysqli->query($query)) {
-    exit("Erreur update image composant.$query<br />");
-  }
-  $mysqli->close();
-}
+
  ?><main class="container">
   <div class="row">
     <div class="col">

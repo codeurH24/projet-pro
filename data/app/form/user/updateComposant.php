@@ -15,6 +15,22 @@ if( isset($_POST['idComposantUpdate']) and !empty($_POST['idComposantUpdate'])){
       exit("Modifier composant erreur.<br />");
   }
   $lastID = $mysqli->insert_id;
+  $mysqli->close();
+  $mysqli = bddConnect();
+  if( !empty($_FILES["imageComposantUpdate"]["name"]) ) {
+    $mysqli = bddConnect();
+    $target_dir = "./data/asset/image/composants/";
+    $target_file = $target_dir . basename($_FILES["imageComposantUpdate"]["name"]);
+    move_uploaded_file($_FILES["imageComposantUpdate"]["tmp_name"], $target_file);
+    $query = "UPDATE `image_composant`
+              SET `image` = '".$_FILES["imageComposantUpdate"]["name"]."'
+              WHERE `image_composant`.`id_composant` = ".$_POST['idComposantUpdate'].";";
+    if (!$mysqli->query($query)) {
+      exit("Erreur update image composant.$query<br />");
+    }
+    $mysqli->close();
+  }
+
 
 
 
@@ -32,6 +48,8 @@ if ($result = $mysqli->query($query)) {
     $composantList = $result->fetch_all(MYSQLI_ASSOC);
     $result->free();
 }
+
+
 
 $mysqli->close();
 $mysqli = bddConnect();
