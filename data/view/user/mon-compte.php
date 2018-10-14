@@ -1,5 +1,7 @@
 <?php
-
+// $mysqli = bddConnect();
+//
+// $mysqli->close();
  ?><main class="container">
   <div class="row">
     <div class="col">
@@ -63,10 +65,9 @@
           <?php require_once("data/view/user/crudComposant.php"); ?>
         </div>
         <div class="tab-pane fade" id="lierRevendeurComposant">
-          <?php //require_once("data/view/user/crudLierRevendeurComposant.php"); ?>
+          <?php require_once("data/view/user/crudLierRevendeurComposant.php"); ?>
         </div>
       </div>
     </div>
   </div>
 </main>
-<!-- INSERT INTO `revendeur_composant` (`id`, `prix`, `lien`, `auteur`, `id_revendeur`, `id_composant`, `date_at`) VALUES (NULL, '49', 'https://www.materiel.net/produit/201803090213.html', 'codeurh24', '2', '12', '2018-10-14 08:00:00'); -->
