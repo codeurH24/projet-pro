@@ -1,4 +1,18 @@
-<main class="container">
+<?php
+if( !empty($_FILES["imageComposantUpdate"]) ) {
+  $mysqli = bddConnect();
+  $target_dir = "./data/asset/image/composants/";
+  $target_file = $target_dir . basename($_FILES["imageComposantUpdate"]["name"]);
+  move_uploaded_file($_FILES["imageComposantUpdate"]["tmp_name"], $target_file);
+  $query = "UPDATE `image_composant`
+            SET `image` = '".$_FILES["imageComposantUpdate"]["name"]."'
+            WHERE `image_composant`.`id_composant` = ".$_POST['idComposantUpdate'].";";
+  if (!$mysqli->query($query)) {
+    exit("Erreur update image composant.$query<br />");
+  }
+  $mysqli->close();
+}
+ ?><main class="container">
   <div class="row">
     <div class="col">
       <?php
@@ -26,6 +40,15 @@
         <li class="nav-item">
           <a class="nav-link" data-toggle="tab" href="#newPassword">Changer Mot de passe</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#categorie">Categorie</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#revendeur">Revendeur</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#composant">Composant</a>
+        </li>
       </ul>
       <div id="myTabContent" class="tab-content">
         <div class="tab-pane fade show active" id="profil">
@@ -36,6 +59,17 @@
         </div>
         <div class="tab-pane fade" id="newPassword">
           <?php require_once("data/app/form/user/changePassword.php"); ?>
+        </div>
+        <div class="tab-pane fade" id="categorie">
+          <?php //require_once("data/app/form/user/createCategorie.php"); ?>
+          <?php require_once("data/view/user/crudCategorie.php"); ?>
+        </div>
+        <div class="tab-pane fade" id="revendeur">
+          <?php // require_once("data/app/form/user/createRevendeur.php"); ?>
+          <?php require_once("data/view/user/crudRevendeur.php"); ?>
+        </div>
+        <div class="tab-pane fade" id="composant">
+          <?php require_once("data/view/user/crudComposant.php"); ?>
         </div>
       </div>
     </div>

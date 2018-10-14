@@ -5,9 +5,6 @@
   require_once("data/app/user/login.app.php");
  ?>
 
-
-
-
     <form method="post">
       <fieldset>
         <legend>Connexion</legend>
