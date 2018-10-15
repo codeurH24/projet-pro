@@ -42,6 +42,9 @@
         <li class="nav-item">
           <a class="nav-link" data-toggle="tab" href="#lierRevendeurComposant">Lier Revendeur Composant</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#lierComposantComposant">Lier Composant Composant</a>
+        </li>
       </ul>
       <div id="myTabContent" class="tab-content">
         <div class="tab-pane fade show active" id="profil">
@@ -66,6 +69,9 @@
         </div>
         <div class="tab-pane fade" id="lierRevendeurComposant">
           <?php require_once("data/view/user/crudLierRevendeurComposant.php"); ?>
+        </div>
+        <div class="tab-pane fade" id="lierComposantComposant">
+          <?php require_once("data/view/user/crudLierComposantComposant.php"); ?>
         </div>
       </div>
     </div>

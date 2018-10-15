@@ -1,5 +1,10 @@
 <?php
-
+/*
+SELECT compatibilite.id, c1.model AS 'model1', c2.model AS 'model2' FROM `compatibilite`
+JOIN composant AS c1 ON compatibilite.id_composant1 = c1.id
+JOIN composant AS c2 ON compatibilite.id_composant2 = c2.id
+WHERE compatibilite.id = 3
+*/
 $mysqli = bddConnect();
 
 if( isset($_POST['lienUpdateRevendeurLnkComposant']) and !empty($_POST['lienUpdateRevendeurLnkComposant'])){
