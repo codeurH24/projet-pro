@@ -38,9 +38,9 @@ function bddConnect(){
     <title>PC CONFIG</title>
   </head>
   <body>
-    <?php require_once('data\view\header.php'); ?>
-    <?php require_once('data\view\main.php'); ?>
-    <?php require_once('data\view\footer.php'); ?>
+    <?php require_once('data/view/header.php'); ?>
+    <?php require_once('data/view/main.php'); ?>
+    <?php require_once('data/view/footer.php'); ?>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
