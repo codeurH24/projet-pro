@@ -1,6 +1,6 @@
 <main class="container-fluid composants"><?php
 
-include("page.php");
+include("page-split.php");
 
 $titre = "CPU Intel Celeron G4900 - Double Coeur de 3.1Ghz - 8eme génération - Coffee Lake";
 $img = "data/asset/image/composants/G5400x300.jpg";
@@ -53,7 +53,7 @@ $bureautique=5;$multimedia=5;$jeuxVideo=5;$rendu3D=5;$prix="169,92";
 include("composant-item.php");
 
 
-include("page.php");
+include("page-split.php");
 ?>
 
 

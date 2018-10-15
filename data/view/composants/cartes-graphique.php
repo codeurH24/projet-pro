@@ -1,6 +1,6 @@
 <main class="container-fluid composants"><?php
 
-include("page.php");
+include("page-split.php");
 
 $titre = "PCI-E16X , MSI , Nvidia GEFORCE GT710 - 2Go";
 $img = "data/asset/image/composants/carte-graphique/N7102GD3HLPx300.jpg";
@@ -15,7 +15,7 @@ include("composant-item.php");
 
 
 
-include("page.php");
+include("page-split.php");
 ?>
 
 

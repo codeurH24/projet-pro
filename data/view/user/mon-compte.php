@@ -1,4 +1,8 @@
-<main class="container">
+<?php
+// $mysqli = bddConnect();
+//
+// $mysqli->close();
+ ?><main class="container">
   <div class="row">
     <div class="col">
       <?php
@@ -26,6 +30,18 @@
         <li class="nav-item">
           <a class="nav-link" data-toggle="tab" href="#newPassword">Changer Mot de passe</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#categorie">Categorie</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#revendeur">Revendeur</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#composant">Composant</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#lierRevendeurComposant">Lier Revendeur Composant</a>
+        </li>
       </ul>
       <div id="myTabContent" class="tab-content">
         <div class="tab-pane fade show active" id="profil">
@@ -36,6 +52,20 @@
         </div>
         <div class="tab-pane fade" id="newPassword">
           <?php require_once("data/app/form/user/changePassword.php"); ?>
+        </div>
+        <div class="tab-pane fade" id="categorie">
+          <?php //require_once("data/app/form/user/createCategorie.php"); ?>
+          <?php require_once("data/view/user/crudCategorie.php"); ?>
+        </div>
+        <div class="tab-pane fade" id="revendeur">
+          <?php // require_once("data/app/form/user/createRevendeur.php"); ?>
+          <?php require_once("data/view/user/crudRevendeur.php"); ?>
+        </div>
+        <div class="tab-pane fade" id="composant">
+          <?php require_once("data/view/user/crudComposant.php"); ?>
+        </div>
+        <div class="tab-pane fade" id="lierRevendeurComposant">
+          <?php require_once("data/view/user/crudLierRevendeurComposant.php"); ?>
         </div>
       </div>
     </div>
