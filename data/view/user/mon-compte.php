@@ -1,7 +1,13 @@
 <?php
-// $mysqli = bddConnect();
-//
-// $mysqli->close();
+$mysqli = bddConnect();
+if( isset($_POST['lienCreateRevendeurLnkComposant']) and !empty($_POST['lienCreateRevendeurLnkComposant'])){
+  $query = "INSERT INTO `revendeur_composant` (`id`, `prix`, `lien`, `auteur`, `id_revendeur`, `id_composant`, `date_at`)
+            VALUES (NULL, '".$_POST['prixCreateRevendeurLnkComposant']."', '".$_POST['lienCreateRevendeurLnkComposant']."', '".$_SESSION['user']['pseudo']."', '".$_POST['revendeurCreateRevendeurLnkComposant']."', '".$_POST['composantCreateRevendeurLnkComposant']."', '2018-10-15 01:00:00');";
+  if (!$mysqli->query($query)) {
+    exit("Erreur creation RevendeurLnkComposant. $query<br />");
+  }
+}
+$mysqli->close();
  ?><main class="container">
   <div class="row">
     <div class="col">
