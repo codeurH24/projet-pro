@@ -1,4 +1,5 @@
 <?php
+
 $mysqli = bddConnect();
 if( isset($_POST['compatibleEnPourCentUpdate']) and !empty($_POST['compatibleEnPourCentUpdate'])){
   $query = "UPDATE `compatibilite`

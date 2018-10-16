@@ -58,10 +58,17 @@
               Composant
             </button>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="creer-composant.php">Creer</a>
-              <a class="dropdown-item" href="modifier-composant.php">Modifier</a>
-              <a class="dropdown-item" href="supprimer-composant.php">Supprimer</a>
-              <a class="dropdown-item" href="#">Compatibilités</a>
+              <a class="btn btn-primary w-100" href="creer-composant.php">Creer</a>
+              <a class="btn btn-primary w-100" href="modifier-composant.php">Modifier</a>
+              <a class="btn btn-primary w-100" href="supprimer-composant.php">Supprimer</a>
+              <button type="button" class="btn btn-primary dropdown-toggle w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Compatibilités
+              </button>
+              <div class="dropdown-menu">
+                <a class="btn btn-primary w-100" href="creer-compatibilite-entre-composant.php">Creer</a>
+                <a class="btn btn-primary w-100" href="modifier-compatibilite-entre-composant.php">Modifier</a>
+                <a class="btn btn-primary w-100" href="supprimer-compatibilite-entre-composant.php">Supprimer</a>
+              </div>
             </div>
           </div>
         </li>
@@ -71,10 +78,17 @@
               Revendeur
             </button>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Creer</a>
-              <a class="dropdown-item" href="#">Modifier</a>
-              <a class="dropdown-item" href="#">Supprimer</a>
-              <a class="dropdown-item" href="#">Ajouter Composant</a>
+              <a class="dropdown-item" href="creer-revendeur.php">Creer</a>
+              <a class="dropdown-item" href="modifier-revendeur.php">Modifier</a>
+              <a class="dropdown-item" href="supprimer-revendeur.php">Supprimer</a>
+              <button type="button" class="btn btn-primary dropdown-toggle w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Referencer un composant
+              </button>
+              <div class="dropdown-menu">
+                <a class="btn btn-primary w-100" href="creer-liaison-composant-revendeur.php">Creer</a>
+                <a class="btn btn-primary w-100" href="modifier-liaison-composant-revendeur.php">Modifier</a>
+                <a class="btn btn-primary w-100" href="supprimer-liaison-composant-revendeur.php">Supprimer</a>
+              </div>
             </div>
           </div>
         </li>
@@ -116,6 +130,33 @@
             break;
           case 'delete-composant':
               require_once("data/app/form/user/deleteComposant.php");
+              break;
+          case 'create-composantLnkComposant':
+              require_once("data/app/form/user/createLierComposantComposant.php");
+            break;
+          case 'update-composantLnkComposant':
+              require_once("data/app/form/user/updateLierComposantComposant.php");
+              break;
+          case 'delete-composantLnkComposant':
+              //require_once("data/app/form/user/deleteLierComposantComposant.php");
+              break;
+          case 'create-revendeur':
+              require_once("data/app/form/user/createRevendeur.php");
+            break;
+          case 'update-revendeur':
+              require_once("data/app/form/user/updateRevendeur.php");
+              break;
+          case 'delete-revendeur':
+              require_once("data/app/form/user/deleteRevendeur.php");
+              break;
+          case 'create-revendeurLnkComposant':
+              require_once("data/app/form/user/createLierRevendeurComposant.php");
+            break;
+          case 'update-revendeurLnkComposant':
+              require_once("data/app/form/user/updateLierRevendeurComposant.php");
+              break;
+          case 'delete-revendeurLnkComposant':
+              require_once("data/app/form/user/deleteLierRevendeurComposant.php");
               break;
 
           default:
