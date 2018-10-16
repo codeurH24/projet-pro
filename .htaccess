@@ -9,13 +9,3 @@ RewriteRule connexion.php ?page=login [L]
 RewriteRule mon-compte.php ?page=mon-compte [L]
 RewriteRule logout.php ?page=logout [L]
 RewriteRule accueil index.php [L]
-
-
-
-
-RewriteRule admin/creer-une-categorie.php ?page=admin&section=create-categorie [L]
-RewriteRule admin/modifier-une-categorie.php ?page=admin&section=update-categorie [L]
-RewriteRule admin/supprimer-une-categorie.php ?page=admin&section=delete-categorie [L]
-
-
-RewriteRule admin/ ?page=admin [L]

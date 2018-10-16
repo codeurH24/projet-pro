@@ -2,49 +2,9 @@
 // $mysqli = bddConnect();
 //
 // $mysqli->close();
- ?><main class="container-fluid">
+ ?><main class="container">
   <div class="row">
-    <div class="col-2">
-
-
-      <div class="btn-group-vertical" data-toggle="buttons">
-        <div class="btn-group dropright">
-          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Categorie
-          </button>
-          <div class="dropdown-menu alert-primary">
-            <a class="dropdown-item" href="admin/creer-categorie.php">Creer</a>
-            <a class="dropdown-item" href="admin/modifier-categorie.php">Modifier</a>
-            <a class="dropdown-item" href="admin/supprimer-categorie.php">Supprimer</a>
-          </div>
-        </div>
-        <div class="btn-group dropright">
-          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Composant
-          </button>
-          <div class="dropdown-menu alert-primary">
-            <a class="dropdown-item" href="#">Creer</a>
-            <a class="dropdown-item" href="#">Modifier</a>
-            <a class="dropdown-item" href="#">Supprimer</a>
-            <a class="dropdown-item" href="#">Compatibilités</a>
-          </div>
-        </div>
-        <div class="btn-group dropright">
-          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Revendeur
-          </button>
-          <div class="dropdown-menu alert-primary">
-            <a class="dropdown-item" href="#">Creer</a>
-            <a class="dropdown-item" href="#">Modifier</a>
-            <a class="dropdown-item" href="#">Supprimer</a>
-            <a class="dropdown-item" href="#">Ajouter Composant</a>
-          </div>
-        </div>
-      </div>
-
-
-    </div>
-    <div class="col-8">
+    <div class="col">
       <?php
       if( isset($_SESSION['user']) )
         echo $_SESSION['user']['pseudo']."<br />";
@@ -60,7 +20,60 @@
 
       ?>
       <h1>Mon compte</h1>
-
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#profil">Profil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#adresse">Adresse</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#newPassword">Changer Mot de passe</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#categorie">Categorie</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#revendeur">Revendeur</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#composant">Composant</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#lierRevendeurComposant">Lier Revendeur Composant</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#lierComposantComposant">Lier Composant Composant</a>
+        </li>
+      </ul>
+      <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade show active" id="profil">
+          <?php require_once("data/app/form/user/profil.php"); ?>
+        </div>
+        <div class="tab-pane fade" id="adresse">
+          <?php require_once("data/app/form/user/adresse.php"); ?>
+        </div>
+        <div class="tab-pane fade" id="newPassword">
+          <?php require_once("data/app/form/user/changePassword.php"); ?>
+        </div>
+        <div class="tab-pane fade" id="categorie">
+          <?php //require_once("data/app/form/user/createCategorie.php"); ?>
+          <?php require_once("data/view/user/crudCategorie.php"); ?>
+        </div>
+        <div class="tab-pane fade" id="revendeur">
+          <?php // require_once("data/app/form/user/createRevendeur.php"); ?>
+          <?php require_once("data/view/user/crudRevendeur.php"); ?>
+        </div>
+        <div class="tab-pane fade" id="composant">
+          <?php require_once("data/view/user/crudComposant.php"); ?>
+        </div>
+        <div class="tab-pane fade" id="lierRevendeurComposant">
+          <?php require_once("data/view/user/crudLierRevendeurComposant.php"); ?>
+        </div>
+        <div class="tab-pane fade" id="lierComposantComposant">
+          <?php require_once("data/view/user/crudLierComposantComposant.php"); ?>
+        </div>
+      </div>
     </div>
   </div>
 </main>

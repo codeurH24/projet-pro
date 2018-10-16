@@ -26,9 +26,6 @@
       case 'logout':
         require_once("data/view/user/logout.php");
         break;
-      case 'admin':
-        require_once("data/view/admin/admin.php");
-        break;
 
       default:
         require_once("data/view/pages/accueil.php");
