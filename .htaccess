@@ -1,6 +1,8 @@
 DirectoryIndex index.php
 RewriteEngine on
 
+RewriteRule data/asset/css/master.css data/asset/css/master.css [L]
+
 RewriteRule composants-processeur.php ?page=composants-processeur [L]
 RewriteRule composants-carte-graphique.php ?page=composants-carte-graphique [L]
 RewriteRule inscription.php ?page=registration [L]
@@ -9,3 +11,14 @@ RewriteRule connexion.php ?page=login [L]
 RewriteRule mon-compte.php ?page=mon-compte [L]
 RewriteRule logout.php ?page=logout [L]
 RewriteRule accueil index.php [L]
+
+
+RewriteRule admin/creer-categorie.php ?page=admin&section=create-categorie [L]
+RewriteRule admin/modifier-categorie.php ?page=admin&section=update-categorie [L]
+RewriteRule admin/supprimer-categorie.php ?page=admin&section=delete-categorie [L]
+
+RewriteRule admin/creer-composant.php ?page=admin&section=create-composant [L]
+RewriteRule admin/modifier-composant.php ?page=admin&section=update-composant [L]
+RewriteRule admin/supprimer-composant.php ?page=admin&section=delete-composant [L]
+
+RewriteRule admin/ ?page=admin [L]
