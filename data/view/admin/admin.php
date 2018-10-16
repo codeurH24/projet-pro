@@ -13,9 +13,9 @@
             Categorie
           </button>
           <div class="dropdown-menu alert-primary">
-            <a class="dropdown-item" href="admin/creer-categorie.php">Creer</a>
-            <a class="dropdown-item" href="admin/modifier-categorie.php">Modifier</a>
-            <a class="dropdown-item" href="admin/supprimer-categorie.php">Supprimer</a>
+            <a class="dropdown-item" href="creer-une-categorie.php">Creer</a>
+            <a class="dropdown-item" href="modifier-une-categorie.php">Modifier</a>
+            <a class="dropdown-item" href="supprimer-une-categorie.php">Supprimer</a>
           </div>
         </div>
         <div class="btn-group dropright">
@@ -59,7 +59,22 @@
 
 
       ?>
-      <h1>Mon compte</h1>
+      <h1>Administration</h1>
+      <?php
+      if( isset($_GET['section'])) {
+        switch ($_GET['section']) {
+          case 'create-categorie':
+          require_once("data/view/admin/categorie/create-categorie.php");
+          break;
+          case 'update-categorie':
+          require_once("data/view/admin/categorie/update-categorie.php");
+          break;
+          case 'delete-categorie':
+          require_once("data/view/admin/categorie/delete-categorie.php");
+          break;
+        }
+      }
+      ?>
 
     </div>
   </div>
