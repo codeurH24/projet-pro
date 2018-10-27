@@ -26,17 +26,20 @@
         <li class="nav-item">
           <a class="nav-link" href="/inscription.php">S'inscrire</a>
         </li>
-        <?php }else{ ?>
-        <li class="nav-item">
-          <a class="nav-link" href="/logout.php">Se Déconnecter</a>
-        </li>
         <?php } ?>
         <?php if( isset($_SESSION['user']) ){ ?>
-        <li class="nav-item">
-          <a class="nav-link" href="/mon-compte.php">Mes Creations</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/admin/">Administration</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Mon compte
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Mes Créations</a>
+            <a class="dropdown-item" href="/mon-compte.php">Mon Profile</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/admin/">Administration</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/logout.php">Se Déconnecter</a>
+          </div>
         </li>
         <?php } ?>
       </ul>

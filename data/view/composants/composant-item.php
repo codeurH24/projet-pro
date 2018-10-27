@@ -30,7 +30,8 @@
     </div>
   </div>
   <div class="col-12 col-lg-2 text-right">
-    <button class="btn btn-primary">Detail</button>
-    <footer class="text-nowrap">Meilleur Prix: <cite title="Source Title"><?= $prix ?>€</cite></footer>
+    <div><a href="#" class="btn btn-primary" style="min-width:10rem;">Detail</a></div>
+    <div><a href="#" class="btn btn-primary" style="min-width:10rem;">Ajouter</a></div>
+    <div class="text-nowrap">Meilleur Prix: <cite title="Source Title"><?= $prix ?>€</cite></div>
   </div>
 </div>
