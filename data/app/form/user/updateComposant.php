@@ -12,7 +12,7 @@ if( isset($_POST['idComposantUpdate']) and !empty($_POST['idComposantUpdate'])){
           WHERE `composant`.`id` = ".$_POST['idComposantUpdate'].";";
 
   if (!$mysqli->query($sql)) {
-      exit("Modifier composant erreur.<br />");
+      exit("Modifier composant erreur.<br />$sql<br />". mysqli_error($mysqli));
   }
   $lastID = $mysqli->insert_id;
   $mysqli->close();
@@ -28,7 +28,7 @@ if( isset($_POST['idComposantUpdate']) and !empty($_POST['idComposantUpdate'])){
     if (!$mysqli->query($query)) {
       exit("Erreur update image composant.$query<br />");
     }
-    $mysqli->close();
+    
   }
 
 
@@ -58,11 +58,10 @@ foreach ($composantList as $value) {
 
 // SELECT * FROM `image_composant` WHERE `id_composant` = 14
 $query = "SELECT * FROM `image_composant` WHERE `id_composant` = ".$value['id'];
+
 if ($result = $mysqli->query($query)) {
     $row = $result->fetch_assoc();
     $image = $row["image"];
-    // $image = 'monimage.jpg';
-
     $result->free();
 }
 
@@ -107,7 +106,7 @@ if ($result = $mysqli->query($query)) {
         <input type="file" name="imageComposantUpdate" id="imageComposantUpdate" class="form-control-file" aria-describedby="fileHelp">
       </div>
       <div class="form-group">
-        <img src="data/asset/image/composants/<?= $image; ?>" alt="image de composant" style="max-width:200px">
+        <img src="/data/asset/image/composants/<?= $image; ?>" alt="image de composant" style="max-width:200px">
       </div>
     <button type="submit" class="btn btn-primary">Modifier</button>
   </fieldset>

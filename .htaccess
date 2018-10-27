@@ -3,6 +3,7 @@ RewriteEngine on
 
 RewriteRule data/asset/css/master.css data/asset/css/master.css [L]
 
+RewriteRule composants-processeur-([0-9]*)\.php$ ?page=composants-processeur&limit=$1 [L]
 RewriteRule composants-processeur.php ?page=composants-processeur [L]
 RewriteRule composants-carte-graphique.php ?page=composants-carte-graphique [L]
 RewriteRule inscription.php ?page=registration [L]
