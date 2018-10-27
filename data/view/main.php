@@ -11,6 +11,9 @@
       case 'composants-carte-graphique':
         require_once("data/view/composants/cartes-graphique.php");
         break;
+      case 'composants-carte-mere':
+        require_once("data/view/composants/cartes-mere.php");
+        break;
       case 'registration':
         require_once("data/view/user/registration.php");
         break;

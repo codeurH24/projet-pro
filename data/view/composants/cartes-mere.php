@@ -3,7 +3,7 @@
 
 
 $mysqli = bddConnect();
-$id_categorie = 8;
+$id_categorie = 9;
 $numbersPerPage = 5;
 
 

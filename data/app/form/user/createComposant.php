@@ -7,7 +7,11 @@ if( isset($_POST['modelComposantCreate']) and ! empty($_POST['modelComposantCrea
 
   $_POST["modelComposantCreate"] = $mysqli->real_escape_string($_POST["modelComposantCreate"]);
   $_POST["marqueComposantCreate"] = $mysqli->real_escape_string($_POST["marqueComposantCreate"]);
-  $_POST["scoreComposantCreate"] = $mysqli->real_escape_string($_POST["scoreComposantCreate"]);
+  if( empty($_POST["scoreComposantCreate"])  )
+    $_POST["scoreComposantCreate"] = 0;
+  else
+    $_POST["scoreComposantCreate"] = $mysqli->real_escape_string($_POST["scoreComposantCreate"]);
+
   $_POST["categorieComposantCreate"] = $mysqli->real_escape_string($_POST["categorieComposantCreate"]);
 
   $query = "INSERT INTO `composant` (`id`, `model`, `marque`, `point_puissance`, `auteur`, `id_cat`, `date_at`)
