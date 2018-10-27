@@ -17,23 +17,26 @@
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="accueil.php">Accueil <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/accueil.php">Accueil <span class="sr-only">(current)</span></a>
         </li>
         <?php if(! isset($_SESSION['user']) ){ ?>
         <li class="nav-item">
-          <a class="nav-link" href="connexion.php">Se connecter</a>
+          <a class="nav-link" href="/connexion.php">Se connecter</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="inscription.php">S'inscrire</a>
+          <a class="nav-link" href="/inscription.php">S'inscrire</a>
         </li>
         <?php }else{ ?>
         <li class="nav-item">
-          <a class="nav-link" href="logout.php">Se Déconnecter</a>
+          <a class="nav-link" href="/logout.php">Se Déconnecter</a>
         </li>
         <?php } ?>
         <?php if( isset($_SESSION['user']) ){ ?>
         <li class="nav-item">
-          <a class="nav-link" href="mon-compte.php">Mes Creations</a>
+          <a class="nav-link" href="/mon-compte.php">Mes Creations</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/">Administration</a>
         </li>
         <?php } ?>
       </ul>

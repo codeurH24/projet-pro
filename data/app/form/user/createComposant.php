@@ -11,11 +11,11 @@ if( isset($_POST['modelComposantCreate']) and ! empty($_POST['modelComposantCrea
   $_POST["categorieComposantCreate"] = $mysqli->real_escape_string($_POST["categorieComposantCreate"]);
 
   $query = "INSERT INTO `composant` (`id`, `model`, `marque`, `point_puissance`, `auteur`, `id_cat`, `date_at`)
-            VALUES (NULL, '".$_POST["modelComposantCreate"]."', '".$_POST["marqueComposantCreate"]."', '".$_POST["scoreComposantCreate"]."', 'codeurh24', '".$_POST["categorieComposantCreate"]."', '2018-10-14 08:23:00');";
+            VALUES (NULL, '".$_POST["modelComposantCreate"]."', '".$_POST["marqueComposantCreate"]."', '".$_POST["scoreComposantCreate"]."', '".$_SESSION['user']['pseudo']."', '".$_POST["categorieComposantCreate"]."', '".date('Y-m-d H:i:s')."');";
 
   if( empty($tErreur) ){
     if (!$mysqli->query($query)) {
-      exit("Erreur creation composant.<br />");
+      exit("Erreur creation composant.<br />$query<br />". mysqli_error($mysqli));
     }
     $lastID = $mysqli->insert_id;
     // header('Location: ./inscription-reussi.php');
@@ -45,15 +45,15 @@ $mysqli->close();
  <form method="post" enctype="multipart/form-data">
   <div class="form-group">
     <label for="modelComposantCreate">Model</label>
-    <input type="text" name="modelComposantCreate" id="modelComposantCreate" class="form-control" aria-describedby="emailHelp" placeholder="">
+    <input type="text" name="modelComposantCreate" id="modelComposantCreate" class="form-control" aria-describedby="emailHelp" autocomplete="off">
   </div>
   <div class="form-group">
     <label for="marqueComposantCreate">Marque</label>
-    <input type="text" name="marqueComposantCreate" id="marqueComposantCreate" class="form-control" aria-describedby="emailHelp" placeholder="">
+    <input type="text" name="marqueComposantCreate" id="marqueComposantCreate" class="form-control" aria-describedby="emailHelp">
   </div>
   <div class="form-group">
     <label for="scoreComposantCreate">Score Passmark</label>
-    <input type="number" name="scoreComposantCreate" id="scoreComposantCreate" class="form-control" aria-describedby="emailHelp" placeholder="">
+    <input type="number" name="scoreComposantCreate" id="scoreComposantCreate" class="form-control" aria-describedby="emailHelp">
   </div>
   <div class="form-group">
     <label for="categorieComposantCreate">Categorie</label>

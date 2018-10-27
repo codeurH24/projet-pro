@@ -8,9 +8,9 @@ RewriteRule composants-carte-graphique.php ?page=composants-carte-graphique [L]
 RewriteRule inscription.php ?page=registration [L]
 RewriteRule inscription-reussi.php ?page=registration-success [L]
 RewriteRule connexion.php ?page=login [L]
-RewriteRule mon-compte.php ?page=mon-compte [L]
+RewriteRule ^mon-compte.php$ ?page=mon-compte [L]
 RewriteRule logout.php ?page=logout [L]
-RewriteRule accueil index.php [L]
+RewriteRule ^accueil.php$ index.php [L]
 
 
 RewriteRule admin/creer-categorie.php ?page=admin&section=create-categorie [L]
@@ -33,4 +33,4 @@ RewriteRule admin/creer-liaison-composant-revendeur.php ?page=admin&section=crea
 RewriteRule admin/modifier-liaison-composant-revendeur.php ?page=admin&section=update-revendeurLnkComposant [L]
 RewriteRule admin/supprimer-liaison-composant-revendeur.php ?page=admin&section=delete-revendeurLnkComposant [L]
 
-RewriteRule admin/ ?page=admin [L]
+RewriteRule ^admin/$ ?page=admin [L]
