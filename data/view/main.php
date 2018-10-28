@@ -17,6 +17,9 @@
       case 'registration':
         require_once("data/view/user/registration.php");
         break;
+      case 'mes-creations':
+        require_once("data/view/user/creations/creation.php");
+        break;
       case 'registration-success':
         require_once("data/view/user/registration-success.php");
         break;

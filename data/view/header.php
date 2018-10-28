@@ -33,7 +33,7 @@
             Mon compte
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Mes Créations</a>
+            <a class="dropdown-item" href="/mes-creations/">Mes Créations</a>
             <a class="dropdown-item" href="/mon-compte.php">Mon Profile</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="/admin/">Administration</a>

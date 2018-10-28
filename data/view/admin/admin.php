@@ -5,40 +5,6 @@
  ?><main class="container-fluid ">
   <div class="row">
     <div class="col-2">
-      <!-- <div class="btn-group-vertical" data-toggle="buttons">
-        <div class="btn-group dropright">
-          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Categorie
-          </button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="creer-categorie.php">Creer</a>
-            <a class="dropdown-item" href="modifier-categorie.php">Modifier</a>
-            <a class="dropdown-item" href="supprimer-categorie.php">Supprimer</a>
-          </div>
-        </div>
-        <div class="btn-group dropright">
-          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Composant
-          </button>
-          <div class="dropdown-menu alert-primary">
-            <a class="dropdown-item" href="#">Creer</a>
-            <a class="dropdown-item" href="#">Modifier</a>
-            <a class="dropdown-item" href="#">Supprimer</a>
-            <a class="dropdown-item" href="#">Compatibilités</a>
-          </div>
-        </div>
-        <div class="btn-group dropright">
-          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Revendeur
-          </button>
-          <div class="dropdown-menu alert-primary">
-            <a class="dropdown-item" href="#">Creer</a>
-            <a class="dropdown-item" href="#">Modifier</a>
-            <a class="dropdown-item" href="#">Supprimer</a>
-            <a class="dropdown-item" href="#">Ajouter Composant</a>
-          </div>
-        </div>
-      </div> -->
       <ul class="nav flex-column">
         <li class="nav-item">
           <div class="btn-group dropright w-100">

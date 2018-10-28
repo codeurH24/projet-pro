@@ -8,6 +8,8 @@ RewriteRule composants-processeur.php ?page=composants-processeur [L]
 RewriteRule composants-carte-graphique-([0-9]*)\.php ?page=composants-carte-graphique&limit=$1 [L]
 RewriteRule composants-carte-graphique.php ?page=composants-carte-graphique [L]
 RewriteRule composants-carte-mere-([0-9]*)\.php ?page=composants-carte-mere&limit=$1 [L]
+
+
 RewriteRule inscription.php ?page=registration [L]
 RewriteRule inscription-reussi.php ?page=registration-success [L]
 RewriteRule connexion.php ?page=login [L]
@@ -15,6 +17,11 @@ RewriteRule ^mon-compte.php$ ?page=mon-compte [L]
 RewriteRule logout.php ?page=logout [L]
 RewriteRule ^accueil.php$ index.php [L]
 
+
+RewriteRule ^mes-creations/creer-une-creation.php$ ?page=mes-creations&section=create-creation [L]
+RewriteRule ^mes-creations/modifier-une-creation.php$ ?page=mes-creations&section=update-creation [L]
+RewriteRule ^mes-creations/supprimer-une-creation.php$ ?page=mes-creations&section=delete-creation [L]
+RewriteRule ^mes-creations/$ ?page=mes-creations [L]
 
 RewriteRule admin/creer-categorie.php ?page=admin&section=create-categorie [L]
 RewriteRule admin/modifier-categorie.php ?page=admin&section=update-categorie [L]
