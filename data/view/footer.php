@@ -1,4 +1,4 @@
-<footer class="page-footer bg-secondary font-small blue pt-4">
+<footer class="page-footer bg-primary text-white font-small blue pt-4">
 
     <!-- Footer Links -->
     <div class="container-fluid text-center text-md-left">

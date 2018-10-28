@@ -2,9 +2,9 @@
 
  ?>
 
-<main class="container-fluid">
-  <div class="row">
-    <div class="col-2">
+<main class="container-fluid h-100">
+  <div class="row justify-content-center h-100">
+    <div class="col-2 bg-dark">
       <ul class="nav flex-column">
         <li class="nav-item">
           <div class="btn-group dropright w-100">
@@ -43,5 +43,3 @@
     </div>
   </div>
 </main>
-
- hello mes créations

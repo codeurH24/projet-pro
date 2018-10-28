@@ -1,7 +1,8 @@
 <header>
 
   <div class="card bg-dark banner">
-    <img class="card-img" src="https://dummyimage.com/1000x250" alt="Card image">
+    <!-- <img class="card-img" src="https://dummyimage.com/1000x250" alt="Card image"> -->
+    <img class="card-img" src="/data/asset/image/1573.jpg" alt="Card image">
     <div class="card-img-overlay">
       <h5 class="card-title"><a href="./">PC CONFIG</a></h5>
       <p class="card-text">Montez votre propre PC sans stress. Amis Gamers tester vos performances avant meme de l'utilisé sans dépasser votre budget</p>
