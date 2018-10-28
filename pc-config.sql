@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  Dim 28 oct. 2018 à 03:54
+-- Généré le :  Dim 28 oct. 2018 à 12:13
 -- Version du serveur :  5.6.11
 -- Version de PHP :  7.2.4
 
@@ -159,6 +159,34 @@ INSERT INTO `creation` (`id`, `name`, `description`, `id_user`, `date_creation`)
 (7, 'PC familiale', 'Besoin d\'un pc pour toute la famille', 14, '2018-10-28 03:01:43'),
 (8, 'PC pour mon entreprise de gestion', 'Ce pc correspondra parfaitement à mes besoin professionnel, dans le cadre de l\'administratif niveau entreprise', 14, '2018-10-28 03:03:05'),
 (9, 'Ordinateur pour le voisin', 'Mon voisin à besoin d\'un ordinateur pour surfer sur internet', 14, '2018-10-28 03:04:07');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `creation_conception`
+--
+
+DROP TABLE IF EXISTS `creation_conception`;
+CREATE TABLE IF NOT EXISTS `creation_conception` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_composant` int(11) NOT NULL,
+  `id_creation` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `date_create` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `creation titre` (`id_creation`),
+  KEY `creation user` (`id_user`),
+  KEY `creation composant` (`id_composant`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `creation_conception`
+--
+
+INSERT INTO `creation_conception` (`id`, `id_composant`, `id_creation`, `id_user`, `date_create`) VALUES
+(2, 28, 6, 14, '2018-10-10 00:00:00'),
+(3, 51, 6, 14, '2018-10-10 00:00:00'),
+(4, 19, 6, 14, '2018-10-10 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -324,6 +352,14 @@ ALTER TABLE `compatibilite`
 --
 ALTER TABLE `composant`
   ADD CONSTRAINT `composant_categorie` FOREIGN KEY (`id_cat`) REFERENCES `categorie` (`id`);
+
+--
+-- Contraintes pour la table `creation_conception`
+--
+ALTER TABLE `creation_conception`
+  ADD CONSTRAINT `creation?composant` FOREIGN KEY (`id_composant`) REFERENCES `composant` (`id`),
+  ADD CONSTRAINT `creation?titre` FOREIGN KEY (`id_creation`) REFERENCES `creation` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `creation?user` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `image_composant`
