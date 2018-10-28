@@ -30,8 +30,18 @@
     </div>
   </div>
   <div class="col-12 col-lg-2 text-right">
-    <div><a href="#" class="btn btn-primary" style="min-width:10rem;">Detail</a></div>
-    <div><a href="#" class="btn btn-primary" style="min-width:10rem;">Ajouter</a></div>
+    <div>
+      <form method="post">
+        <input type="hidden" name="detailOfComposant"  value="<?= $id ?>" />
+        <button href="#" class="btn btn-primary" style="min-width:10rem;">Detail</button>
+      </form>
+    </div>
+    <div>
+      <form method="post">
+        <input type="hidden" name="addToCreation"  value="<?= $id ?>" />
+        <button href="#" class="btn btn-primary" style="min-width:10rem;">Ajouter</button>
+      </form>
+    </div>
     <div class="text-nowrap">Meilleur Prix: <cite title="Source Title"><?= $prix ?>€</cite></div>
   </div>
 </div>

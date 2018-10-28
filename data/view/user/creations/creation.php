@@ -22,6 +22,8 @@
     </div>
     <div class="col-10">
       <?php
+        if(! isset($_GET["section"])) $_GET["section"]='';
+
         switch ($_GET["section"]) {
           case 'create-creation':
             require_once("data/app/form/user/creations/createCreation.php");
@@ -34,7 +36,7 @@
             break;
 
           default:
-            echo "Aucune section";
+            require_once("data/app/form/user/creations/indexCreation.php");
             break;
         }
        ?>

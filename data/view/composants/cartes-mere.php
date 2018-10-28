@@ -3,6 +3,9 @@
 
 
 $mysqli = bddConnect();
+
+include("data/app/composants/add-to-creation.php");
+
 $id_categorie = 9;
 $numbersPerPage = 5;
 
@@ -34,6 +37,7 @@ foreach ($composantList as  $composant) {
       $result->free();
   }
 
+  $id = $composant['id'];
   $titre = $composant["model"];
   $img = "/data/asset/image/composants/".$image;
   $bureautique=5;$multimedia=5;$jeuxVideo=5;$rendu3D=5;$prix="46,92";
