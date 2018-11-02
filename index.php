@@ -4,25 +4,7 @@
 
 require_once("data/config.php");
 
-function assetImg($nameImage){
-  echo "data/asset/image/$nameImage";
-}
-
-function gImg($taille){
-  echo "https://dummyimage.com/$taille";
-}
-
-function bddConnect(){
-  $mysqli = new mysqli(mysql_host, mysql_user, mysql_pass, mysql_base);
-
-  /* Vérification de la connexion */
-  if (mysqli_connect_errno()) {
-      printf("Échec de la connexion : %s\n", $mysqli->connect_error);
-      exit();
-  }
-  $mysqli->set_charset("utf8");
-  return $mysqli;
-}
+require_once("data/app/func/function.php");
 
 
  ?><!doctype html>

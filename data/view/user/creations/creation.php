@@ -34,6 +34,9 @@
           case 'delete-creation':
             require_once("data/app/form/user/creations/deleteCreation.php");
             break;
+          case 'show-creation':
+            require_once("data/app/form/user/creations/showCreation.php");
+            break;
 
           default:
             require_once("data/app/form/user/creations/indexCreation.php");
