@@ -5,4 +5,6 @@
   define("mysql_pass", "@lamanu1234");
   define("mysql_base", "pc-config");
 
+
+
  ?>

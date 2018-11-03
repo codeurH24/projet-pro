@@ -29,6 +29,7 @@ function bddQuery($con, $query){
         $result->free();
         return $list;
       }
+      return $con->insert_id;
   }
   return false;
 }
@@ -45,4 +46,84 @@ function HTMLList($arrList, $arrNameCol, $html){
     $divList .= $htmlReplace;
   }
   return $divList; // retourn la liste generer
+}
+
+function safeVar($con, $method="post"){
+  if( $method=="post"){
+    foreach( $_POST as $key => $value ){
+      global $$key;
+      $$key = $con->real_escape_string($_POST[$key]);
+    }
+  }else if( $method=="get"){
+    foreach( $_GET as $key => $value ){
+      global $$key;
+      $$key = $con->real_escape_string($_GET[$key]);
+    }
+  }
+}
+
+function bddCreate($nameTable ,$arr){
+  $colName = ""; $lineValue = "";
+  foreach ($arr as $key => $value) {
+    if($value == NULL){
+      $colName .=  "`$key`,\n";
+      $lineValue .= "NULL,\n";
+    }else{
+      $colName .=  "`$key`,\n";
+      $lineValue .= "'$value',\n";
+    }
+  }
+  $colName = substr($colName, 0, -2);
+  $lineValue = substr($lineValue, 0, -2);
+  return "INSERT INTO `$nameTable` (\n$colName\n) VALUES (\n$lineValue\n)";
+}
+
+function bddCreateFlush($mysqli, $nameTable ,$arr){
+  $query = bddCreate($nameTable ,$arr);
+  if (bddQuery($mysqli, $query) === false) {
+    bddError($mysqli, $query);
+  }
+}
+
+function bddUpdate($nameTable ,$arr, $where){
+  $setData = "\n";
+  foreach ($arr as $key => $value) {
+    if($value == NULL){
+      $setData .= "`$key` = NULL,\n";
+    }else{
+      $setData .= "`$key` = '$value',\n";
+    }
+  }
+  $setData = substr($setData, 0, -2);
+  return "UPDATE `$nameTable`\n SET $setData \n$where";
+}
+
+function bddUpdateFlush($mysqli, $nameTable ,$arr, $where){
+  $query = bddUpdate($nameTable ,$arr, $where);
+  if (bddQuery($mysqli, $query) === false) {
+    bddError($mysqli, $query);
+  }
+}
+
+function bddError($mysqli, $query){
+
+  $debug = debug_backtrace()[0];
+  $file = $debug['file'];
+  $line = strval($debug['line']);
+  if( basename($file) == "function.php"){
+    $debug = debug_backtrace()[1];
+    $file = $debug['file'];
+    $line = strval($debug['line']);
+  }
+
+  $erreurSQL = mysqli_error($mysqli);
+  $numLine = substr($erreurSQL,-1);
+  if(is_numeric($numLine)){
+    $linesSQL = explode("\n", $query);
+    $linesSQL[($numLine-1)] = "<span style=\"color:red\">".$linesSQL[($numLine-1)] ."</span>";
+    $query = implode("\n", $linesSQL);
+  }else{
+    $erreurSQL = "<span style=\"color:red\">$erreurSQL</span>";
+  }
+  exit("Line: ".$line.".<br />".$file." .<br />".nl2br($query)."<br /><br />". $erreurSQL);
 }

@@ -18,9 +18,11 @@ RewriteRule logout.php ?page=logout [L]
 RewriteRule ^accueil.php$ index.php [L]
 
 
-RewriteRule ^mes-creations/detail/([0-9]*)\.php$ ?page=mes-creations&section=show-creation&id=$1 [L]
+RewriteRule ^mes-creations/detail/(?!-)([a-z+-]+)?([0-9]{1,9})\.php$ ?page=mes-creations&section=show-creation&id=$2 [L]
 RewriteRule ^mes-creations/creer-une-creation.php$ ?page=mes-creations&section=create-creation [L]
-RewriteRule ^mes-creations/modifier-une-creation.php$ ?page=mes-creations&section=update-creation [L]
+RewriteRule ^mes-creations/modifier-une-creation\.php$ ?page=mes-creations&section=update-creation [L]
+RewriteRule ^mes-creations/modifier-une-creation-([0-9]+)\.php$ ?page=mes-creations&section=update-creation&id=$1 [L]
+RewriteRule ^mes-creations/supprimer-une-creation-([0-9]+)\.php$ ?page=mes-creations&section=delete-creation&id=$1 [L]
 RewriteRule ^mes-creations/supprimer-une-creation.php$ ?page=mes-creations&section=delete-creation [L]
 RewriteRule ^mes-creations/$ ?page=mes-creations [L]
 

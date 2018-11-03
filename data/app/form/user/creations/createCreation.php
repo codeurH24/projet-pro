@@ -1,25 +1,20 @@
 <?php
-
-
 if( isset($_POST['nameCreation']) and ! empty($_POST['nameCreation']) ){
   $mysqli = bddConnect();
-
-  $_POST["nameCreation"] = $mysqli->real_escape_string($_POST["nameCreation"]);
-  $_POST["descriptionCreation"] = $mysqli->real_escape_string($_POST["descriptionCreation"]);
-
-  $query = "INSERT INTO `creation` (`id`, `name`, `description`, `id_user`, `date_creation`)
-            VALUES (NULL, '".$_POST['nameCreation']."',
-            '".$_POST['descriptionCreation']."',
-            '".$_SESSION['user']['id']."',
-            '".date('Y-m-d H:i:s')."');";
-  if (!$mysqli->query($query)) {
-    exit("Erreur creer creation .<br />$query<br />". mysqli_error($mysqli));
-  }
+  safeVar($mysqli, "post");
+  bddCreateFlush($mysqli, "creation", [
+    "id" => NULL,
+    "name" => $nameCreation,
+    "description" => $descriptionCreation,
+    "id_user" => $UID,
+    "date_creation" => $dbDate
+  ]);
   $mysqli->close();
 }
-
  ?>
-
+<div class="text-right">
+ <a href="/mes-creations/" class="btn btn-secondary">Retour</a>
+</div>
 <form method="post">
   <fieldset>
     <legend>Formulaire créer une création</legend>

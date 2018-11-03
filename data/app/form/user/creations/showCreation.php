@@ -27,6 +27,10 @@ foreach ($creationList as $creation) {
       </form>
     </div>');
 ?>
+<div class="text-right">
+  <a href="/mes-creations/" class="btn btn-secondary">Retour</a>
+</div>
+
 <h4><?=$creation['name']?></h4>
 <div><?=$divListComposant?></div>
 

@@ -12,37 +12,42 @@
               Mes créations
             </button>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="creer-une-creation.php">Creer</a>
-              <a class="dropdown-item" href="modifier-une-creation.php">Modifier</a>
-              <a class="dropdown-item" href="supprimer-une-creation.php">Supprimer</a>
+              <a class="dropdown-item" href="/mes-creations/creer-une-creation.php">Creer</a>
+              <a class="dropdown-item" href="/mes-creations/">Tout montrer</a>
+              <a class="dropdown-item" href="/mes-creations/modifier-une-creation.php">Modifier</a>
+              <a class="dropdown-item" href="/mes-creations/supprimer-une-creation.php">Supprimer</a>
             </div>
           </div>
         </li>
       </ul>
     </div>
     <div class="col-10">
-      <?php
-        if(! isset($_GET["section"])) $_GET["section"]='';
+       <div class="row justify-content-md-center">
+         <div class="col-6">
+           <?php
+             if(! isset($_GET["section"])) $_GET["section"]='';
 
-        switch ($_GET["section"]) {
-          case 'create-creation':
-            require_once("data/app/form/user/creations/createCreation.php");
-            break;
-          case 'update-creation':
-            require_once("data/app/form/user/creations/updateCreation.php");
-            break;
-          case 'delete-creation':
-            require_once("data/app/form/user/creations/deleteCreation.php");
-            break;
-          case 'show-creation':
-            require_once("data/app/form/user/creations/showCreation.php");
-            break;
+             switch ($_GET["section"]) {
+               case 'create-creation':
+                 require_once("data/app/form/user/creations/createCreation.php");
+                 break;
+               case 'update-creation':
+                 require_once("data/app/form/user/creations/updateCreation.php");
+                 break;
+               case 'delete-creation':
+                 require_once("data/app/form/user/creations/deleteCreation.php");
+                 break;
+               case 'show-creation':
+                 require_once("data/app/form/user/creations/showCreation.php");
+                 break;
 
-          default:
-            require_once("data/app/form/user/creations/indexCreation.php");
-            break;
-        }
-       ?>
+               default:
+                 require_once("data/app/form/user/creations/indexCreation.php");
+                 break;
+             }
+            ?>
+         </div>
+       </div>
     </div>
   </div>
 </main>

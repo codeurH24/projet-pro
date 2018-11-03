@@ -2,37 +2,41 @@
 
 $mysqli = bddConnect();
 if( isset($_POST['nameCreation']) and ! empty($_POST['nameCreation']) ){
-
-
-  $_POST["nameCreation"] = $mysqli->real_escape_string($_POST["nameCreation"]);
-  $_POST["descriptionCreation"] = $mysqli->real_escape_string($_POST["descriptionCreation"]);
-
-  $query = "UPDATE `creation`
-            SET
-              `name` = '".$_POST['nameCreation']."',
-              `description` = '".$_POST['descriptionCreation']."',
-              `id_user` = '".$_SESSION['user']['id']."',
-              `date_creation` = '".date('Y-m-d H:i:s')."'
-            WHERE
-              `creation`.`id` = ".$_POST['idCreationUpdate'];
-  if (!$mysqli->query($query)) {
-    exit("Erreur modification creation .<br />$query<br />". mysqli_error($mysqli));
-  }
-
+  safeVar($mysqli, "post");
+  $query = bddUpdateFlush(
+            $mysqli,
+            "creation", [
+              "name" => $nameCreation,
+              "description" => $descriptionCreation,
+              "id_user" => $UID,
+              "date_creation" => $dbDate
+            ],
+            "WHERE `creation`.`id` = $idCreationUpdate"
+  );
 }
 
 $query = "SELECT * FROM `creation`";
-if ($result = $mysqli->query($query)) {
-    $creationList = $result->fetch_all(MYSQLI_ASSOC);
-    $result->free();
+$show = "";
+if( isset($_GET["id"])){
+  $query = "SELECT * FROM `creation`
+            WHERE creation.id = ".$_GET["id"];
+  $show = "show";
+}
+if (($creationList = bddQuery($mysqli, $query)) === false) {
+  bddError($mysqli, $query);
 }
 
 $mysqli->close();
+?>
+<div class="text-right">
+  <a href="/mes-creations/" class="btn btn-secondary">Retour</a>
+</div>
+<?php
 
 
 foreach ($creationList as $creation) { ?>
-<h4 data-toggle="collapse" data-target="#form<?= $creation['id']; ?>" ><?= $creation['name']; ?></h4>
-<form method="post" id="form<?= $creation['id']; ?>" class="collapse" enctype="multipart/form-data" style="padding-bottom:50px">
+<h4 data-toggle="collapse" data-target="#form<?= $creation['id']; ?>"><?= $creation['name']?></h4>
+<form method="post" id="form<?= $creation['id']; ?>" class="collapse <?=$show?>" enctype="multipart/form-data" style="padding-bottom:50px">
   <fieldset>
     <legend></legend>
     <div class="form-group d-none">
