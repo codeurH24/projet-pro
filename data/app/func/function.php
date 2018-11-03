@@ -49,17 +49,21 @@ function HTMLList($arrList, $arrNameCol, $html){
 }
 
 function safeVar($con, $method="post"){
+  $arr = [];
   if( $method=="post"){
     foreach( $_POST as $key => $value ){
       global $$key;
       $$key = $con->real_escape_string($_POST[$key]);
+      $arr[$key] = $$key;
     }
   }else if( $method=="get"){
     foreach( $_GET as $key => $value ){
       global $$key;
       $$key = $con->real_escape_string($_GET[$key]);
+      $arr[$key] = $$key;
     }
   }
+  return (object) $arr;
 }
 
 function bddCreate($nameTable ,$arr){
@@ -126,4 +130,14 @@ function bddError($mysqli, $query){
     $erreurSQL = "<span style=\"color:red\">$erreurSQL</span>";
   }
   exit("Line: ".$line.".<br />".$file." .<br />".nl2br($query)."<br /><br />". $erreurSQL);
+}
+
+
+function UID(){
+  global $UID;
+  return $UID;
+}
+function dbDate(){
+  global $dbDate;
+  return $dbDate;
 }

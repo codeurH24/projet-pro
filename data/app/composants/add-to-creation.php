@@ -3,35 +3,33 @@
 <?php
 if( isset($_POST['addToCreation']) and ! empty($_POST['addToCreation']) ){
   $creationsEnable = bddQuery($mysqli, "SELECT * FROM `creation` WHERE `enable` = 1 AND `id_user` = ".$_SESSION['user']['id']);
+  // si aucune tables creation est prete a accueillir un composant alors on en creer une par defaut
   if( count($creationsEnable) == 0){
-    $lastID = bddQuery(
-      $mysqli,
-      " INSERT INTO `creation` (`id`, `name`, `enable`, `description`, `id_user`, `date_creation`)
-        VALUES (NULL, 'Config No Name', '1', 'Config No Name', '".$_SESSION['user']['id']."', '2018-11-07 00:00:00');"
-    );
+    $lastID = bddCreateFlush($mysqli, "creation", [
+                "id" => NULL,
+                "name" => "Config No Name",
+                "enable" => "1",
+                "description" => "Config No Name",
+                "id_user" => $UID,
+                "date_creation" => $dbDate
+              ]);
     addToCreation($mysqli,$lastID);
   }else{
-    print_r($creationsEnable);
     addToCreation($mysqli,$creationsEnable[0]["id"]);
   }
 }
 
 function addToCreation($mysqli, $id){
-
-
-    $_POST["addToCreation"] = $mysqli->real_escape_string($_POST["addToCreation"]);
-    $query = "INSERT INTO `creation_conception`
-              (`id`, `id_composant`, `id_creation`, `id_user`, `date_create`)
-              VALUES (NULL,
-                '".$_POST["addToCreation"]."',
-                '$id',
-                '14',
-                '2018-10-10 10:00:00')";
-    if (!$mysqli->query($query)) {
-      exit("Erreur add to creation.<br />$query<br />". mysqli_error($mysqli));
-    }
-    header('Location: '."http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
-    exit("Composant ajouter à la création.");
+  $safeVar = safeVar($mysqli, "post");
+  bddCreateFlush($mysqli, "creation_conception", [
+    "id" => NULL,
+    "id_composant" => "$safeVar->addToCreation",
+    "id_creation" => $id,
+    "id_user" => UID(),
+    "date_create" => dbDate()
+  ]);
+  header('Location: '."http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+  exit("Composant ajouter à la création.");
 
 }
  ?>
