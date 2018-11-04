@@ -113,13 +113,13 @@
               require_once("data/app/form/admin/retailer/deleteRetailer.php");
               break;
           case 'create-revendeurLnkComposant':
-              require_once("data/app/form/user/createLierRevendeurComposant.php");
+              require_once("data/app/form/admin/retailer/component/createLnkRetailerComponent.php");
             break;
           case 'update-revendeurLnkComposant':
-              require_once("data/app/form/user/updateLierRevendeurComposant.php");
+              require_once("data/app/form/admin/retailer/component/updateLnkRetailerComponent.php");
               break;
           case 'delete-revendeurLnkComposant':
-              require_once("data/app/form/user/deleteLierRevendeurComposant.php");
+              require_once("data/app/form/admin/retailer/component/deleteLnkRetailerComponent.php");
               break;
 
           default:
