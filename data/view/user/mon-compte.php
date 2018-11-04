@@ -13,7 +13,7 @@
 
 
       if( !isset($_SESSION['user']) ){
-        header('Location: ./');
+        //header('Location: ./');
         exit("Manque session.");
       }
 

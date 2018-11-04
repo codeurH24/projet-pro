@@ -5,6 +5,10 @@
 
     $page = $_GET['page'];
     switch ($page) {
+
+      case 'account':
+        require_once("data/view/account/account.php");
+        break;
       case 'composants-processeur':
         require_once("data/view/composants/processeurs.php");
         break;

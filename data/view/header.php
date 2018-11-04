@@ -22,10 +22,10 @@
         </li>
         <?php if(! isset($_SESSION['user']) ){ ?>
         <li class="nav-item">
-          <a class="nav-link" href="/connexion.php">Se connecter</a>
+          <a class="nav-link" href="/mon-compte/connexion/">Se connecter</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/inscription.php">S'inscrire</a>
+          <a class="nav-link" href="/mon-compte/inscription/">S'inscrire</a>
         </li>
         <?php } ?>
         <?php if( isset($_SESSION['user']) ){ ?>
@@ -35,7 +35,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="/mes-creations/">Mes Créations</a>
-            <a class="dropdown-item" href="/mon-compte.php">Mon Profile</a>
+            <a class="dropdown-item" href="/mon-compte/">Mon Profile</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="/admin/">Administration</a>
             <div class="dropdown-divider"></div>

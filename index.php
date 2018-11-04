@@ -1,7 +1,5 @@
 <?php  session_start();
 
-
-
 require_once("data/config.php");
 $dbDate = date('Y-m-d H:i:s');
 

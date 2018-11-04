@@ -1,9 +1,5 @@
-<?php
-// $mysqli = bddConnect();
-//
-// $mysqli->close();
- ?><main class="container-fluid h-100">
-   <div class="row justify-content-center h-100">
+<main class="container-fluid" style="min-height:100%;">
+   <div class="row justify-content-center" style="height: 100vh;">
      <div class="col-2 bg-dark">
       <ul class="nav flex-column">
         <li class="nav-item">
@@ -80,40 +76,41 @@
       if( isset($_GET['section']) ){
         switch ($_GET['section']) {
           case 'create-categorie':
-              require_once("data/app/form/user/createCategorie.php");
+              require_once("data/app/form/admin/category/createCategory.php");
             break;
           case 'update-categorie':
-              require_once("data/app/form/user/updateCategorie.php");
+              require_once("data/app/form/admin/category/updateCategory.php");
             break;
           case 'delete-categorie':
-              require_once("data/app/form/user/deleteCategorie.php");
+              require_once("data/app/form/admin/category/deleteCategory.php");
             break;
           case 'create-composant':
-              require_once("data/app/form/user/createComposant.php");
+              require_once("data/app/form/admin/component/createComponent.php");
             break;
           case 'update-composant':
-              require_once("data/app/form/user/updateComposant.php");
+              require_once("data/app/form/admin/component/updateComponent.php");
             break;
           case 'delete-composant':
-              require_once("data/app/form/user/deleteComposant.php");
+              require_once("data/app/form/admin/component/deleteComponent.php");
               break;
           case 'create-composantLnkComposant':
-              require_once("data/app/form/user/createLierComposantComposant.php");
+              require_once("data/app/form/admin/component/component/createLnkComponentComponent.php");
             break;
           case 'update-composantLnkComposant':
-              require_once("data/app/form/user/updateLierComposantComposant.php");
+
+              require_once("data/app/form/admin/component/component/updateLnkComponentComponent.php");
               break;
           case 'delete-composantLnkComposant':
-              //require_once("data/app/form/user/deleteLierComposantComposant.php");
+              require_once("data/app/form/admin/component/component/deleteLnkComponentComponent.php");
               break;
           case 'create-revendeur':
-              require_once("data/app/form/user/createRevendeur.php");
+              require_once("data/app/form/admin/retailer/createRetailer.php");
             break;
           case 'update-revendeur':
-              require_once("data/app/form/user/updateRevendeur.php");
+              require_once("data/app/form/admin/retailer/updateRetailer.php");
               break;
           case 'delete-revendeur':
-              require_once("data/app/form/user/deleteRevendeur.php");
+              require_once("data/app/form/admin/retailer/deleteRetailer.php");
               break;
           case 'create-revendeurLnkComposant':
               require_once("data/app/form/user/createLierRevendeurComposant.php");
@@ -129,11 +126,9 @@
             echo 'page not found';
             break;
         }
-
       }else{
         echo 'page sans section';
       }?>
-
     </div>
   </div>
 </main>

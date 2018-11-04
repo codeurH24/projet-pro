@@ -3,6 +3,11 @@ RewriteEngine on
 
 RewriteRule data/asset/css/master.css data/asset/css/master.css [L]
 
+RewriteRule ^mon-compte/$ ?page=account&section= [L]
+RewriteRule ^mon-compte/connexion/$ ?page=account&section=login [L]
+RewriteRule ^mon-compte/inscription/$ ?page=account&section=registration [L]
+RewriteRule ^mon-compte/inscription/reussi.php$ ?page=account&section=registration-success [L]
+
 RewriteRule composants-processeur-([0-9]*)\.php$ ?page=composants-processeur&limit=$1 [L]
 RewriteRule composants-processeur.php ?page=composants-processeur [L]
 RewriteRule composants-carte-graphique-([0-9]*)\.php ?page=composants-carte-graphique&limit=$1 [L]
@@ -12,10 +17,9 @@ RewriteRule composants-carte-mere-([0-9]*)\.php ?page=composants-carte-mere&limi
 
 RewriteRule inscription.php ?page=registration [L]
 RewriteRule inscription-reussi.php ?page=registration-success [L]
-RewriteRule connexion.php ?page=login [L]
-RewriteRule ^mon-compte.php$ ?page=mon-compte [L]
 RewriteRule logout.php ?page=logout [L]
 RewriteRule ^accueil.php$ index.php [L]
+
 
 
 RewriteRule ^mes-creations/detail/(?!-)([a-z+-]+)?([0-9]{1,9})\.php$ ?page=mes-creations&section=show-creation&id=$2 [L]

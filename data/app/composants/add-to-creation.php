@@ -2,7 +2,7 @@
 
 <?php
 if( isset($_POST['addToCreation']) and ! empty($_POST['addToCreation']) ){
-  $creationsEnable = bddQuery($mysqli, "SELECT * FROM `creation` WHERE `enable` = 1 AND `id_user` = ".$_SESSION['user']['id']);
+  $creationsEnable = bddQuery($mysqli, "SELECT * FROM `creation` WHERE `enable` = 1 AND `id_user` = $UID");
   // si aucune tables creation est prete a accueillir un composant alors on en creer une par defaut
   if( count($creationsEnable) == 0){
     $lastID = bddCreateFlush($mysqli, "creation", [

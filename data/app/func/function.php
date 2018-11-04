@@ -84,9 +84,10 @@ function bddCreate($nameTable ,$arr){
 
 function bddCreateFlush($mysqli, $nameTable ,$arr){
   $query = bddCreate($nameTable ,$arr);
-  if (bddQuery($mysqli, $query) === false) {
+  if (($lastID = bddQuery($mysqli, $query)) === false) {
     bddError($mysqli, $query);
   }
+  return $lastID;
 }
 
 function bddUpdate($nameTable ,$arr, $where){

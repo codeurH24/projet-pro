@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  Dim 28 oct. 2018 à 12:13
+-- Généré le :  Dim 04 nov. 2018 à 17:18
 -- Version du serveur :  5.6.11
 -- Version de PHP :  7.2.4
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `categorie` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `categorie`
@@ -64,7 +64,15 @@ CREATE TABLE IF NOT EXISTS `compatibilite` (
   PRIMARY KEY (`id`),
   KEY `composant1_compatible2` (`id_composant1`),
   KEY `composant2_compatible1` (`id_composant2`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `compatibilite`
+--
+
+INSERT INTO `compatibilite` (`id`, `degrer`, `auteur`, `id_composant1`, `id_composant2`, `date_at`) VALUES
+(1, 100, 'codeurh24', 54, 38, '2018-11-04 16:14:53'),
+(2, 100, 'codeurh24', 38, 53, '2018-11-04 16:35:14');
 
 -- --------------------------------------------------------
 
@@ -83,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `composant` (
   `date_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `composant_categorie` (`id_cat`)
-) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `composant`
@@ -144,21 +152,25 @@ DROP TABLE IF EXISTS `creation`;
 CREATE TABLE IF NOT EXISTS `creation` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
+  `enable` tinyint(1) NOT NULL DEFAULT '0',
   `description` varchar(255) NOT NULL,
   `id_user` int(11) NOT NULL,
   `date_creation` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `creation`
 --
 
-INSERT INTO `creation` (`id`, `name`, `description`, `id_user`, `date_creation`) VALUES
-(6, 'PC Gamer', 'Montage d\'un pc en prévision de de jouer a WOW ou LOL', 14, '2018-10-28 03:26:22'),
-(7, 'PC familiale', 'Besoin d\'un pc pour toute la famille', 14, '2018-10-28 03:01:43'),
-(8, 'PC pour mon entreprise de gestion', 'Ce pc correspondra parfaitement à mes besoin professionnel, dans le cadre de l\'administratif niveau entreprise', 14, '2018-10-28 03:03:05'),
-(9, 'Ordinateur pour le voisin', 'Mon voisin à besoin d\'un ordinateur pour surfer sur internet', 14, '2018-10-28 03:04:07');
+INSERT INTO `creation` (`id`, `name`, `enable`, `description`, `id_user`, `date_creation`) VALUES
+(6, 'PC Gamer', 0, 'Montage d\'un pc en prévision de de jouer a WOW ou LOL', 14, '2018-10-28 03:26:22'),
+(7, 'PC familiale', 0, 'Besoin d\'un pc pour toute la famille', 14, '2018-10-28 03:01:43'),
+(8, 'PC pour mon entreprise de gestion', 0, 'Ce pc correspondra parfaitement à mes besoin professionnel, dans le cadre de l\'administratif niveau entreprise', 14, '2018-10-28 03:03:05'),
+(9, 'Ordinateur pour le voisin', 0, 'Mon voisin à besoin d\'un ordinateur pour surfer sur internet', 14, '2018-10-28 03:04:07'),
+(32, 'Config No Name', 1, 'Config No Name', 14, '2018-11-03 14:23:31'),
+(34, 'config X', 0, 'test X', 24, '2018-11-04 09:35:28'),
+(41, 'Config No Name', 1, 'Config No Name', 24, '2018-11-04 09:52:30');
 
 -- --------------------------------------------------------
 
@@ -177,7 +189,7 @@ CREATE TABLE IF NOT EXISTS `creation_conception` (
   KEY `creation titre` (`id_creation`),
   KEY `creation user` (`id_user`),
   KEY `creation composant` (`id_composant`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `creation_conception`
@@ -186,7 +198,14 @@ CREATE TABLE IF NOT EXISTS `creation_conception` (
 INSERT INTO `creation_conception` (`id`, `id_composant`, `id_creation`, `id_user`, `date_create`) VALUES
 (2, 28, 6, 14, '2018-10-10 00:00:00'),
 (3, 51, 6, 14, '2018-10-10 00:00:00'),
-(4, 19, 6, 14, '2018-10-10 00:00:00');
+(4, 19, 6, 14, '2018-10-10 00:00:00'),
+(5, 16, 6, 14, '2018-10-10 00:00:00'),
+(10, 28, 32, 14, '2018-10-10 10:00:00'),
+(11, 26, 32, 14, '2018-10-10 10:00:00'),
+(16, 16, 32, 14, '2018-11-03 14:57:43'),
+(17, 52, 32, 14, '2018-11-03 14:58:48'),
+(21, 19, 41, 24, '2018-11-04 09:52:30'),
+(22, 49, 41, 24, '2018-11-04 09:52:42');
 
 -- --------------------------------------------------------
 
@@ -201,7 +220,7 @@ CREATE TABLE IF NOT EXISTS `image_composant` (
   `id_composant` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `image_composant` (`id_composant`)
-) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `image_composant`
@@ -276,7 +295,7 @@ CREATE TABLE IF NOT EXISTS `revendeur` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `revendeur`
@@ -305,7 +324,7 @@ CREATE TABLE IF NOT EXISTS `revendeur_composant` (
   PRIMARY KEY (`id`),
   KEY `revLnkComp` (`id_composant`),
   KEY `compLnkRev` (`id_revendeur`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -316,25 +335,26 @@ CREATE TABLE IF NOT EXISTS `revendeur_composant` (
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(255) NOT NULL,
-  `prenom` varchar(255) NOT NULL,
+  `nom` varchar(255) DEFAULT NULL,
+  `prenom` varchar(255) DEFAULT NULL,
   `pseudo` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
   `age` tinyint(4) NOT NULL,
   `password` varchar(255) NOT NULL,
   `date_registration` datetime NOT NULL,
   `date_last_login` datetime NOT NULL,
-  `id_adresse` int(11) NOT NULL,
+  `id_adresse` int(11) DEFAULT NULL,
   `id_role` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `user`
 --
 
-INSERT INTO `user` (`id`, `nom`, `prenom`, `pseudo`, `age`, `password`, `date_registration`, `date_last_login`, `id_adresse`, `id_role`) VALUES
-(14, '', '', 'Florent Corlouer', 0, '81dc9bdb52d04dc20036dbd8313ed055', '2018-09-30 08:10:32', '2018-09-24 00:00:00', 0, 0),
-(15, '', '', 'Florent Corlouer', 0, '81dc9bdb52d04dc20036dbd8313ed055', '2018-09-30 10:31:54', '2018-09-24 00:00:00', 0, 0);
+INSERT INTO `user` (`id`, `nom`, `prenom`, `pseudo`, `email`, `age`, `password`, `date_registration`, `date_last_login`, `id_adresse`, `id_role`) VALUES
+(14, '', '', 'Florent Corlouer', 'cci.corlouer@gmail.com', 0, '81dc9bdb52d04dc20036dbd8313ed055', '2018-09-30 08:10:32', '2018-09-24 00:00:00', 0, 0),
+(24, NULL, NULL, 'codeurh24', 'codeurh24@gmail.com', 0, '81dc9bdb52d04dc20036dbd8313ed055', '2018-11-04 08:30:42', '2018-11-04 08:30:42', NULL, 0);
 
 --
 -- Contraintes pour les tables déchargées
@@ -344,8 +364,8 @@ INSERT INTO `user` (`id`, `nom`, `prenom`, `pseudo`, `age`, `password`, `date_re
 -- Contraintes pour la table `compatibilite`
 --
 ALTER TABLE `compatibilite`
-  ADD CONSTRAINT `composant2_compatible1` FOREIGN KEY (`id_composant2`) REFERENCES `composant` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `composant1_compatible2` FOREIGN KEY (`id_composant1`) REFERENCES `composant` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `composant1_compatible2` FOREIGN KEY (`id_composant1`) REFERENCES `composant` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `composant2_compatible1` FOREIGN KEY (`id_composant2`) REFERENCES `composant` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `composant`
@@ -371,8 +391,8 @@ ALTER TABLE `image_composant`
 -- Contraintes pour la table `revendeur_composant`
 --
 ALTER TABLE `revendeur_composant`
-  ADD CONSTRAINT `revLnkComp` FOREIGN KEY (`id_composant`) REFERENCES `composant` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  ADD CONSTRAINT `compLnkRev` FOREIGN KEY (`id_revendeur`) REFERENCES `revendeur` (`id`);
+  ADD CONSTRAINT `compLnkRev` FOREIGN KEY (`id_revendeur`) REFERENCES `revendeur` (`id`),
+  ADD CONSTRAINT `revLnkComp` FOREIGN KEY (`id_composant`) REFERENCES `composant` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

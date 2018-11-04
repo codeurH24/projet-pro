@@ -2,13 +2,11 @@
 
 $mysqli = bddConnect();
 
-$query = "SELECT * FROM `creation` ORDER BY `creation`.`enable` DESC";
+$query = "SELECT * FROM `creation` WHERE `id_user` = $UID ORDER BY `creation`.`enable` DESC";
 if ($result = $mysqli->query($query)) {
     $creationList = $result->fetch_all(MYSQLI_ASSOC);
     $result->free();
 }
-
-
 ?>
 <div class="text-right">
  <a href="/mes-creations/creer-une-creation.php" class="btn btn-secondary">Nouvelle Configuration</a>
