@@ -1,5 +1,7 @@
 <?php
-
+// cd .git/objects
+// ls -al
+// sudo chown -R yourname:yourgroup *
 
 require 'data/config.php';
 require_once("data/app/func/function.php");
