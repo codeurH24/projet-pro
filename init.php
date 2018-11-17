@@ -15,7 +15,8 @@ if( strstr($out, "Your branch is up to date with") !== false ){
 if( strstr($out, "Votre branche est à jour avec") !== false ){
   exit("[Français] Cette version du projet est la plus récente. Aucun besoin de mettre à jour.(pull)<br />");
 }
-echo nl2br($out)."<br />";
+$out = shell_exec ('git add --a & git commit -m "update" & git pull');
+echo var_dump($out)."<br />";
 exit("Script coupé<br />");
 
 
