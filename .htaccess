@@ -28,6 +28,7 @@ RewriteRule ^mes-creations/modifier-une-creation\.php$ ?page=mes-creations&secti
 RewriteRule ^mes-creations/modifier-une-creation-([0-9]+)\.php$ ?page=mes-creations&section=update-creation&id=$1 [L]
 RewriteRule ^mes-creations/supprimer-une-creation-([0-9]+)\.php$ ?page=mes-creations&section=delete-creation&id=$1 [L]
 RewriteRule ^mes-creations/supprimer-une-creation.php$ ?page=mes-creations&section=delete-creation [L]
+RewriteRule ^mes-creations/activer-une-creation-([0-9]+)\.php$ ?page=mes-creations&section=enable-creation&enableCreation=$1 [L]
 RewriteRule ^mes-creations/$ ?page=mes-creations [L]
 
 RewriteRule admin/creer-categorie.php ?page=admin&section=create-categorie [L]

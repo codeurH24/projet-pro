@@ -2,6 +2,25 @@
 
 $mysqli = bddConnect();
 
+if( isset($_GET['enableCreation']) ){
+
+  $enableCreation = $_GET['enableCreation'];
+
+  $query = "UPDATE `creation` SET `enable` = '0' WHERE `id_user` = $UID;";
+  if ( $mysqli->query($query) === TRUE ) {
+    //echo "$UID - Remise a zero des creations<br />";
+    $query = "UPDATE `creation` SET `enable` = '1' WHERE `id` = $enableCreation;";
+    if ( $mysqli->query($query) === TRUE ) {
+      //echo "Activation de la creation $enableCreation<br />";
+      header('Location: ./');
+      exit("Activation de la creation $enableCreation<br />");
+    }
+  }else{
+    //echo "$UID - Aucune Remise a zero des creations<br />";
+  }
+}
+
+
 $query = "SELECT * FROM `creation` WHERE `id_user` = $UID ORDER BY `creation`.`enable` DESC";
 if ($result = $mysqli->query($query)) {
     $creationList = $result->fetch_all(MYSQLI_ASSOC);
@@ -22,9 +41,9 @@ foreach ($creationList as $creation) { ?>
 <a href="/mes-creations/modifier-une-creation-<?=$creation['id']?>.php" class="d-inline-block">Modifier</a>
 <a href="/mes-creations/supprimer-une-creation-<?=$creation['id']?>.php" class="d-inline-block">Supprimer</a>
 <?php if ($creation['enable']){ ?>
-<a href="detail/<?=$creation['id']?>.php" class="d-inline-block">Actif</a>
+<a href="/mes-creations/activer-une-creation-<?=$creation['id']?>.php" class="d-inline-block">Actif</a>
 <?php }else{ ?>
-<a href="detail/<?=$creation['id']?>.php" class="d-inline-block">Inactif</a>
+<a href="/mes-creations/activer-une-creation-<?=$creation['id']?>.php" class="d-inline-block">Inactif</a>
 <?php } ?>
 <div id="form<?= $creation['id']; ?>" class="collapse" style="padding-bottom:50px">
   <?php $query = "SELECT composant.model

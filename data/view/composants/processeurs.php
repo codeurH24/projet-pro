@@ -11,9 +11,35 @@ $numbersPerPage = 5;
 
 
 include("page-split.php");
-
 if( isset($_GET["limit"]) and $_GET["limit"] > 0 ){
-  $query = "SELECT * FROM `composant` WHERE `id_cat` = $id_categorie LIMIT ".(($_GET["limit"]*$numbersPerPage)-$numbersPerPage).", $numbersPerPage";
+
+  $socket = false;
+  $query = "SELECT LOWER(GROUP_CONCAT(compatibility_tag.tag)) AS `tags` FROM `creation`
+            INNER JOIN creation_conception ON creation_conception.id_creation = creation.id
+            INNER JOIN composant ON creation_conception.id_composant = composant.id
+            INNER JOIN compatibility_tag ON compatibility_tag.id_composant = composant.id
+            WHERE creation.id_user = $UID AND `creation`.`enable` = 1 AND composant.id_cat = 9;";
+  if ($result = $mysqli->query($query)) {
+      $tagsString = $result->fetch_all(MYSQLI_ASSOC)[0]['tags'];
+      $tags = explode(",", $tagsString);
+      $result->free();
+  }
+
+  $tagSearch = strtolower('am4'); if (in_array($tagSearch, $tags) && $socket === false) $socket = $tagSearch;
+  $tagSearch = strtolower('1151'); if (in_array($tagSearch, $tags) && $socket === false) $socket = $tagSearch;
+
+
+  // filtre l'affichage des composants sur la page
+  if( $socket !== false){
+    $query = "SELECT composant.*, compatibility_tag.id_composant, compatibility_tag.tag FROM `composant`
+              INNER JOIN compatibility_tag ON  composant.id = compatibility_tag.id_composant
+              WHERE composant.id_cat = $id_categorie AND compatibility_tag.tag = '$socket'
+              LIMIT ".(($_GET["limit"]*$numbersPerPage)-$numbersPerPage).", $numbersPerPage";
+  }else{
+
+    $query = "SELECT * FROM `composant` WHERE `id_cat` = $id_categorie LIMIT ".(($_GET["limit"]*$numbersPerPage)-$numbersPerPage).", $numbersPerPage";
+  }
+  //$query = "SELECT * FROM `composant` WHERE `id_cat` = $id_categorie LIMIT ".(($_GET["limit"]*$numbersPerPage)-$numbersPerPage).", $numbersPerPage";
 }else{
   $query = "SELECT * FROM `composant` WHERE `id_cat` = $id_categorie";// LIMIT 0, 3
 }
