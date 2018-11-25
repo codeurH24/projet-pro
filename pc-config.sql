@@ -1,6 +1,6 @@
 -- pjl SQL Dump
 -- Server version:5.7.24-0ubuntu0.18.04.1
--- Generated: 2018-11-17 10:49:04
+-- Generated: 2018-11-25 12:26:43
 -- Current PHP version: 7.2.10-0ubuntu0.18.04.1
 -- Host: localhost
 -- Database:pc-config
@@ -13,7 +13,7 @@ CREATE TABLE `categorie` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 -- --------------------------------------------------------
 -- Dump Data for `categorie`
 --
@@ -44,13 +44,55 @@ CREATE TABLE `compatibilite` (
   KEY `composant2_compatible1` (`id_composant2`),
   CONSTRAINT `composant1_compatible2` FOREIGN KEY (`id_composant1`) REFERENCES `composant` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `composant2_compatible1` FOREIGN KEY (`id_composant2`) REFERENCES `composant` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 -- --------------------------------------------------------
 -- Dump Data for `compatibilite`
 --
 
 INSERT INTO compatibilite (`id`,`degrer`,`auteur`,`id_composant1`,`id_composant2`,`date_at`) VALUES ("1","100","codeurh24","54","38","2018-11-04 16:14:53");
 INSERT INTO compatibilite (`id`,`degrer`,`auteur`,`id_composant1`,`id_composant2`,`date_at`) VALUES ("2","100","codeurh24","38","53","2018-11-04 16:35:14");
+
+
+
+-- --------------------------------------------------------
+-- Structure for 'compatibility_tag'
+--
+
+DROP TABLE IF EXISTS compatibility_tag;
+CREATE TABLE `compatibility_tag` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_composant` int(11) NOT NULL,
+  `tag` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+-- --------------------------------------------------------
+-- Dump Data for `compatibility_tag`
+--
+
+INSERT INTO compatibility_tag (`id`,`id_composant`,`tag`) VALUES ("2","16","1151");
+INSERT INTO compatibility_tag (`id`,`id_composant`,`tag`) VALUES ("3","17","1151");
+INSERT INTO compatibility_tag (`id`,`id_composant`,`tag`) VALUES ("4","18","1151");
+INSERT INTO compatibility_tag (`id`,`id_composant`,`tag`) VALUES ("5","19","am4");
+INSERT INTO compatibility_tag (`id`,`id_composant`,`tag`) VALUES ("6","21","am4");
+INSERT INTO compatibility_tag (`id`,`id_composant`,`tag`) VALUES ("7","23","am4");
+INSERT INTO compatibility_tag (`id`,`id_composant`,`tag`) VALUES ("8","24","am4");
+INSERT INTO compatibility_tag (`id`,`id_composant`,`tag`) VALUES ("9","20","1151");
+INSERT INTO compatibility_tag (`id`,`id_composant`,`tag`) VALUES ("10","18","1151");
+INSERT INTO compatibility_tag (`id`,`id_composant`,`tag`) VALUES ("11","20","1151");
+INSERT INTO compatibility_tag (`id`,`id_composant`,`tag`) VALUES ("12","22","1151");
+INSERT INTO compatibility_tag (`id`,`id_composant`,`tag`) VALUES ("13","25","1151");
+INSERT INTO compatibility_tag (`id`,`id_composant`,`tag`) VALUES ("14","26","am4");
+INSERT INTO compatibility_tag (`id`,`id_composant`,`tag`) VALUES ("15","27","2066");
+INSERT INTO compatibility_tag (`id`,`id_composant`,`tag`) VALUES ("16","49","1151");
+INSERT INTO compatibility_tag (`id`,`id_composant`,`tag`) VALUES ("17","50","1151");
+INSERT INTO compatibility_tag (`id`,`id_composant`,`tag`) VALUES ("18","53","1151");
+INSERT INTO compatibility_tag (`id`,`id_composant`,`tag`) VALUES ("19","54","1151");
+INSERT INTO compatibility_tag (`id`,`id_composant`,`tag`) VALUES ("20","56","1151");
+INSERT INTO compatibility_tag (`id`,`id_composant`,`tag`) VALUES ("21","58","1151");
+INSERT INTO compatibility_tag (`id`,`id_composant`,`tag`) VALUES ("22","51","1151");
+INSERT INTO compatibility_tag (`id`,`id_composant`,`tag`) VALUES ("23","52","am4");
+INSERT INTO compatibility_tag (`id`,`id_composant`,`tag`) VALUES ("24","55","am4");
+INSERT INTO compatibility_tag (`id`,`id_composant`,`tag`) VALUES ("25","57","am4");
 
 
 
@@ -70,7 +112,7 @@ CREATE TABLE `composant` (
   PRIMARY KEY (`id`),
   KEY `composant_categorie` (`id_cat`),
   CONSTRAINT `composant_categorie` FOREIGN KEY (`id_cat`) REFERENCES `categorie` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8mb4;
 -- --------------------------------------------------------
 -- Dump Data for `composant`
 --
@@ -197,7 +239,7 @@ CREATE TABLE `image_composant` (
   PRIMARY KEY (`id`),
   KEY `image_composant` (`id_composant`),
   CONSTRAINT `image_composant` FOREIGN KEY (`id_composant`) REFERENCES `composant` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8mb4;
 -- --------------------------------------------------------
 -- Dump Data for `image_composant`
 --
@@ -274,7 +316,7 @@ CREATE TABLE `revendeur` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 -- --------------------------------------------------------
 -- Dump Data for `revendeur`
 --

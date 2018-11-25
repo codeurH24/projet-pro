@@ -31,6 +31,7 @@
                 <a class="btn btn-primary w-100" href="modifier-compatibilite-entre-composant.php">Modifier</a>
                 <a class="btn btn-primary w-100" href="supprimer-compatibilite-entre-composant.php">Supprimer</a>
               </div>
+              <a class="btn btn-primary w-100" href="creer-tag-composant.php">tag</a>
             </div>
           </div>
         </li>
@@ -73,6 +74,8 @@
       ?>
       <h1>Administration</h1>
       <?php
+
+      echo $_GET['section']."<br />";
       if( isset($_GET['section']) ){
         switch ($_GET['section']) {
           case 'create-categorie':
@@ -97,11 +100,13 @@
               require_once("data/app/form/admin/component/component/createLnkComponentComponent.php");
             break;
           case 'update-composantLnkComposant':
-
               require_once("data/app/form/admin/component/component/updateLnkComponentComponent.php");
               break;
           case 'delete-composantLnkComposant':
               require_once("data/app/form/admin/component/component/deleteLnkComponentComponent.php");
+              break;
+          case 'create-tagComposant':
+              require_once("data/app/form/admin/component/tag/createTagComponent.php");
               break;
           case 'create-revendeur':
               require_once("data/app/form/admin/retailer/createRetailer.php");

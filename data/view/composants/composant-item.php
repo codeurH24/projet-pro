@@ -27,6 +27,14 @@
           <meter low="1" optimum="5" high="10" value="<?= $rendu3D ?>" min="0" max="10"></meter>
         </div>
       </div>
+      <div class="col-12">
+        <?php
+        if ( !empty($tagComponents) ){
+          foreach( $tagComponents  as $tag)
+             ?><p><?= $tag['tag']; ?></p><?php 
+        }
+        ?>
+      </div>
     </div>
   </div>
   <div class="col-12 col-lg-2 text-right">

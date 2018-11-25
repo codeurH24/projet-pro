@@ -37,6 +37,10 @@ foreach ($composantList as  $composant) {
       $result->free();
   }
 
+  // recuperes les tags du composant
+  $query = "SELECT * FROM `compatibility_tag` WHERE `id_composant` = ".$composant['id'];
+  $tagComponents = bddQuery($mysqli, $query);
+
   $id = $composant['id'];
   $titre = $composant["model"];
   $img = "/data/asset/image/composants/".$image;

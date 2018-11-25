@@ -42,6 +42,8 @@ RewriteRule admin/creer-compatibilite-entre-composant.php ?page=admin&section=cr
 RewriteRule admin/modifier-compatibilite-entre-composant.php ?page=admin&section=update-composantLnkComposant [L]
 RewriteRule admin/supprimer-compatibilite-entre-composant.php ?page=admin&section=delete-composantLnkComposant [L]
 
+RewriteRule admin/creer-tag-composant.php ?page=admin&section=create-tagComposant [L]
+
 RewriteRule admin/creer-revendeur.php ?page=admin&section=create-revendeur [L]
 RewriteRule admin/modifier-revendeur.php ?page=admin&section=update-revendeur [L]
 RewriteRule admin/supprimer-revendeur.php ?page=admin&section=delete-revendeur [L]
