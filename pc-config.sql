@@ -377,7 +377,4 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO user (`id`,`nom`,`prenom`,`pseudo`,`email`,`age`,`password`,`date_registration`,`date_last_login`,`id_adresse`,`id_role`) VALUES ("14","","","Florent Corlouer","cci.corlouer@gmail.com","0","81dc9bdb52d04dc20036dbd8313ed055","2018-09-30 08:10:32","2018-09-24 00:00:00","0","0");
-INSERT INTO user (`id`,`nom`,`prenom`,`pseudo`,`email`,`age`,`password`,`date_registration`,`date_last_login`,`id_adresse`,`id_role`) VALUES ("24","","","codeurh24","codeurh24@gmail.com","0","81dc9bdb52d04dc20036dbd8313ed055","2018-11-04 08:30:42","2018-11-04 08:30:42","","0");
-
-
-
+INSERT INTO user (`id`,`nom`,`prenom`,`pseudo`,`email`,`age`,`password`,`date_registration`,`date_last_login`,`id_adresse`,`id_role`) VALUES ("24","","","codeurh24","codeurh24@gmail.com","0","81dc9bdb52d04dc20036dbd8313ed055","2018-11-04 08:30:42","2018-11-04 08:30:42","0","0");

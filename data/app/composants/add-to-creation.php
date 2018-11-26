@@ -19,13 +19,28 @@ if( isset($_POST['addToCreation']) and ! empty($_POST['addToCreation']) ){
     addToCreation($mysqli,$lastID);
   }else{
 
-    $componentExist = processeurExistOnCreation($idCreation, $mysqli);
+    $catComponent = false;
+    if (isProcesseur($mysqli, $addToCreation)){
+      $componentExist = processeurExistOnCreation($idCreation, $mysqli);
+      $catComponent = 8;
+    }else if (isMainboard($mysqli, $addToCreation)){
+      $componentExist = mainboardExistOnCreation($idCreation, $mysqli);
+      $catComponent = 9;
+    }
 
+    // si ont n'a pas deja ajouter un processeur ou une carte mere
+    // alors on ajoute ce composant
     if( $componentExist == false && !isset($_POST['addForceToCreation']) ){
       addToCreation($mysqli,$creationsEnable[0]["id"]);
+    // sinon ont peut le forcer a etre ajouté mais dans ce cas ont remplace
     }elseif( isset($_POST['addForceToCreation'])){
-      processeurDeleteOnCreation($idCreation, $mysqli);
+      if( $catComponent == 8){
+        processeurDeleteOnCreation($idCreation, $mysqli);
+      }elseif ( $catComponent == 9){
+        mainboardDeleteOnCreation($idCreation, $mysqli);
+      }
       addToCreation($mysqli,$idCreation);
+    // sinon c'est qu'il existe deja mais qu'on n'a pas confirmé l'ajout par force
     }else{
       addToCreationModal_ReplaceComponent($safeVar,$componentExist);
     }
@@ -46,6 +61,10 @@ function addToCreation($mysqli, $id){
 
 }
 
+// function replaceProcesseurToCreation(){
+//   addToCreation($mysqli,$idCreation);
+// }
+
 // affiche un modal qui demande à l"utilisateur si par exemple
 // le processeur qui viens d'etre ajouter, doit remplacer celui deja ajouter
 // a la creation
@@ -60,7 +79,7 @@ function addToCreationModal_ReplaceComponent($safeVar,$componentExist ){
     <input type="hidden" name="addToCreation" value="<?= $safeVar->addToCreation; ?>">
     <input type="hidden" name="addForceToCreation" value="<?= $safeVar->addToCreation; ?>">
     <p>Vous avez déjà un <?= $componentExist[0]['nom']; ?> dans votre création.</p>
-    <p>Voulez-vous le remplacer ?</p>
+    <p>Voulez-vous remplacer ce composant ?</p>
     <?php
 
   $bodyModal = ob_get_contents();
@@ -79,6 +98,25 @@ function addToCreationModal_ReplaceComponent($safeVar,$componentExist ){
   modal($headerModal, $bodyModal, $footerModal);
 }
 
+function isProcesseur($mysqli, $IDComponent){
+  $query = 'SELECT * FROM `composant` WHERE `id` = '.$IDComponent;
+  $component = bddQuery($mysqli, $query)[0];
+  if ($component['id_cat'] == 8){
+    return true;
+  }else{
+    return false;
+  }
+}
+
+function isMainboard($mysqli,$IDComponent){
+  $query = 'SELECT * FROM `composant` WHERE `id` = '.$IDComponent;
+  $component = bddQuery($mysqli, $query)[0];
+  if ($component['id_cat'] == 9){
+    return true;
+  }else{
+    return false;
+  }
+}
 
 function processeurExistOnCreation($idCreation, $mysqli){
   //$query = "SELECT * FROM `creation_conception` WHERE `id_composant` = $addToCreation AND `id_creation` = $idCreation AND `id_user` = $UID ";
@@ -96,6 +134,22 @@ function processeurExistOnCreation($idCreation, $mysqli){
   }
 }
 
+function mainboardExistOnCreation($idCreation, $mysqli){
+  //$query = "SELECT * FROM `creation_conception` WHERE `id_composant` = $addToCreation AND `id_creation` = $idCreation AND `id_user` = $UID ";
+  $query = "SELECT id_cat, categorie.nom FROM `creation_conception`
+            INNER JOIN composant ON composant.id = creation_conception.id_composant
+            INNER JOIN categorie ON categorie.id = composant.id_cat
+            WHERE categorie.id = 9
+                  AND creation_conception.id_creation = $idCreation
+                  AND creation_conception.id_user = ".UID();
+  $componentExist = bddQuery($mysqli, $query);
+  if(count($componentExist) == 0){
+    return false;
+  }else{
+    return $componentExist;
+  }
+}
+
 
 function processeurDeleteOnCreation($idCreation, $mysqli){
   $query = "DELETE creation_conception.*
@@ -103,6 +157,17 @@ function processeurDeleteOnCreation($idCreation, $mysqli){
             INNER JOIN composant ON composant.id = creation_conception.id_composant
             INNER JOIN categorie ON categorie.id = composant.id_cat
             WHERE categorie.id = 8
+                  AND creation_conception.id_creation = $idCreation
+                  AND creation_conception.id_user = ".UID();
+  bddQuery($mysqli, $query);
+}
+
+function mainboardDeleteOnCreation($idCreation, $mysqli){
+  $query = "DELETE creation_conception.*
+            FROM creation_conception
+            INNER JOIN composant ON composant.id = creation_conception.id_composant
+            INNER JOIN categorie ON categorie.id = composant.id_cat
+            WHERE categorie.id = 9
                   AND creation_conception.id_creation = $idCreation
                   AND creation_conception.id_user = ".UID();
   bddQuery($mysqli, $query);

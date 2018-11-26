@@ -18,6 +18,6 @@ echo "Initialisation Démarrer<br />";
 //
 // require "data/app/init_project/filesInstall.php";
 
-//require "data/app/init_project/dbInstall.php";
+require "data/app/init_project/dbInstall.php";
 
 ?>
