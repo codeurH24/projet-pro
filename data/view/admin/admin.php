@@ -1,5 +1,5 @@
-<main class="container-fluid" style="min-height:100%;">
-   <div class="row justify-content-center" style="height: 100vh;">
+<main class="container-fluid">
+   <div class="row justify-content-center">
      <div class="col-2 bg-dark">
       <ul class="nav flex-column">
         <li class="nav-item">
@@ -59,24 +59,15 @@
     </div>
     <div class="col-10">
       <?php
-      if( isset($_SESSION['user']) )
-        echo $_SESSION['user']['pseudo']."<br />";
-      else
-        echo "Aucune session<br />";
-
-
-      if( !isset($_SESSION['user']) ){
-        header('Location: ./');
-        exit("Manque session.");
-      }
-
-
+        if( isset($_SESSION['user']) ){
+          echo $_SESSION['user']['pseudo']."<br />";
+        }
       ?>
       <h1>Administration</h1>
       <?php
 
-      echo $_GET['section']."<br />";
       if( isset($_GET['section']) ){
+        echo $_GET['section']."<br />";
         switch ($_GET['section']) {
           case 'create-categorie':
               require_once("data/app/form/admin/category/createCategory.php");

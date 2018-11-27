@@ -9,7 +9,8 @@ if ( isset($_SESSION['user'])){
 }
 require_once("data/app/func/function.php");
 
-
+// Route main
+require_once("data/route/routeMain.php");
  ?><!doctype html>
 <html lang="fr">
   <head>

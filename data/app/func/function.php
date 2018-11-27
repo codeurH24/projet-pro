@@ -167,3 +167,12 @@ function modal($header, $content, $footer){
   </form>
   <?php
 }
+
+function redirectIfNotSession(){
+  if(! isset($_SESSION['user']) ){
+    //echo 'http://'.$_SERVER['HTTP_HOST']."/<br />";
+    header('Location: http://'.$_SERVER['HTTP_HOST']."/");
+    exit("Manque session.");
+
+  }
+}

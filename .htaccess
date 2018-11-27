@@ -13,6 +13,7 @@ RewriteRule composants-processeur.php ?page=composants-processeur [L]
 RewriteRule composants-carte-graphique-([0-9]*)\.php ?page=composants-carte-graphique&limit=$1 [L]
 RewriteRule composants-carte-graphique.php ?page=composants-carte-graphique [L]
 RewriteRule composants-carte-mere-([0-9]*)\.php ?page=composants-carte-mere&limit=$1 [L]
+RewriteRule composants-memoire-vive-([0-9]*)\.php ?page=composants-memoire-vive&limit=$1 [L]
 
 
 RewriteRule inscription.php ?page=registration [L]

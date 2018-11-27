@@ -29,7 +29,7 @@
 
     <div class="col-12 col-md-6 col-lg-4">
       <div class="card" style="width: 18rem;">
-        <a href="#">
+        <a href="/composants-memoire-vive-1.php">
           <img class="card-img-top vignette" src="<?= assetImg("ram.png") ?>" alt="Vignette composant pc">
           <div class="card-body">
             <h5 class="card-title">Mémoires vives</h5>
