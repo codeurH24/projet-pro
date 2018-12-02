@@ -1,7 +1,7 @@
 <?php
 $requirePage = [
   'account' =>
-    ['url' => 'data/view/account/account.php','connect' => true],
+    ['url' => 'data/view/account/account.php','connect' => false],
   'composants-processeur' =>
     ['url' => 'data/view/composants/processeurs.php','connect' => false],
   'composants-carte-graphique' =>

@@ -1,11 +1,11 @@
-<main class="container-fluid">
-   <div class="row justify-content-center">
-     <div class="col-2 bg-dark">
+<main class="container-fluid h-100"  style="display:flex;flex:1;flex-direction: column;justify-content: flex-start;align-items: stretch;align-content: stretch;display: flex;flex-direction: row;justify-content: flex-start;align-items: stretch;align-content: stretch;">
+  <div class="row justify-content-center" style="flex:1;flex-direction: column;justify-content: flex-start;align-items: stretch;align-content: stretch;display: flex;flex-direction: row;justify-content: flex-start;align-items: stretch;align-content: stretch;">
+    <div class="col-1 col-md-4 col-lg-3 col-xl-2 menu-left">
       <ul class="nav flex-column">
         <li class="nav-item">
           <div class="btn-group dropright w-100">
             <button type="button" class="btn btn-primary dropdown-toggle w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Categorie
+              <i class="fas fa-2x fa-stream"></i><span>Categorie</span>
             </button>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="creer-categorie.php">Creer</a>
@@ -17,7 +17,7 @@
         <li class="nav-item">
           <div class="btn-group dropright w-100">
             <button type="button" class="btn btn-primary dropdown-toggle w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Composant
+            <img src="/data/asset/image/gpu.png" alt="carte graphique" width="40" /><span>Composant</span>
             </button>
             <div class="dropdown-menu">
               <a class="btn btn-primary w-100" href="creer-composant.php">Creer</a>
@@ -38,7 +38,7 @@
         <li class="nav-item">
           <div class="btn-group dropright w-100">
             <button type="button" class="btn btn-primary dropdown-toggle w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Revendeur
+              <i class="fas fa-2x fa-hand-holding-usd"></i><span>Revendeur</span>
             </button>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="creer-revendeur.php">Creer</a>
@@ -57,7 +57,7 @@
         </li>
       </ul>
     </div>
-    <div class="col-10">
+    <div class="col-11 col-md-8 col-lg-9 col-xl-10 content-admin">
       <?php
         if( isset($_SESSION['user']) ){
           echo $_SESSION['user']['pseudo']."<br />";

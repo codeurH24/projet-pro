@@ -17,20 +17,30 @@ if ($result = $mysqli->query($query)) {
     $result->free();
 }
 $mysqli->close();
-?><form method="post">
-  <fieldset>
-    <legend></legend>
-    <fieldset class="form-group">
-      <legend>Supprimer une Categorie</legend>
-      <?php foreach ($categorieComposant as $value) { ?>
-      <div class="form-check">
-        <label class="form-check-label">
-          <input name="deleteCategorie[]" class="form-check-input" type="checkbox" value="<?= $value['id'] ; ?>" />
-          <?= $value['nom'] ; ?>
-        </label>
-      </div>
-      <?php } ?>
-    </fieldset>
-    <button type="submit" class="btn btn-primary">Supprimer</button>
-  </fieldset>
-</form>
+?>
+
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-xl-4">
+      <form method="post">
+        <fieldset>
+          <legend></legend>
+          <fieldset class="form-group">
+            <legend>Supprimer une Categorie</legend>
+            <?php foreach ($categorieComposant as $value) { ?>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input name="deleteCategorie[]" class="form-check-input" type="checkbox" value="<?= $value['id'] ; ?>" />
+                <?= $value['nom'] ; ?>
+              </label>
+            </div>
+            <?php } ?>
+          </fieldset>
+          <div class="text-right">
+            <button type="submit" class="btn btn-primary">Supprimer</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>

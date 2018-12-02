@@ -176,3 +176,7 @@ function redirectIfNotSession(){
 
   }
 }
+function redirect($url){
+    header('Location: http://'.$_SERVER['HTTP_HOST']."/".$url);
+    exit('redirection  http://'.$_SERVER['HTTP_HOST']."/".$url);
+}

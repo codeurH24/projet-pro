@@ -20,21 +20,32 @@ foreach ($creationList as $creation) {
     "%id%" => "id",
     "%model%" => "model"
     ] ,
-    '<div>%model%
-      <form method="post">
-        <input type="hidden" value="%id%" name="showCreationDelete" />
-        <button>Suppr</button>
+    '<div>
+      <form method="post" class="showCreationItem">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col">
+              <input type="hidden" value="%id%" name="showCreationDelete" />
+              <button class="buttonNone"><i class="fas fa-2x fa-trash icon-white"></i></button>
+            </div>
+            <div class="col-10">
+              %model%
+            </div>
+          </div>
+        </div>
       </form>
     </div>');
+require_once("data/view/user/creations/headerCreation.php");
 ?>
 <div class="text-right">
   <a href="/mes-creations/" class="btn btn-secondary">Retour</a>
 </div>
 
-<h4><?=$creation['name']?></h4>
+<h1><?=$creation['name']?></h1>
 <div><?=$divListComposant?></div>
 
 <?php
 }
 $mysqli->close();
+require_once("data/view/user/creations/footerCreation.php");
 ?>

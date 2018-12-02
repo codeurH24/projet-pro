@@ -2,6 +2,7 @@ DirectoryIndex index.php
 RewriteEngine on
 
 RewriteRule data/asset/css/master.css data/asset/css/master.css [L]
+RewriteRule data/asset/css/form.css data/asset/css/form.css [L]
 
 RewriteRule ^mon-compte/$ ?page=account&section= [L]
 RewriteRule ^mon-compte/connexion/$ ?page=account&section=login [L]

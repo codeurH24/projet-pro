@@ -27,6 +27,8 @@ if (($creationList = bddQuery($mysqli, $query)) === false) {
 }
 
 $mysqli->close();
+
+require_once("data/view/user/creations/headerCreation.php");
 ?>
 <div class="text-right">
   <a href="/mes-creations/" class="btn btn-secondary">Retour</a>
@@ -54,4 +56,6 @@ foreach ($creationList as $creation) { ?>
     <button type="submit" class="btn btn-primary">Modifier une création</button>
   </fieldset>
 </form>
-<?php } ?>
+<?php }
+require_once("data/view/user/creations/footerCreation.php");
+?>

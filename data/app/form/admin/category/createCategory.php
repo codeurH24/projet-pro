@@ -17,14 +17,25 @@ if( isset($_POST['nameCategorie']) and ! empty($_POST['nameCategorie']) ){
   $mysqli->close();
 }
 ?>
-<form method="post">
-  <fieldset>
-    <legend>Creer une Categorie</legend>
-    <div class="form-group">
-      <label for="nom">Nom de Categorie</label>
-      <input name="nameCategorie" type="text" class="form-control" id="nom" aria-describedby="nomHelp" placeholder="Entrer un nom de categorie">
-      <small id="nomHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+
+
+
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-xl-4">
+      <form method="post">
+        <fieldset>
+          <legend>Creer une Categorie</legend>
+          <div class="form-group">
+            <label for="nom">Nom de Categorie</label>
+            <input name="nameCategorie" type="text" class="form-control" id="nom" aria-describedby="nomHelp" placeholder="Entrer un nom de categorie">
+            <small id="nomHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="text-right">
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+          </div>
+        </fieldset>
+      </form>
     </div>
-    <button type="submit" class="btn btn-primary">Enregistrer</button>
-  </fieldset>
-</form>
+  </div>
+</div>

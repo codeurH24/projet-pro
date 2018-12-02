@@ -31,7 +31,7 @@
         <?php
         if ( !empty($tagComponents) ){
           foreach( $tagComponents  as $tag)
-             ?><p><?= $tag['tag']; ?></p><?php 
+             ?><p><?= $tag['tag']; ?></p><?php
         }
         ?>
       </div>

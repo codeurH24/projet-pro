@@ -16,15 +16,25 @@ $query = "SELECT * FROM `categorie` ORDER BY `categorie`.`nom` ASC";
 $categorieComposant = bddQuery($mysqli, $query);
 
 $mysqli->close();
-?><form method="post">
-  <fieldset>
-    <legend>Modifier une Categorie</legend>
-    <?php foreach ($categorieComposant as $value) { ?>
-      <div class="form-group">
-        <label for="exampleInputPassword1"><?= $value['nom']; ?></label>
-        <input type="text" name="updateCategorie[<?= $value['id']; ?>]" id="exampleInputPassword1" class="form-control" />
-      </div>
-    <?php } ?>
-    <button type="submit" class="btn btn-primary">Modifier</button>
-  </fieldset>
-</form>
+?>
+
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-xl-4">
+      <form method="post">
+        <fieldset>
+          <legend>Modifier une Categorie</legend>
+          <?php foreach ($categorieComposant as $value) { ?>
+            <div class="form-group">
+              <label for="exampleInputPassword1"><?= $value['nom']; ?></label>
+              <input type="text" name="updateCategorie[<?= $value['id']; ?>]" id="exampleInputPassword1" class="form-control" />
+            </div>
+          <?php } ?>
+          <div class="text-right">
+            <button type="submit" class="btn btn-primary">Modifier</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>

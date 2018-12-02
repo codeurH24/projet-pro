@@ -1,0 +1,44 @@
+main form{
+  padding: 20px;
+  box-shadow: 0 0 10px 0px black;
+  background-color: #FFF4;
+  color: white;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.9rem;
+  font-weight: bold;
+
+}
+main form legend,
+main form legend h2{
+  color: wheat;
+  text-shadow: 0 0 4px black;
+}
+main form .error{
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #ffc46c;
+  display: block;
+  margin: auto;
+  width: 90%;
+}
+
+main form input[type=text],
+main form input[type=email],
+main form input[type=password]{
+  text-shadow: 0 0 10px black;
+  background-color: #FFF0;
+  border-bottom: 1px solid white;
+  padding: 0 0;
+  display: block;
+  margin: auto;
+  width: 90%;
+  color: white;
+}
+main .form-control:focus {
+    background-color: #FFF0;
+    border-color: #FFF0;
+    border-bottom: 1px solid white;
+    outline: 0;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(26,26,26,0);
+    box-shadow: 0 0 0 0.2rem rgba(26,26,26,0);
+    color: #FFF;
+}

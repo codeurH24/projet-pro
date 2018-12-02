@@ -1,4 +1,4 @@
-<main class="container">
+<main class="container-fluid">
 <div class="row">
   <div class="col">
     <?php

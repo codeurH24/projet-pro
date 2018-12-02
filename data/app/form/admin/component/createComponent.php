@@ -53,31 +53,44 @@ if ($result = $mysqli->query($query)) {
 
 $mysqli->close();
  ?>
- <h2>Creer un composant</h2>
- <form method="post" enctype="multipart/form-data">
-  <div class="form-group">
-    <label for="modelComposantCreate">Model</label>
-    <input type="text" name="modelComposantCreate" id="modelComposantCreate" class="form-control" aria-describedby="emailHelp" autocomplete="off">
+
+
+
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-xl-4">
+      <form method="post" enctype="multipart/form-data">
+        <fieldset>
+          <legend><h2>Creer un composant</h2></legend>
+           <div class="form-group">
+             <label for="modelComposantCreate">Model</label>
+             <input type="text" name="modelComposantCreate" id="modelComposantCreate" class="form-control" aria-describedby="emailHelp" autocomplete="off">
+           </div>
+           <div class="form-group">
+             <label for="marqueComposantCreate">Marque</label>
+             <input type="text" name="marqueComposantCreate" id="marqueComposantCreate" class="form-control" aria-describedby="emailHelp">
+           </div>
+           <div class="form-group">
+             <label for="scoreComposantCreate">Score Passmark</label>
+             <input type="number" name="scoreComposantCreate" id="scoreComposantCreate" class="form-control" aria-describedby="emailHelp">
+           </div>
+           <div class="form-group">
+             <label for="categorieComposantCreate">Categorie</label>
+             <select multiple name="categorieComposantCreate" class="form-control" id="categorieComposantCreate">
+               <?php foreach($categorieComposant as $row){ ?>
+               <option value="<?= $row["id"] ; ?>"><?= $row["nom"] ; ?></option>
+               <?php } ?>
+             </select>
+           </div>
+           <div class="form-group">
+             <label for="imageComposantCreate">Image</label>
+             <input type="file" name="imageComposantCreate" id="imageComposantCreate" class="form-control-file" aria-describedby="fileHelp">
+           </div>
+           <div class="text-right">
+             <button type="submit" class="btn btn-primary">Enregister</button>
+           </div>
+       </fieldset>
+     </form>
+    </div>
   </div>
-  <div class="form-group">
-    <label for="marqueComposantCreate">Marque</label>
-    <input type="text" name="marqueComposantCreate" id="marqueComposantCreate" class="form-control" aria-describedby="emailHelp">
-  </div>
-  <div class="form-group">
-    <label for="scoreComposantCreate">Score Passmark</label>
-    <input type="number" name="scoreComposantCreate" id="scoreComposantCreate" class="form-control" aria-describedby="emailHelp">
-  </div>
-  <div class="form-group">
-    <label for="categorieComposantCreate">Categorie</label>
-    <select multiple name="categorieComposantCreate" class="form-control" id="categorieComposantCreate">
-      <?php foreach($categorieComposant as $row){ ?>
-      <option value="<?= $row["id"] ; ?>"><?= $row["nom"] ; ?></option>
-      <?php } ?>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="imageComposantCreate">Image</label>
-    <input type="file" name="imageComposantCreate" id="imageComposantCreate" class="form-control-file" aria-describedby="fileHelp">
-  </div>
-  <button type="submit" class="btn btn-primary">Enregister</button>
-</form>
+</div>
