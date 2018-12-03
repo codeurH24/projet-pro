@@ -13,15 +13,21 @@ if( isset($_POST['mail']) and !empty($_POST['mail'])){
     $query = "SELECT * FROM `user` WHERE `email` LIKE '$mail' AND `password` LIKE '$passwordMD5'";
     $row = bddQuery($mysqli, $query)[0];
     if($row["password"] == $passwordMD5){
+
       $_SESSION['user'] = [
         "id" => $row["id"],
         "pseudo" => $row["pseudo"],
       ];
+
+      // mise a jour de la date de la connexion
+      $dateTime = dbDate();
+      $query = "UPDATE `user` SET `date_last_login` = '$dateTime ' WHERE `user`.`id` = 14;";
+      bddQuery($mysqli, $query);
     }
     if (!isset($_SESSION['user']) and empty($_SESSION['user'])){
       exit("Probleme de session.");
     }else{
-      header('Location: /mon-compte/');
+      header('Location: /mes-creations/');
       exit("Connexion Reussi.");
     }
   }

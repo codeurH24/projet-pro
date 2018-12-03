@@ -14,7 +14,7 @@ if( isset($_POST['nameCreation']) and ! empty($_POST['nameCreation']) ){
 require_once("data/view/user/creations/headerCreation.php");
  ?>
 
-  <div class="text-right">
+  <div class="text-right buttonReturn">
    <a href="/mes-creations/" class="btn btn-secondary">Retour</a>
   </div>
 

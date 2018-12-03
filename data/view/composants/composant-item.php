@@ -1,4 +1,4 @@
-<div class="row mt-2 mb-3">
+<div class="row mt-2 mb-3 conponent-item-page">
   <div class="col-12 col-sm-5 col-md-4 col-lg-3 text-center ">
     <img class="" src="<?= $img ?>" alt="Image Composant">
   </div>

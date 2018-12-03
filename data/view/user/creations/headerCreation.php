@@ -26,6 +26,7 @@
         </li>
       </ul>
     </div>
-    <div class="col-11 col-md-8 col-lg-9 col-xl-9">
+    <div class="col-11 col-md-8 col-lg-9 col-xl-9 content-creation">
+      <?php require "data/view/account/identity.php"; ?>
        <div class="row justify-content-md-center">
          <div class="col-12 col-sm-12 col-md-11 col-xl-8 creations" >

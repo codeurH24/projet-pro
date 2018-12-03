@@ -264,7 +264,56 @@ form.showCreationItem:hover{
   margin-left: 30%;
 }
 
+main .content-admin,
+main .content-creation{
+  padding-top:0;
+}
+.content-admin .identity,
+.content-creation  .identity{
+  background-color: #000;
+  color: wheat;
+  display: block;
+  position: relative;
+  font-size: 1.3rem;
+  min-width: 30px;
+  padding: 0 15px;
+  text-align: right;
+  margin-left: auto;
+}
+.endOfidentity{
+  position: absolute;
+  left: -30px;
+  width: 30px;
+  min-height: 20px;
+  height: 100%;
+  background-color: #00F;
+  background: linear-gradient(45deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 52%,rgba(0,0,0,1) 53%,rgba(0,0,0,1) 100%);
+}
 
+.buttonReturn{
+  margin-bottom: 30px;
+}
+
+nav button {
+    padding: 0rem 0rem;
+    background-color: #FFF;
+}
+nav [type="button"]{
+  background-color: transparent;
+  border-width: thin;
+  margin-left: -6px;
+  border: 0px solid black;  
+}
+nav form img{
+  height: 2rem;
+}
+nav input[name=searchInput]{
+  padding: 0.4rem 0.5rem;
+  height: 2rem;
+  border-width: 0px;
+  border-bottom: 1px solid white;
+  background: transparent;
+}
 
 @media all and (min-width: 300px) and (max-width: 575px){
   .composants img{
@@ -292,6 +341,7 @@ form.showCreationItem:hover{
     max-width: 0%;
     z-index: 100;
   }
+
   .content-admin.col-11 {
     flex: 0 0 100%;
     max-width: 100%;

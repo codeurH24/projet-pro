@@ -66,12 +66,8 @@
         </li>
       </ul>
     </div>
-    <div class="col-11 col-md-8 col-lg-9 col-xl-10 content-admin">
-      <?php
-        if( isset($_SESSION['user']) ){
-          echo $_SESSION['user']['pseudo']."<br />";
-        }
-      ?>
+    <div class="col-11 col-md-8 col-lg-9 col-xl-10 content-admin" style="">
+      <?php require "data/view/account/identity.php"; ?>
       <h1>Administration</h1>
       <?php
 
@@ -132,7 +128,8 @@
             break;
         }
       }else{
-        echo 'page sans section';
+        // echo 'page sans section';
+        require_once("data/view/admin/default.php");
       }?>
     </div>
   </div>

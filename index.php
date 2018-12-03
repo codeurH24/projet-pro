@@ -39,6 +39,8 @@ require_once("data/route/routeMain.php");
     <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/lux/bootstrap.min.css" rel="stylesheet" integrity="sha384-ML9h/UCooefre72ZPxxOHyjbrLT1xKV0AHON1J+OlOV2iwcYemqmWyMfTcfyzLJ1" crossorigin="anonymous">
     <link rel="stylesheet" href="data/asset/css/form.css">
     <link rel="stylesheet" href="data/asset/css/master.css">
+    <link rel="stylesheet" href="data/asset/css/componentItemPage.css">
+
 
     <title>PC CONFIG</title>
   </head>

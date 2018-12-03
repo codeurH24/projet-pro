@@ -12,6 +12,8 @@ main form legend,
 main form legend h2{
   color: wheat;
   text-shadow: 0 0 4px black;
+  font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  text-transform: uppercase;
 }
 main form .error{
   font-family: 'Source Sans Pro', sans-serif;
@@ -24,14 +26,17 @@ main form .error{
 main form input[type=text],
 main form input[type=email],
 main form input[type=password]{
-  text-shadow: 0 0 10px black;
+  text-shadow: 0 0 0px black;
   background-color: #FFF0;
   border-bottom: 1px solid white;
+  font-weight: bold;
+  font-size: 1.2rem;
   padding: 0 0;
   display: block;
   margin: auto;
   width: 90%;
   color: white;
+  font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 main .form-control:focus {
     background-color: #FFF0;
@@ -41,4 +46,10 @@ main .form-control:focus {
     -webkit-box-shadow: 0 0 0 0.2rem rgba(26,26,26,0);
     box-shadow: 0 0 0 0.2rem rgba(26,26,26,0);
     color: #FFF;
+
+}
+
+main form .btn{
+  font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  text-transform: uppercase;
 }
