@@ -24,6 +24,8 @@ if( isset($_POST['nameRevendeur']) and ! empty($_POST['nameRevendeur']) ){
       <input name="nameRevendeur" type="text" class="form-control" id="nom" aria-describedby="nomHelp" placeholder="Entrer un nom">
       <small id="nomHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
-    <button type="submit" class="btn btn-primary">Enregistrer</button>
+    <div class="text-right">
+      <button type="submit" class="btn btn-primary">Enregistrer</button>
+    </div>
   </fieldset>
 </form>

@@ -30,6 +30,8 @@ $mysqli->close();
         <input type="text" name="updateRevendeur[<?= $value['id']; ?>]" id="exampleInputPassword1" class="form-control" />
       </div>
     <?php } ?>
-    <button type="submit" class="btn btn-primary">Modifier</button>
+    <div class="text-right">
+      <button type="submit" class="btn btn-primary">Modifier</button>
+    </div>
   </fieldset>
 </form>

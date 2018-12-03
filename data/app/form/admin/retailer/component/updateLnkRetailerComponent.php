@@ -97,7 +97,9 @@ foreach ($revendeurComposanttList as $key => $valueParent) {
     <label for="prixUpdateRevendeurLnkComposant">Prix</label>
     <input type="type" value="<?= $valueParent['prix']; ?>" class="form-control" name="prixUpdateRevendeurLnkComposant" id="prixUpdateRevendeurLnkComposant">
   </div>
-  <button type="submit" class="btn btn-primary">Creer</button>
+  <div class="text-right">
+    <button type="submit" class="btn btn-primary">Creer</button>
+  </div>
 </form>
 
 <?php

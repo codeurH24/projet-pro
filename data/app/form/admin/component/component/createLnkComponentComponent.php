@@ -41,5 +41,7 @@ $mysqli->close();
       <label for="compatibleEnPourCent">Pourcentage de fiabilité</label>
       <input type="number" class="form-control" name="compatibleEnPourCent" id="compatibleEnPourCent" value="100" />
     </div>
-    <button type="submit" class="btn btn-primary">Creer une compatibilité</button>
+    <div class="text-right">
+      <button type="submit" class="btn btn-primary">Creer une compatibilité</button>
+    </div>
  </form>

@@ -3,8 +3,8 @@
     <p>Configurer votre PC comme un Pro</p>
   </div>
 </header>
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
-  <a class="navbar-brand home" href="accueil.php"><i class="fas fa-2x fa-screwdriver mr-1"></i> PC CONFIG</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-nav-master sticky-top">
+  <a class="navbar-brand home" href="/accueil.php"><i class="fas fa-2x fa-screwdriver mr-1"></i> PC CONFIG</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>

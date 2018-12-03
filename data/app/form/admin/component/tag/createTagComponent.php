@@ -35,14 +35,18 @@ if ( isset($_POST['keyWord']) and empty($_POST['keyWord']) ) {
      <label for="keyWord">Mot clé</label>
      <input type="text" name="keyWord" id="keyWord" class="form-control" />
    </div>
-   <button type="submit" class="btn btn-primary">Recherche</button>
+   <div class="text-right">
+     <button type="submit" class="btn btn-primary">Recherche</button>
+   </div>
  </form>
  <form method="post">
    <div class="form-group">
      <label for="tagWord">Entrer en tag</label>
      <input type="text" name="tagWord" id="tagWord" class="form-control" />
    </div>
-   <button type="submit" class="btn btn-primary">Tager</button>
+   <div class="text-right">
+     <button type="submit" class="btn btn-primary">Tager</button>
+   </div>
  </form>
  <?php
  $sqlTagCreate = "";

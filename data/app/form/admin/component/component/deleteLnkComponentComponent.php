@@ -74,6 +74,8 @@ foreach ($compatibiliteList as $key => $valueParent) {
 $mysqli->close();
 ?>
 </fieldset>
-<button type="submit" class="btn btn-primary">Supprimer une compatibilitée</button>
+<div class="text-right">
+  <button type="submit" class="btn btn-primary">Supprimer une compatibilitée</button>
+</div>
 </fieldset>
 </form>

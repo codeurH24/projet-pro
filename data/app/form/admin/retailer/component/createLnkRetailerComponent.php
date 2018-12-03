@@ -48,5 +48,7 @@ $mysqli->close();
     <label for="prixCreateRevendeurLnkComposant">Prix</label>
     <input type="type" class="form-control" name="prixCreateRevendeurLnkComposant" id="prixCreateRevendeurLnkComposant">
   </div>
-  <button type="submit" class="btn btn-primary">Creer</button>
+  <div class="text-right">
+    <button type="submit" class="btn btn-primary">Creer</button>
+  </div>
 </form>

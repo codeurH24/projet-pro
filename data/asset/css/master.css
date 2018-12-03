@@ -250,12 +250,23 @@ form.showCreationItem:hover{
   font-size: 1.5rem
 }
 
+.bg-nav-master {
+    background-color: #000;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #000;
+    border-color: #000;
+}
+
 @media all and (min-width: 300px) and (max-width: 575px){
   .composants img{
     width:50%;
   }
 }
-
+.menu-left .nav-item span{
+  height:100%;display:inline-block;
+}
 @media all and (max-width: 767px){
   .menu-left ul.nav {
     position: sticky;

@@ -1,11 +1,11 @@
 <main class="container-fluid h-100"  style="display:flex;flex:1;flex-direction: column;justify-content: flex-start;align-items: stretch;align-content: stretch;display: flex;flex-direction: row;justify-content: flex-start;align-items: stretch;align-content: stretch;">
   <div class="row justify-content-center" style="flex:1;flex-direction: column;justify-content: flex-start;align-items: stretch;align-content: stretch;display: flex;flex-direction: row;justify-content: flex-start;align-items: stretch;align-content: stretch;">
-    <div class="col-2 bg-dark menu-left">
+    <div class="col-1 col-md-4 col-lg-3 col-xl-3 menu-left">
       <ul class="nav flex-column">
         <li class="nav-item">
           <div class="btn-group dropright w-100">
             <button type="button" class="btn btn-primary dropdown-toggle w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Mes créations
+              <i class="fas fa-2x fa-screwdriver"></i><span>Mes créations</span>
             </button>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="/mes-creations/creer-une-creation.php">Creer</a>
@@ -15,11 +15,17 @@
             </div>
           </div>
         </li>
-        <li class="nav-item w-100">
-          <a href="#" class="btn btn-primary w-100">Modifier le mot de passe</a>
+        <li class="nav-item">
+          <div class=" w-100">
+            <button type="button" class="btn btn-primary w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a href="#" class="w-100" style="color:#FFF;">
+                <i style="height:100%;display:inline-block;" class="fas fa-2x fa-lock"></i><span>Modifier<br />le mot de passe</span>
+              </a>
+            </button>
+          </div>
         </li>
       </ul>
     </div>
-    <div class="col-10">
+    <div class="col-11 col-md-8 col-lg-9 col-xl-9">
        <div class="row justify-content-md-center">
-         <div class="col-6 creations" >
+         <div class="col-12 col-sm-12 col-md-11 col-xl-8 creations" >

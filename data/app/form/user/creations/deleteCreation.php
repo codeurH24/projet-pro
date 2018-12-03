@@ -19,6 +19,7 @@ if (($creationList = bddQuery($mysqli, $query)) === false) {
   bddError($mysqli, $query);
 }
 $mysqli->close();
+require_once("data/view/user/creations/headerCreation.php");
 ?>
 <div class="text-right">
   <a href="/mes-creations/" class="btn btn-secondary">Retour</a>
@@ -32,6 +33,11 @@ foreach ($creationList as $creation) { ?>
     <label for="idCreationUpdate<?= $creation['id']; ?>">ID:</label>
     <input type="text" value="<?= $creation['id']; ?>" name="idCreationUpdate" id="idCreationUpdate<?= $creation['id']; ?>" class="form-control" />
   </div>
-  <button type="submit" class="btn btn-primary">Supprimer</button>
+  <p>Souhaitez-vous vraiment supprimer ?</p>
+  <div class="text-right">
+    <button type="submit" class="btn btn-primary">Supprimer</button>
+  </div>
 </form>
-<?php } ?>
+<?php }
+require_once("data/view/user/creations/footerCreation.php");
+ ?>

@@ -72,7 +72,9 @@ foreach ($compatibiliteList as $key => $valueParent) {
       <label for="compatibleEnPourCentUpdate">Pourcentage de fiabilité</label>
       <input type="number" class="form-control" name="compatibleEnPourCentUpdate" id="compatibleEnPourCentUpdate" value="<?= $valueParent['degrer']  ?>" />
     </div>
-    <button type="submit" class="btn btn-primary">Modifier</button>
+    <div class="text-right">
+      <button type="submit" class="btn btn-primary">Modifier</button>
+    </div>
  </form>
 <?php
 }

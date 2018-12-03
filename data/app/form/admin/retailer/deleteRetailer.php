@@ -33,6 +33,8 @@ $mysqli->close();
       </div>
       <?php } ?>
     </fieldset>
-    <button type="submit" class="btn btn-primary">Supprimer</button>
+    <div class="text-right">
+      <button type="submit" class="btn btn-primary">Supprimer</button>
+    </div>
   </fieldset>
 </form>

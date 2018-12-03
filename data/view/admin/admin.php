@@ -55,6 +55,15 @@
             </div>
           </div>
         </li>
+        <li class="nav-item">
+          <div class=" w-100">
+            <button type="button" class="btn btn-primary w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a href="#" class="w-100" style="color:#FFF;">
+                <i class="fas fa-2x fa-user-alt icon-white"></i><span>Utilisateurs</span>
+              </a>
+            </button>
+          </div>
+        </li>
       </ul>
     </div>
     <div class="col-11 col-md-8 col-lg-9 col-xl-10 content-admin">
