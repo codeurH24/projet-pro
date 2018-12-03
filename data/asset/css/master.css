@@ -215,6 +215,7 @@ button:hover .icon-white{color: white}
 
 .menu-left{
   background: linear-gradient(to bottom, #211E1BB3 0%,#44414180 100%);
+  box-shadow: 7px 0 9px #202020;
 }
 .menu-left button,
 .menu-left a{
@@ -258,6 +259,12 @@ form.showCreationItem:hover{
     background-color: #000;
     border-color: #000;
 }
+
+.list-unstyled{
+  margin-left: 30%;
+}
+
+
 
 @media all and (min-width: 300px) and (max-width: 575px){
   .composants img{

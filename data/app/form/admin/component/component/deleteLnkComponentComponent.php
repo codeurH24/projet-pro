@@ -10,7 +10,7 @@ if( isset($_POST['deleteComposant']) and !empty($_POST['deleteComposant'])){
     exit("Suppression composant erreur.<br />");
   }
 }
-?><h2>Supprimer une Compatibilité</h2><?php
+?><?php
 $query = "SELECT * FROM `composant` ORDER BY `composant`.`model` ASC";
 if ($result = $mysqli->query($query)) {
     $composantList = $result->fetch_all(MYSQLI_ASSOC);
@@ -50,32 +50,44 @@ ON comp2.id = compatibilite.id_composant2
 WHERE compatibilite.id = ";
 
 ?>
-<form method="post">
-  <fieldset>
-    <legend></legend>
-    <fieldset class="form-group">
-      <legend></legend>
-<?php
 
 
-foreach ($compatibiliteList as $key => $valueParent) {
 
-  $composantList2D = bddQuery($mysqli, $query.$valueParent['id'])[0];
- ?>
-       <div class="form-check">
-         <input name="deleteCompatibilite[]" class="form-check-input" type="checkbox" value="<?= $valueParent['id'] ; ?>" />
-         <label class="form-check-label">
-           <?=$composantList2D['model1']?> -
-           <?=$composantList2D['model2']?>
-         </label>
-       </div>
-<?php
-}
-$mysqli->close();
-?>
-</fieldset>
-<div class="text-right">
-  <button type="submit" class="btn btn-primary">Supprimer une compatibilitée</button>
+
+
+
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-xl-8">
+      <form method="post">
+        <fieldset>
+          <legend></legend>
+          <fieldset class="form-group">
+            <legend><h2>Supprimer une Compatibilité</h2></legend>
+      <?php
+
+
+      foreach ($compatibiliteList as $key => $valueParent) {
+
+        $composantList2D = bddQuery($mysqli, $query.$valueParent['id'])[0];
+       ?>
+             <div class="form-check">
+               <input name="deleteCompatibilite[]" class="form-check-input" type="checkbox" value="<?= $valueParent['id'] ; ?>" />
+               <label class="form-check-label" style="padding-bottom:20px;">
+                 <?=$composantList2D['model1']?> -
+                 <?=$composantList2D['model2']?>
+               </label>
+             </div>
+      <?php
+      }
+      $mysqli->close();
+      ?>
+      </fieldset>
+      <div class="text-right">
+        <button type="submit" class="btn btn-primary">Supprimer une compatibilitée</button>
+      </div>
+      </fieldset>
+      </form>
+    </div>
+  </div>
 </div>
-</fieldset>
-</form>

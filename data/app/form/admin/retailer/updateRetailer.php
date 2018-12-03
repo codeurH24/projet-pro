@@ -20,18 +20,26 @@ if ($result = $mysqli->query($query)) {
 }
 
 $mysqli->close();
-?><h2>Modifier un revendeur</h2>
-<form method="post">
-  <fieldset>
-    <legend></legend>
-    <?php foreach ($revendeurComposant as $value) { ?>
-      <div class="form-group">
-        <label for="exampleInputPassword1"><?= $value['nom']; ?></label>
-        <input type="text" name="updateRevendeur[<?= $value['id']; ?>]" id="exampleInputPassword1" class="form-control" />
-      </div>
-    <?php } ?>
-    <div class="text-right">
-      <button type="submit" class="btn btn-primary">Modifier</button>
+?>
+
+
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-11 col-xl-8">
+      <form method="post">
+        <fieldset>
+          <legend><h2>Modifier un revendeur</h2></legend>
+          <?php foreach ($revendeurComposant as $value) { ?>
+            <div class="form-group">
+              <label for="exampleInputPassword1"><?= $value['nom']; ?></label>
+              <input type="text" name="updateRevendeur[<?= $value['id']; ?>]" id="exampleInputPassword1" class="form-control" />
+            </div>
+          <?php } ?>
+          <div class="text-right">
+            <button type="submit" class="btn btn-primary">Modifier</button>
+          </div>
+        </fieldset>
+      </form>
     </div>
-  </fieldset>
-</form>
+  </div>
+</div>

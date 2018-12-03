@@ -19,29 +19,43 @@ if ($result = $mysqli->query($query)) {
     $result->free();
 }
 $mysqli->close();
- ?><h2>Créer une compatibilitée</h2>
- <form method="post">
-   <div class="form-group">
-      <label for="composant1">Composant 1</label>
-      <select multiple class="form-control" name="composant1" id="composant1">
-        <?php foreach ($composantList as $value) { ?>
-          <option value="<?= $value['id']; ?>"><?= $value['model']; ?></option>
-        <?php } ?>
-      </select>
-    </div>
-   <div class="form-group">
-      <label for="composant2">Composant 2</label>
-      <select multiple class="form-control" name="composant2" id="composant2">
-        <?php foreach ($composantList as $value) { ?>
-          <option value="<?= $value['id']; ?>"><?= $value['model']; ?></option>
-        <?php } ?>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="compatibleEnPourCent">Pourcentage de fiabilité</label>
-      <input type="number" class="form-control" name="compatibleEnPourCent" id="compatibleEnPourCent" value="100" />
-    </div>
-    <div class="text-right">
-      <button type="submit" class="btn btn-primary">Creer une compatibilité</button>
-    </div>
- </form>
+ ?>
+
+
+
+
+
+ <div class="container-fluid">
+   <div class="row justify-content-center">
+     <div class="col-12 col-md-8 col-xl-6">
+       <form method="post">
+         <fieldset>
+           <legend><h2>Créer une compatibilitée</h2></legend>
+           <div class="form-group">
+              <label for="composant1">Composant 1</label>
+              <select multiple class="form-control" name="composant1" id="composant1">
+                <?php foreach ($composantList as $value) { ?>
+                  <option value="<?= $value['id']; ?>"><?= $value['model']; ?></option>
+                <?php } ?>
+              </select>
+            </div>
+           <div class="form-group">
+              <label for="composant2">Composant 2</label>
+              <select multiple class="form-control" name="composant2" id="composant2">
+                <?php foreach ($composantList as $value) { ?>
+                  <option value="<?= $value['id']; ?>"><?= $value['model']; ?></option>
+                <?php } ?>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="compatibleEnPourCent">Pourcentage de fiabilité</label>
+              <input type="number" class="form-control" name="compatibleEnPourCent" id="compatibleEnPourCent" value="100" />
+            </div>
+            <div class="text-right">
+              <button type="submit" class="btn btn-primary">Creer une compatibilité</button>
+            </div>
+          </fieldset>
+       </form>
+     </div>
+   </div>
+ </div>

@@ -58,7 +58,7 @@ $mysqli->close();
 
 <div class="container-fluid">
   <div class="row justify-content-center">
-    <div class="col-12 col-md-8 col-xl-4">
+    <div class="col-12 col-md-8 col-xl-6">
       <form method="post" enctype="multipart/form-data">
         <fieldset>
           <legend><h2>Creer un composant</h2></legend>

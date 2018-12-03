@@ -18,23 +18,33 @@ if ($result = $mysqli->query($query)) {
 }
 
 $mysqli->close();
-?><h2>Supprimer un Revendeur</h2>
-<form method="post">
-  <fieldset>
-    <legend></legend>
-    <fieldset class="form-group">
-      <legend></legend>
-      <?php foreach ($revendeurComposant as $value) { ?>
-      <div class="form-check">
-        <label class="form-check-label">
-          <input name="deleteRevendeur[]" class="form-check-input" type="checkbox" value="<?= $value['id'] ; ?>" />
-          <?= $value['nom'] ; ?>
-        </label>
-      </div>
-      <?php } ?>
-    </fieldset>
-    <div class="text-right">
-      <button type="submit" class="btn btn-primary">Supprimer</button>
+?>
+
+
+
+
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-11 col-xl-8">
+      <form method="post">
+        <fieldset>
+          <legend><h2>Supprimer un Revendeur</h2></legend>
+          <fieldset class="form-group">
+            <legend></legend>
+            <?php foreach ($revendeurComposant as $value) { ?>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input name="deleteRevendeur[]" class="form-check-input" type="checkbox" value="<?= $value['id'] ; ?>" />
+                <?= $value['nom'] ; ?>
+              </label>
+            </div>
+            <?php } ?>
+          </fieldset>
+          <div class="text-right">
+            <button type="submit" class="btn btn-primary">Supprimer</button>
+          </div>
+        </fieldset>
+      </form>
     </div>
-  </fieldset>
-</form>
+  </div>
+</div>

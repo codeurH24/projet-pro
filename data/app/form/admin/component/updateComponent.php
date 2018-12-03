@@ -77,10 +77,10 @@ if ($result = $mysqli->query($query)) {
 
 <div class="container-fluid">
   <div class="row justify-content-center">
-    <div class="col-12 col-md-8 col-xl-4">
+    <div class="col-12 col-md-11 col-xl-8">
       <form method="post" id="form<?= $value['id']; ?>" class="collapse" enctype="multipart/form-data" style="padding-bottom:50px">
         <fieldset>
-          <legend></legend>
+          <legend>Modifier un composant</legend>
             <div class="form-group d-none">
               <label for="exampleInputPassword1">ID:</label>
               <input type="text" value="<?= $value['id']; ?>" name="idComposantUpdate" id="exampleInputPassword1" class="form-control" />
@@ -116,7 +116,9 @@ if ($result = $mysqli->query($query)) {
             <div class="form-group">
               <img src="/data/asset/image/composants/<?= $image; ?>" alt="image de composant" style="max-width:200px">
             </div>
-          <button type="submit" class="btn btn-primary">Modifier</button>
+            <div class="text-right">
+              <button type="submit" class="btn btn-primary">Modifier</button>
+            </div>
         </fieldset>
       </form>
     </div>
