@@ -217,6 +217,14 @@ button:hover .icon-white{color: white}
   background: linear-gradient(to bottom, #211E1BB3 0%,#44414180 100%);
   box-shadow: 7px 0 9px #202020;
 }
+.menu-left ul{
+  border-top: 2px solid #ffbd00;
+  border-bottom: 2px solid #ffbd00;
+}
+footer{
+  border-top: 2px solid #ffbd00;
+}
+
 .menu-left button,
 .menu-left a{
   text-align: left;
@@ -302,7 +310,7 @@ nav [type="button"]{
   background-color: transparent;
   border-width: thin;
   margin-left: -6px;
-  border: 0px solid black;  
+  border: 0px solid black;
 }
 nav form img{
   height: 2rem;
@@ -314,6 +322,38 @@ nav input[name=searchInput]{
   border-bottom: 1px solid white;
   background: transparent;
 }
+.indexUser{
+  color: white;
+  font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  background-color: #555;
+  box-shadow: 0 0 10px #000;
+  background: linear-gradient(to bottom, #565353 0%,#383838 100%);
+}
+.indexUser div{
+  padding: 5px;
+}
+.indexUser .entete{
+  background-color: #000;
+  display: cell;
+  border-bottom: 1px solid #ffbd00;
+}
+
+.admin-tools-users li{
+  display: inline-block;
+  margin-top:10px;
+  margin-left:10px;
+
+}
+.admin-tools-users li:last-of-type{
+  margin-left:30px;
+}
+.admin-tools-users li a{
+  color: wheat;
+}
+.admin-tools-users li a:hover{
+  color: yellow;
+}
+
 
 @media all and (min-width: 300px) and (max-width: 575px){
   .composants img{

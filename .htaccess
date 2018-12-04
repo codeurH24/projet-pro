@@ -56,4 +56,8 @@ RewriteRule admin/creer-liaison-composant-revendeur.php ?page=admin&section=crea
 RewriteRule admin/modifier-liaison-composant-revendeur.php ?page=admin&section=update-revendeurLnkComposant [L]
 RewriteRule admin/supprimer-liaison-composant-revendeur.php ?page=admin&section=delete-revendeurLnkComposant [L]
 
+RewriteRule admin/utilisateurs/$ ?page=admin&section=index-users [L]
+RewriteRule admin/utilisateurs/supprimer-user-([0-9]+)\.php ?page=admin&section=delete-user&id-user=$1 [L] [L]
+RewriteRule admin/utilisateurs/modifier-user-([0-9]+)\.php ?page=admin&section=update-user&id-user=$1 [L] [L]
+
 RewriteRule ^admin/$ ?page=admin [L]

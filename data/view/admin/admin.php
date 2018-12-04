@@ -56,19 +56,36 @@
           </div>
         </li>
         <li class="nav-item">
-          <div class=" w-100">
-            <button type="button" class="btn btn-primary w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <a href="#" class="w-100" style="color:#FFF;">
-                <i class="fas fa-2x fa-user-alt icon-white"></i><span>Utilisateurs</span>
-              </a>
+          <div class="btn-group dropright w-100">
+            <button type="button" class="btn btn-primary dropdown-toggle w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-2x fa-user-alt icon-white"></i><span>Utilisateurs</span>
             </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="/admin/utilisateurs/">Lister</a>
+              <a class="dropdown-item" href="creer-categorie.php">Creer</a>
+              <a class="dropdown-item" href="modifier-categorie.php">Modifier</a>
+              <a class="dropdown-item" href="supprimer-categorie.php">Supprimer</a>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="btn-group dropright w-100">
+            <button type="button" class="btn btn-primary dropdown-toggle w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-2x fa-user-secret"></i><span>Droits</span>
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="/admin/utilisateurs/">Lister</a>
+              <a class="dropdown-item" href="creer-categorie.php">Creer</a>
+              <a class="dropdown-item" href="modifier-categorie.php">Modifier</a>
+              <a class="dropdown-item" href="supprimer-categorie.php">Supprimer</a>
+            </div>
           </div>
         </li>
       </ul>
     </div>
     <div class="col-11 col-md-8 col-lg-9 col-xl-10 content-admin" style="">
       <?php require "data/view/account/identity.php"; ?>
-      <h1>Administration</h1>
+      <h1><i class="" style="vertical-align:-20%; padding-right:50px;"></i>Administration</h1>
       <?php
 
       if( isset($_GET['section']) ){
@@ -121,6 +138,12 @@
               break;
           case 'delete-revendeurLnkComposant':
               require_once("data/app/form/admin/retailer/component/deleteLnkRetailerComponent.php");
+              break;
+          case 'index-users':
+              require_once("data/app/form/admin/user/index.php");
+              break;
+          case 'delete-user':
+              require_once("data/app/form/admin/user/index.php");
               break;
 
           default:

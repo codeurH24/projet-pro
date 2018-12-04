@@ -1,6 +1,6 @@
 <header>
   <div class="banner">
-    <p>Configurer votre PC comme un Pro</p>
+    <p style="background-repeat: no-repeat;background-position: 100% 17px;filter:hue(30);background-size:200% 100%;background-image: url(/data/asset/image/laser.png)">Configurer votre PC comme un Pro</p>
   </div>
 </header>
 <nav class="navbar navbar-expand-lg navbar-dark bg-nav-master sticky-top">
