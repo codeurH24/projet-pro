@@ -11,21 +11,30 @@ if( isset($_POST['mail']) and !empty($_POST['mail'])){
     safeVar($mysqli, "post");
     $passwordMD5 = md5($password);
     $query = "SELECT * FROM `user` WHERE `email` LIKE '$mail' AND `password` LIKE '$passwordMD5'";
-    $row = bddQuery($mysqli, $query)[0];
-    if($row["password"] == $passwordMD5){
+    if( ($row = bddQuery($mysqli, $query)) !== false  ){
 
-      $_SESSION['user'] = [
-        "id" => $row["id"],
-        "pseudo" => $row["pseudo"],
-      ];
+      if( !empty($row) ){
+        $row = $row[0];
+        if($row["password"] == $passwordMD5){
 
-      // mise a jour de la date de la connexion
-      $dateTime = dbDate();
-      $query = "UPDATE `user` SET `date_last_login` = '$dateTime ' WHERE `user`.`id` = 14;";
-      bddQuery($mysqli, $query);
+          $_SESSION['user'] = [
+            "id" => $row["id"],
+            "pseudo" => $row["pseudo"],
+          ];
+
+          // mise a jour de la date de la connexion
+          $dateTime = dbDate();
+          $query = "UPDATE `user` SET `date_last_login` = '$dateTime ' WHERE `user`.`id` = 14;";
+          bddQuery($mysqli, $query);
+        }
+      }else{
+        $error = 'Mauvais identifiants de connexion';
+      }
+
     }
+
     if (!isset($_SESSION['user']) and empty($_SESSION['user'])){
-      exit("Probleme de session.");
+      //exit("Probleme de session.");
     }else{
       header('Location: /mes-creations/');
       exit("Connexion Reussi.");
@@ -41,10 +50,10 @@ if( isset($_POST['mail']) and !empty($_POST['mail'])){
        <form method="post">
          <fieldset>
            <legend>Connexion</legend>
+           <p class="error"><?= @$error; ?></p>
            <div class="form-group">
              <label for="exampleInputEmail1">Adresse E-mail</label>
-             <input name="mail" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-             <p class="error">We'll never share your email with anyone else.</p>
+             <input name="mail" type="email" class="form-control" id="exampleInputEmail1" value="<?= @$_POST['mail'] ?>">
            </div>
            <div class="form-group">
              <label for="exampleInputPassword1">Mot de passe</label>
