@@ -41,6 +41,9 @@ $pageDisplay = false;
       // UTILISATEUR (CRUD)
     require 'data/app/form/admin/user/updateUser.php'; // update
 
+    // Déconnexion du site
+    require 'data/view/user/logout.php'; //
+
 
  ?><!doctype html>
 <html lang="fr">

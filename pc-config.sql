@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:3306
--- Généré le :  Dim 02 Décembre 2018 à 22:29
+-- Généré le :  Sam 08 Décembre 2018 à 18:28
 -- Version du serveur :  5.7.24-0ubuntu0.18.04.1
 -- Version de PHP :  7.2.10-0ubuntu0.18.04.1
 
@@ -285,11 +285,12 @@ CREATE TABLE `creation` (
 INSERT INTO `creation` (`id`, `name`, `enable`, `description`, `id_user`, `date_creation`) VALUES
 (6, 'PC Gamer', 0, 'Montage d\'un pc en prvision de de jouer a WOW ou LOL', 14, '2018-10-28 03:26:22'),
 (7, 'PC familiale', 0, 'Besoin d\'un pc pour toute la famille', 14, '2018-10-28 03:01:43'),
-(8, 'PC pour mon entreprise de gestion', 0, 'Ce pc correspondra parfaitement  mes besoin professionnel, dans le cadre de l\'administratif niveau entreprise', 14, '2018-10-28 03:03:05'),
 (9, 'Ordinateur pour le voisin', 0, 'Mon voisin  besoin d\'un ordinateur pour surfer sur internet', 14, '2018-10-28 03:04:07'),
 (32, 'Config No Name', 1, 'Config No Name', 14, '2018-11-03 14:23:31'),
 (34, 'config X', 0, 'test X', 24, '2018-11-04 09:35:28'),
-(41, 'Config No Name', 1, 'Config No Name', 24, '2018-11-04 09:52:30');
+(41, 'Config No Name', 1, 'Config No Name', 24, '2018-11-04 09:52:30'),
+(48, 'pc test', 0, 'pour tester', 26, '2018-12-07 15:51:57'),
+(53, 'Config No Name', 1, 'Config No Name', 26, '2018-12-08 10:31:39');
 
 -- --------------------------------------------------------
 
@@ -319,7 +320,10 @@ INSERT INTO `creation_conception` (`id`, `id_composant`, `id_creation`, `id_user
 (27, 16, 32, 14, '2018-11-26 10:25:49'),
 (29, 56, 32, 14, '2018-11-26 10:30:23'),
 (30, 125, 32, 14, '2018-11-27 11:14:31'),
-(33, 19, 7, 14, '2018-12-01 16:38:00');
+(33, 19, 7, 14, '2018-12-01 16:38:00'),
+(42, 19, 48, 26, '2018-12-07 16:06:07'),
+(46, 19, 53, 26, '2018-12-08 10:40:35'),
+(54, 52, 53, 26, '2018-12-08 13:24:00');
 
 -- --------------------------------------------------------
 
@@ -500,6 +504,27 @@ CREATE TABLE `revendeur_composant` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `role`
+--
+
+CREATE TABLE `role` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Contenu de la table `role`
+--
+
+INSERT INTO `role` (`id`, `nom`) VALUES
+(1, 'membre'),
+(2, 'contributeur'),
+(3, 'admin'),
+(4, 'super admin');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `user`
 --
 
@@ -522,8 +547,11 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `nom`, `prenom`, `pseudo`, `email`, `age`, `password`, `date_registration`, `date_last_login`, `id_adresse`, `id_role`) VALUES
-(14, '', '', 'Florent Corlouer', 'cci.corlouer@gmail.com', 0, '81dc9bdb52d04dc20036dbd8313ed055', '2018-09-30 08:10:32', '2018-09-24 00:00:00', 0, 0),
-(24, '', '', 'codeurh24', 'codeurh24@gmail.com', 0, '81dc9bdb52d04dc20036dbd8313ed055', '2018-11-04 08:30:42', '2018-11-04 08:30:42', 0, 0);
+(14, 'florent', 'Corlouer', 'admin master', 'cci.corlouer@gmail.com', 33, '81dc9bdb52d04dc20036dbd8313ed055', '2018-09-30 08:10:32', '2018-12-08 18:23:12', 0, 4),
+(24, ' ', '', 'codeurh25', 'codeurh24@gmail.com', 0, '81dc9bdb52d04dc20036dbd8313ed055', '2018-11-04 08:30:42', '2018-11-04 08:30:42', 0, 1),
+(26, '', '', 'angelo', 'angelo@gmail.com', 0, '81dc9bdb52d04dc20036dbd8313ed055', '2018-12-04 13:22:25', '2018-12-04 13:22:25', NULL, 3),
+(27, NULL, NULL, 'jeffen', 'jef@gmail.com', 0, '81dc9bdb52d04dc20036dbd8313ed055', '2018-12-07 15:02:30', '2018-12-07 15:02:30', NULL, 0),
+(28, NULL, NULL, 'george', 'george@gmail.com', 0, '81dc9bdb52d04dc20036dbd8313ed055', '2018-12-08 18:05:28', '2018-12-08 18:05:28', NULL, 0);
 
 --
 -- Index pour les tables exportées
@@ -599,6 +627,12 @@ ALTER TABLE `revendeur_composant`
   ADD KEY `compLnkRev` (`id_revendeur`);
 
 --
+-- Index pour la table `role`
+--
+ALTER TABLE `role`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `user`
 --
 ALTER TABLE `user`
@@ -632,12 +666,12 @@ ALTER TABLE `composant`
 -- AUTO_INCREMENT pour la table `creation`
 --
 ALTER TABLE `creation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 --
 -- AUTO_INCREMENT pour la table `creation_conception`
 --
 ALTER TABLE `creation_conception`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 --
 -- AUTO_INCREMENT pour la table `image_composant`
 --
@@ -659,10 +693,15 @@ ALTER TABLE `revendeur`
 ALTER TABLE `revendeur_composant`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT pour la table `role`
+--
+ALTER TABLE `role`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- Contraintes pour les tables exportées
 --

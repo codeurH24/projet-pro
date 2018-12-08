@@ -4,7 +4,12 @@ if ( isset($UID) ){
   $mysqli = bddConnect();
     $query = "SELECT * FROM `creation` WHERE `enable` = 1 AND `id_user` = $UID ";
     if( ($creaionActiveForMenu = bddQuery($mysqli, $query)) !== false){
-      $creaionActiveForMenu = $creaionActiveForMenu[0];
+      if( isset($creaionActiveForMenu[0]) ){
+        $creaionActiveForMenu = $creaionActiveForMenu[0];
+      }else{
+        $creaionActiveForMenu = false;  
+      }
+
     }
   $mysqli->close();
 }
