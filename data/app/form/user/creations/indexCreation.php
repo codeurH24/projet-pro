@@ -1,8 +1,6 @@
 <?php
-
-$mysqli = bddConnect();
-
 if( isset($_GET['enableCreation']) ){
+  $mysqli = bddConnect();
   $enableCreation = $_GET['enableCreation'];
 
   $query = "UPDATE `creation` SET `enable` = '0' WHERE `id_user` = $UID;";
@@ -16,15 +14,19 @@ if( isset($_GET['enableCreation']) ){
   }else{
     //echo "$UID - Aucune Remise a zero des creations<br />";
   }
-}
+  $mysqli->close();
 
+}
+if( isset($pageDisplay) && $pageDisplay == true ){
+
+$mysqli = bddConnect();
 
 $query = "SELECT * FROM `creation` WHERE `id_user` = $UID ORDER BY `creation`.`enable` DESC";
 if ($result = $mysqli->query($query)) {
     $creationList = $result->fetch_all(MYSQLI_ASSOC);
     $result->free();
 }
-require_once("data/view/user/creations/headerCreation.php");
+include("data/view/user/creations/headerCreation.php");
 
 $sql = "SELECT composant.model
                 FROM creation_conception
@@ -72,7 +74,9 @@ $sql = "SELECT composant.model
   </div>
 
 <?php }
-$mysqli->close();
 
-require_once("data/view/user/creations/footerCreation.php");
+include("data/view/user/creations/footerCreation.php");
+
+$mysqli->close();
+}
 ?>

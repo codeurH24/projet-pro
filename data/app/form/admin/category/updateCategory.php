@@ -16,6 +16,8 @@ $query = "SELECT * FROM `categorie` ORDER BY `categorie`.`nom` ASC";
 $categorieComposant = bddQuery($mysqli, $query);
 
 $mysqli->close();
+if( isset($pageDisplay) && $pageDisplay == true ){
+require 'data/view/admin/headerAdmin.php';
 ?>
 
 <div class="container-fluid">
@@ -38,3 +40,5 @@ $mysqli->close();
     </div>
   </div>
 </div>
+<?php require 'data/view/admin/footerAdmin.php';
+} ?>

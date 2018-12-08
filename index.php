@@ -1,4 +1,6 @@
 <?php  session_start();
+// rappel pour codeurh24 "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+// ascii generator http://patorjk.com/software/taag/ police calbin S width smush R
 
 require_once("data/config.php");
 $dbDate = date('Y-m-d H:i:s');
@@ -12,14 +14,32 @@ require_once("data/app/func/function.php");
 // Route main
 require_once("data/route/routeMain.php");
 
+// traitement des formulaires
+$pageDisplay = false;
+/*
 
 
+╔╦╗╦═╗╔═╗╦╔╦╗╔═╗╔╦╗╔═╗╔╗╔╦╗╔═╗  ╔═╗╔═╗╔╦╗  ╔═╗╔╦╗  ╔═╗╔═╗╔═╗╔╦╗
+ ║ ╠╦╝╠═╣║ ║ ║╣ ║║║║╣ ║║║║ ╚═╗  ║ ╦║╣  ║   ║╣  ║   ╠═╝║ ║╚═╗ ║
+ ╩ ╩╚═╩ ╩╩ ╩ ╚═╝╩ ╩╚═╝╝╚╝╩ ╚═╝  ╚═╝╚═╝ ╩   ╚═╝ ╩   ╩  ╚═╝╚═╝ ╩
 
 
-
-
-
-
+    ┬ ┬┌┬┐┬  ┬┌─┐┌─┐┌┬┐┌─┐┬ ┬┬─┐
+    │ │ │ │  │└─┐├─┤ │ ├┤ │ │├┬┘
+    └─┘ ┴ ┴─┘┴└─┘┴ ┴ ┴ └─┘└─┘┴└─
+    */
+      // CREATION (CRUD)
+    require 'data/app/form/user/creations/indexCreation.php'; //  liste les entitées
+    require 'data/app/form/user/creations/createCreation.php'; // Create
+    require 'data/app/form/user/creations/deleteCreation.php'; // delete
+    require 'data/app/form/user/creations/showCreation.php'; // read
+    /*
+    ┌─┐┌┬┐┌┬┐┬┌┐┌┬┌─┐┌┬┐┬─┐┌─┐┌┬┐┬┌─┐┌┐┌
+    ├─┤ ││││││││││└─┐ │ ├┬┘├─┤ │ ││ ││││
+    ┴ ┴─┴┘┴ ┴┴┘└┘┴└─┘ ┴ ┴└─┴ ┴ ┴ ┴└─┘┘└┘
+    */
+      // UTILISATEUR (CRUD)
+    require 'data/app/form/admin/user/updateUser.php'; // update
 
 
  ?><!doctype html>

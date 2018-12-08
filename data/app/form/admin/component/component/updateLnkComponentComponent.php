@@ -36,6 +36,8 @@ WHERE compatibilite.id = ";
 foreach ($compatibiliteList as $key => $valueParent) {
 
   $composantList2D = bddQuery($mysqli, $query.$valueParent['id'])[0];
+if( isset($pageDisplay) && $pageDisplay == true ){
+  require 'data/view/admin/headerAdmin.php';
  ?>
 
 
@@ -103,4 +105,7 @@ foreach ($compatibiliteList as $key => $valueParent) {
 <?php
 }
 $mysqli->close();
+
 ?>
+<?php require 'data/view/admin/footerAdmin.php';
+} ?>

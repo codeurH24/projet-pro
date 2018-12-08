@@ -8,6 +8,11 @@ main form{
   font-weight: bold;
 
 }
+main .conponent-item2-page form {
+	background-color: transparent;
+  box-shadow: unset;
+}
+
 main form legend,
 main form legend h2{
   color: wheat;

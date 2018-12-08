@@ -18,6 +18,8 @@ if ($result = $mysqli->query($query)) {
     $result->free();
 }
 
+if( isset($pageDisplay) && $pageDisplay == true ){
+require 'data/view/admin/headerAdmin.php';
 
 ?><h2>Supprimer Reference</h2>
 <form method="post">
@@ -50,3 +52,5 @@ if ($result = $mysqli->query($query)) {
 </form>
 <?php
 $mysqli->close(); ?>
+<?php require 'data/view/admin/footerAdmin.php';
+} ?>

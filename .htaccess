@@ -1,6 +1,7 @@
 DirectoryIndex index.php
 RewriteEngine on
 
+
 RewriteRule data/asset/css/master.css data/asset/css/master.css [L]
 RewriteRule data/asset/css/form.css data/asset/css/form.css [L]
 RewriteRule data/asset/css/componentItemPage.css data/asset/css/componentItemPage.css [L]
@@ -59,5 +60,6 @@ RewriteRule admin/supprimer-liaison-composant-revendeur.php ?page=admin&section=
 RewriteRule admin/utilisateurs/$ ?page=admin&section=index-users [L]
 RewriteRule admin/utilisateurs/supprimer-user-([0-9]+)\.php ?page=admin&section=delete-user&id-user=$1 [L] [L]
 RewriteRule admin/utilisateurs/modifier-user-([0-9]+)\.php ?page=admin&section=update-user&id-user=$1 [L] [L]
+RewriteRule admin/utilisateurs/create-user.php ?page=admin&section=create-user [L] [L]
 
 RewriteRule ^admin/$ ?page=admin [L]

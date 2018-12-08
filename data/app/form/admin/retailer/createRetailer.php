@@ -15,6 +15,9 @@ if( isset($_POST['nameRevendeur']) and ! empty($_POST['nameRevendeur']) ){
   }
   $mysqli->close();
 }
+
+if( isset($pageDisplay) && $pageDisplay == true ){
+require 'data/view/admin/headerAdmin.php';
 ?>
 
 
@@ -39,3 +42,5 @@ if( isset($_POST['nameRevendeur']) and ! empty($_POST['nameRevendeur']) ){
     </div>
   </div>
 </div>
+<?php require 'data/view/admin/footerAdmin.php';
+} ?>

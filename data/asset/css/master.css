@@ -2,6 +2,10 @@ html,body{
   min-width: 300px; /* empeche de réduire le site en dessous de 300px*/
   min-height: 100%;
   background: #000;
+  overflow-x: hidden;
+}
+html *{
+  outline: none;
 }
 /* h5, .h5 {
     font-size: 1vw;
@@ -23,6 +27,7 @@ a:hover {
 .nav-link {
     display: inline-block;
 }
+
 header .card-img {
     width: 20%;
 }
@@ -44,12 +49,13 @@ header .card-title a,
 
 .banner{
   color: wheat;
-
-  /* background-image: url(../../asset/image/background-banner.png); */
   background-size: auto 100%;
-  /* animation: animatedBackground 40s linear infinite; */
-  /* height: 11vw; */
-
+}
+.banner p{
+  background-repeat: no-repeat;background-position: 100% 17px;
+  filter:hue(30);
+  background-size:200% 100%;
+  background-image: url(/data/asset/image/laser.png);
 }
 .card-title,h5 {
     margin: 0vw;
@@ -253,6 +259,7 @@ form.showCreationItem:hover{
 }
 .content-admin h1{
   text-align: center;
+  text-shadow: 3px 0px 2px black,5px 0px 2px black;
 }
 .content-admin h2{
   text-align: left;
@@ -261,6 +268,10 @@ form.showCreationItem:hover{
 
 .bg-nav-master {
     background-color: #000;
+    color: #FFF;
+}
+.bg-nav-master .nav-link{
+    color: #FFF;
 }
 .btn-primary {
     color: #fff;
@@ -349,10 +360,68 @@ nav input[name=searchInput]{
 }
 .admin-tools-users li a{
   color: wheat;
+  color: #dba301;
 }
 .admin-tools-users li a:hover{
   color: yellow;
 }
+
+.conponent-item2-page button {
+	border: 0px solid;
+	background: transparent;
+	display: inline;
+  color:white;
+  text-shadow: 0 0 0 #ff5a00;
+  box-shadow: 0 0 0 0 #ffa200;
+  transition: all 1s ease-out;
+}
+
+.conponent-item2-page button i {
+	font-size: 3vw;
+}
+.conponent-item2-page button:hover i {
+  text-shadow: 0 0 0px #ff5a00;
+  box-shadow: 0 0 3px 8px #ffa200;
+	border-radius: 100%;
+	padding: 0;
+  transition: all 0.3s ease-out;
+}
+.next-page, .back-page{
+  padding: 0.3rem 0rem 0.2rem 0.2rem;
+  color: #595959;
+}
+.back-page{
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.next-page{
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.page-item:first-child .page-link {
+    margin-left: 0;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+.page-item:last-child .page-link {
+    margin-left: 0;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.page-link {
+	line-height: 1.7;
+}
+.pagination {
+	border-radius: 10px;
+	background-color: white;
+	color: wheat;
+}
+
+
+border-bottom-left-radius: 10px;
+
+border-top-left-radius: 10px;
 
 
 @media all and (min-width: 300px) and (max-width: 575px){
@@ -394,6 +463,14 @@ nav input[name=searchInput]{
   .menu-left .fa-2x, .menu-left img {
     margin-left: 10px;
   }
+}
+
+
+.modal-dialog p {
+  color: black;
+}
+.modal-body{
+  font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 

@@ -5,7 +5,7 @@ print_r($_POST);
 if( isset($_POST['addToCreation']) and ! empty($_POST['addToCreation']) ){
   $safeVar = safeVar($mysqli, "post");
   $creationsEnable = bddQuery($mysqli, "SELECT * FROM `creation` WHERE `enable` = 1 AND `id_user` = $UID");
-  $idCreation = $creationsEnable[0]["id"];
+
   // si aucune tables creation est prete a accueillir un composant alors on en creer une par defaut
   if( count($creationsEnable) == 0){
     $lastID = bddCreateFlush($mysqli, "creation", [
@@ -19,6 +19,8 @@ if( isset($_POST['addToCreation']) and ! empty($_POST['addToCreation']) ){
     addToCreation($mysqli,$lastID);
   }else{
 
+    $idCreation = $creationsEnable[0]["id"];
+
     $catComponent = false;
     if (isProcesseur($mysqli, $addToCreation)){
       $componentExist = processeurExistOnCreation($idCreation, $mysqli);
@@ -26,6 +28,8 @@ if( isset($_POST['addToCreation']) and ! empty($_POST['addToCreation']) ){
     }else if (isMainboard($mysqli, $addToCreation)){
       $componentExist = mainboardExistOnCreation($idCreation, $mysqli);
       $catComponent = 9;
+    }else{
+      $componentExist = false;
     }
 
     // si ont n'a pas deja ajouter un processeur ou une carte mere
@@ -56,8 +60,8 @@ function addToCreation($mysqli, $id){
     "id_user" => UID(),
     "date_create" => dbDate()
   ]);
-  header('Location: '."http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
-  exit("Composant ajouter à la création.");
+  //header('Location: '."http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+  //exit("Composant ajouter à la création.");
 
 }
 

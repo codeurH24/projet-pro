@@ -26,4 +26,32 @@ $requirePage = [
     ['url' => 'data/view/admin/admin.php','connect' => true]
 ];
 
+
+$routeMainPage = NULL;
+$requireDefaultPage = "data/view/pages/accueil.php";
+if(! isset($_GET['page'])){
+  // require_once($requireDefaultPage );
+  $routeMainPage = $requireDefaultPage;
+}else{
+
+
+
+
+  $page = $_GET['page'];
+  if( isset($requirePage[$page])){
+    if($requirePage[$page]['connect'] === true){
+      redirectIfNotSession();
+      //echo '<br />Connection demander '.$requirePage[$page]['url'].'<br />';
+    }else{
+      //echo '<br />Page publique sur '.$requirePage[$page]['url'].'<br />';
+    }
+    // require_once($requirePage[$page]['url']);
+    $routeMainPage = $requirePage[$page]['url'];
+  }else{
+    // require_once($requireDefaultPage);
+    $routeMainPage = $requireDefaultPage;
+  }
+
+}
+
  ?>

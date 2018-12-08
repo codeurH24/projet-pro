@@ -23,6 +23,9 @@ if ($result = $mysqli->query($query)) {
     $result->free();
 }
 $mysqli->close();
+
+if( isset($pageDisplay) && $pageDisplay == true ){
+require 'data/view/admin/headerAdmin.php';
 ?><form method="post">
   <div class="form-group">
     <label for="revendeurCreateRevendeurLnkComposant">Revendeur</label>
@@ -52,3 +55,5 @@ $mysqli->close();
     <button type="submit" class="btn btn-primary">Creer</button>
   </div>
 </form>
+<?php require 'data/view/admin/footerAdmin.php';
+} ?>

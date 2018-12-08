@@ -8,6 +8,8 @@ if( isset($_POST['idCreationUpdate']) and ! empty($_POST['idCreationUpdate']) ){
   if (bddQuery($mysqli, $query) === false) {
     bddError($mysqli, $query);
   }
+  header('Location: /mes-creations/');
+  exit('Config supprimé.');
 }
 $query = "SELECT * FROM `creation`";
 $show = "";
@@ -19,6 +21,10 @@ if (($creationList = bddQuery($mysqli, $query)) === false) {
   bddError($mysqli, $query);
 }
 $mysqli->close();
+
+
+
+if( isset($pageDisplay) && $pageDisplay == true ){
 require_once("data/view/user/creations/headerCreation.php");
 ?>
 <div class="text-right">
@@ -40,4 +46,5 @@ foreach ($creationList as $creation) { ?>
 </form>
 <?php }
 require_once("data/view/user/creations/footerCreation.php");
+}
  ?>

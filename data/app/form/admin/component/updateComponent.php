@@ -52,6 +52,11 @@ if ($result = $mysqli->query($query)) {
 
 
 $mysqli->close();
+
+if( isset($pageDisplay) && $pageDisplay == true ){
+require 'data/view/admin/headerAdmin.php';
+
+
 $mysqli = bddConnect();
 
 ?><h2>Modifier un composant</h2><?php
@@ -131,3 +136,5 @@ if ($result = $mysqli->query($query)) {
  }
 
  $mysqli->close(); ?>
+<?php require 'data/view/admin/footerAdmin.php';
+} ?>

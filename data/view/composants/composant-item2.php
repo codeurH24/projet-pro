@@ -31,8 +31,15 @@
                   </div>
                 </div>
                 <div class="col-2 col-sm-4 tools">
-                  <a href="#"><i class="fas fa-2x fa-info-circle"></i></a>
-                  <a href="#"><i class="fas fa-2x fa-shopping-cart"></i></a>
+                  <!-- <a href="#"><i class="fas fa-2x fa-info-circle"></i></a>
+                  <a href="#"><i class="fas fa-2x fa-shopping-cart"></i></a> -->
+                  <form method="post">
+                    <input type="hidden" name="addToCreation"  value="<?= $id ?>" />
+                    <!-- <button href="#" class="btn btn-primary" style="min-width:10rem;">Ajouter</button> -->
+                    <button type="submit" name="button" title="Ajouter à la config">
+                      <i class="fas fa-arrow-circle-up"></i>
+                    </button>
+                  </form>
                 </div>
               </div>
             </div>

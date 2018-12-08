@@ -16,10 +16,10 @@ if( isset($_POST['nameCategorie']) and ! empty($_POST['nameCategorie']) ){
   }
   $mysqli->close();
 }
+
+if( isset($pageDisplay) && $pageDisplay == true ){
+require 'data/view/admin/headerAdmin.php';
 ?>
-
-
-
 <div class="container-fluid">
   <div class="row justify-content-center">
     <div class="col-12 col-md-8 col-xl-4">
@@ -39,3 +39,5 @@ if( isset($_POST['nameCategorie']) and ! empty($_POST['nameCategorie']) ){
     </div>
   </div>
 </div>
+<?php require 'data/view/admin/footerAdmin.php';
+} ?>

@@ -3,6 +3,7 @@ $mysqli = bddConnect();
   $query = "SELECT COUNT(id) AS numberOfUser FROM `user` WHERE 1 ";
   $numberOfUser = bddQuery($mysqli, $query)[0]['numberOfUser'];
 $mysqli->close();
+  require 'data/view/admin/headerAdmin.php';
  ?>
 <div class="container-fluid">
   <div class="row justify-content-center">
@@ -11,3 +12,4 @@ $mysqli->close();
     </div>
   </div>
 </div>
+<?php require 'data/view/admin/footerAdmin.php'; ?>

@@ -43,6 +43,8 @@ if ($result = $mysqli->query($query)) {
     $result->free();
 }
 
+if( isset($pageDisplay) && $pageDisplay == true ){
+require 'data/view/admin/headerAdmin.php';
 ?>
 <h2>Modifier Reference</h2>
 <?php
@@ -106,3 +108,5 @@ foreach ($revendeurComposanttList as $key => $valueParent) {
 }
 $mysqli->close();
  ?>
+<?php require 'data/view/admin/footerAdmin.php';
+} ?>

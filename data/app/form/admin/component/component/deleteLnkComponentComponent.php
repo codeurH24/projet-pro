@@ -48,7 +48,8 @@ ON comp1.id = compatibilite.id_composant1
 INNER JOIN composant comp2
 ON comp2.id = compatibilite.id_composant2
 WHERE compatibilite.id = ";
-
+if( isset($pageDisplay) && $pageDisplay == true ){
+require 'data/view/admin/headerAdmin.php';
 ?>
 
 
@@ -91,3 +92,5 @@ WHERE compatibilite.id = ";
     </div>
   </div>
 </div>
+<?php require 'data/view/admin/footerAdmin.php';
+} ?>

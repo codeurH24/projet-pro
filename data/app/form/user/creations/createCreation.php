@@ -1,7 +1,10 @@
 <?php
 if( isset($_POST['nameCreation']) and ! empty($_POST['nameCreation']) ){
   $mysqli = bddConnect();
+  // sécurise les variable get ou post et génére leur variables daas la page .
+  // Exemple $_POST['nameCreation'] deviens $nameCreation
   safeVar($mysqli, "post");
+  // insert une nouvelle ligne dans la table. Cette function gère déjà les erreurs
   bddCreateFlush($mysqli, "creation", [
     "id" => NULL,
     "name" => $nameCreation,
@@ -10,7 +13,11 @@ if( isset($_POST['nameCreation']) and ! empty($_POST['nameCreation']) ){
     "date_creation" => $dbDate
   ]);
   $mysqli->close();
+  header('Location: /mes-creations/');
+  exit('Nouvelle config crée.');
 }
+
+if( isset($pageDisplay) && $pageDisplay == true ){
 require_once("data/view/user/creations/headerCreation.php");
  ?>
 
@@ -43,4 +50,5 @@ require_once("data/view/user/creations/headerCreation.php");
   </div>
 <?php
 require_once("data/view/user/creations/footerCreation.php");
+}
  ?>

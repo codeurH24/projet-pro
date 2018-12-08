@@ -27,7 +27,8 @@ if ( isset($_POST['keyWord']) and empty($_POST['keyWord']) ) {
 }else{
   $listOfComponent = [];
 }
-
+if( isset($pageDisplay) && $pageDisplay == true ){
+require 'data/view/admin/headerAdmin.php';
  ?>
  <h2>Recherche de composants</h2>
  <form method="post">
@@ -60,3 +61,5 @@ if ( isset($_POST['keyWord']) and empty($_POST['keyWord']) ) {
 <?php }
   $_SESSION['sqlTagComponentCreate'] = $sqlTagCreate;
 ?>
+<?php require 'data/view/admin/footerAdmin.php';
+} ?>

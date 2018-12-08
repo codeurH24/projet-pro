@@ -1,6 +1,18 @@
-<header>
+<?php
+
+if ( isset($UID) ){
+  $mysqli = bddConnect();
+    $query = "SELECT * FROM `creation` WHERE `enable` = 1 AND `id_user` = $UID ";
+    if( ($creaionActiveForMenu = bddQuery($mysqli, $query)) !== false){
+      $creaionActiveForMenu = $creaionActiveForMenu[0];
+    }
+  $mysqli->close();
+}
+
+
+ ?><header>
   <div class="banner">
-    <p style="background-repeat: no-repeat;background-position: 100% 17px;filter:hue(30);background-size:200% 100%;background-image: url(/data/asset/image/laser.png)">Configurer votre PC comme un Pro</p>
+    <p>Configurer votre PC comme un Pro</p>
   </div>
 </header>
 <nav class="navbar navbar-expand-lg navbar-dark bg-nav-master sticky-top">
@@ -17,7 +29,7 @@
           Accueil <span class="sr-only">(current)</span>
         </a>
       </li>
-      <?php if(! isset($_SESSION['user']) ){ ?>
+      <?php if(! isset($UID) ){ ?>
       <li class="nav-item">
         <a class="nav-link" href="/mon-compte/connexion/">
           <i class="fas fa-2x fa-wifi"></i>
@@ -31,7 +43,7 @@
         </a>
       </li>
       <?php } ?>
-      <?php if( isset($_SESSION['user']) ){ ?>
+      <?php if( isset($UID) ){ ?>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-2x fa-user-alt"></i> Mon compte
@@ -46,7 +58,25 @@
         </div>
       </li>
       <?php } ?>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-2x fa-keyboard"></i> Composants
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/composants-carte-mere-1.php">Cartes mères</a>
+          <a class="dropdown-item" href="/composants-processeur-1.php">Processeurs</a>
+          <a class="dropdown-item" href="/composants-memoire-vive-1.php">Mémoires vives</a>
+          <a class="dropdown-item" href="/composants-carte-graphique-1.php">Cartes Graphiques</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <?php if( isset($creaionActiveForMenu) and $creaionActiveForMenu !== false ) { ?>
+        <!-- <a class="nav-link" href="/mes-creations/detail/<?= $creaionActiveForMenu['id'] ?>.php"><i class="fab fa-2x fa-creative-commons-remix"></i>Ma création</a> -->
+        <a class="nav-link" href="/mes-creations/detail/<?= $creaionActiveForMenu['id'] ?>.php"><i class="fas fa-2x fa-puzzle-piece"></i>Ma création</a>
+        <?php }  ?>
+      </li>
     </ul>
+
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="text" name="searchInput" placeholder="Rechercher">
       <button type="button" name="button">

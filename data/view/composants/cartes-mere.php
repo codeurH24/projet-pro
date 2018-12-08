@@ -83,7 +83,7 @@ foreach ($composantList as  $composant) {
   $titre = $composant["model"];
   $img = "/data/asset/image/composants/".$image;
   $bureautique=5;$multimedia=5;$jeuxVideo=5;$rendu3D=5;$prix="46,92";
-  include("composant-item.php");
+  include("composant-item2.php");
 }
 
 

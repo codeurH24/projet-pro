@@ -20,6 +20,9 @@ if ($result = $mysqli->query($query)) {
 }
 
 $mysqli->close();
+
+if( isset($pageDisplay) && $pageDisplay == true ){
+require 'data/view/admin/headerAdmin.php';
 ?>
 
 
@@ -43,3 +46,5 @@ $mysqli->close();
     </div>
   </div>
 </div>
+<?php require 'data/view/admin/footerAdmin.php';
+} ?>

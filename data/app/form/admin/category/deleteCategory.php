@@ -17,6 +17,8 @@ if ($result = $mysqli->query($query)) {
     $result->free();
 }
 $mysqli->close();
+if( isset($pageDisplay) && $pageDisplay == true ){
+require 'data/view/admin/headerAdmin.php';
 ?>
 
 <div class="container-fluid">
@@ -44,3 +46,5 @@ $mysqli->close();
     </div>
   </div>
 </div>
+<?php require 'data/view/admin/footerAdmin.php';
+} ?>
