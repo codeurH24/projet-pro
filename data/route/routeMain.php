@@ -23,7 +23,9 @@ $requirePage = [
   'logout' =>
     ['url' => 'data/view/user/logout.php','connect' => true],
   'admin' =>
-    ['url' => 'data/view/admin/admin.php','connect' => true]
+    ['url' => 'data/view/admin/admin.php','connect' => true],
+  'error' =>
+    ['url' => 'data/view/error/error.php','connect' => false]
 ];
 
 

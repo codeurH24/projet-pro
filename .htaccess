@@ -57,9 +57,19 @@ RewriteRule admin/creer-liaison-composant-revendeur.php ?page=admin&section=crea
 RewriteRule admin/modifier-liaison-composant-revendeur.php ?page=admin&section=update-revendeurLnkComposant [L]
 RewriteRule admin/supprimer-liaison-composant-revendeur.php ?page=admin&section=delete-revendeurLnkComposant [L]
 
+
 RewriteRule admin/utilisateurs/$ ?page=admin&section=index-users [L]
 RewriteRule admin/utilisateurs/supprimer-user-([0-9]+)\.php ?page=admin&section=delete-user&id-user=$1 [L] [L]
 RewriteRule admin/utilisateurs/modifier-user-([0-9]+)\.php ?page=admin&section=update-user&id-user=$1 [L] [L]
+RewriteRule admin/utilisateurs/show-user-([0-9]+)\.php ?page=admin&section=show-user&id-user=$1 [L] [L]
 RewriteRule admin/utilisateurs/create-user.php ?page=admin&section=create-user [L] [L]
+RewriteRule admin/utilisateurs/demander-un-nouveau-mot-de-passe$ ?page=admin&section=index-users&ask-password=true [L]
+
+RewriteRule erreur/404-page-non-trouve.html ?page=error&section=404 [L]
+RewriteRule erreur/500-page-non-trouve.html ?page=error&section=500 [L]
 
 RewriteRule ^admin/$ ?page=admin [L]
+
+
+ErrorDocument 404 /erreur/404-page-non-trouve.html
+ErrorDocument 500 /erreur/500-page-non-trouve.html

@@ -23,12 +23,14 @@ if( isset($_POST['createUserTable'])  ){
 
   $mysqli->close();
 }
+
+if( isset($pageDisplay) && $pageDisplay == true ){
   require 'data/view/admin/headerAdmin.php';
 ?>
 <div class="container-fluid">
   <div class="row justify-content-center">
     <div class="col-12 col-md-8 col-xl-6">
-      <div class="text-right">
+      <div class="text-right mb-3">
         <a href="/admin/utilisateurs/" class="btn btn-secondary">Retour</a>
       </div>
       <form method="post">
@@ -63,4 +65,5 @@ if( isset($_POST['createUserTable'])  ){
     </div>
   </div>
 </div>
-<?php require 'data/view/admin/footerAdmin.php'; ?>
+<?php require 'data/view/admin/footerAdmin.php';
+} ?>

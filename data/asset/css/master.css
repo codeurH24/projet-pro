@@ -2,7 +2,6 @@ html,body{
   min-width: 300px; /* empeche de réduire le site en dessous de 300px*/
   min-height: 100%;
   background: #000;
-  overflow-x: hidden;
 }
 html *{
   outline: none;
@@ -418,10 +417,42 @@ nav input[name=searchInput]{
 	color: wheat;
 }
 
+.arrayHTML{
+  /* Style cadre de selection */
+  /* color: white;
+  font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  background-color: #555;
+  box-shadow: 0 0 10px #000;
+  background: linear-gradient(to bottom, #565353 0%,#383838 100%);
+  padding: 10px;
+  width: 100%; */
+  /* Style formulaire */
+  padding: 20px;
+  box-shadow: 0 0 10px 0px black;
+  background-color: #FFF4;
+  color: white;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.9rem;
+  font-weight: bold;
+  font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+.arrayHTML table{
+  width: 100%;
+}
+.arrayHTML td{
+  padding-top: 10px;
+}
+.arrayHTML .entete {
+    background-color: transparent;
+    border-bottom: 1px solid #ffbd00;
+    border-bottom: 1px solid #FFF;
+    color: wheat;
+}
+.arrayHTML td {
+    background-color: transparent;
+    border-bottom: 1px solid #FFF;
+}
 
-border-bottom-left-radius: 10px;
-
-border-top-left-radius: 10px;
 
 
 @media all and (min-width: 300px) and (max-width: 575px){

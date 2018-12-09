@@ -63,6 +63,9 @@
           case 'create-user':
               require("data/app/form/admin/user/createUser.php");
               break;
+          case 'show-user':
+              require("data/app/form/admin/user/showUser.php");
+              break;
 
           default:
             echo 'page not found';

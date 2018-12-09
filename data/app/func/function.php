@@ -143,9 +143,9 @@ function dbDate(){
   return $dbDate;
 }
 
-function modal($header, $content, $footer){
+function modal($header, $content, $footer, $action=''){
   ?>
-  <form action="" method="post">
+  <form action="<?= $action ?>" method="post" class="ghost-form">
     <div class="modal fade" id="myModal" aria-hidden="true" role="dialog">
       <div class="modal-dialog" role="document">
         <div class="modal-content">

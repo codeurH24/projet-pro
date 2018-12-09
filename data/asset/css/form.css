@@ -58,3 +58,8 @@ main form .btn{
   font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   text-transform: uppercase;
 }
+
+form.ghost-form{
+  box-shadow:unset;
+  background-color: transparent;
+}
