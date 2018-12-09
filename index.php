@@ -47,6 +47,9 @@ $pageDisplay = false;
     // Déconnexion du site
     require 'data/view/user/logout.php'; //
 
+    // redirecon pour confirmer le changement du mot de passe
+    require 'data/view/pages/change-password.php';
+
 
  ?><!doctype html>
 <html lang="fr">

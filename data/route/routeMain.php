@@ -25,7 +25,9 @@ $requirePage = [
   'admin' =>
     ['url' => 'data/view/admin/admin.php','connect' => true],
   'error' =>
-    ['url' => 'data/view/error/error.php','connect' => false]
+    ['url' => 'data/view/error/error.php','connect' => false],
+  'change-password' =>
+    ['url' => 'data/view/pages/change-password.php','connect' => false]
 ];
 
 

@@ -1,5 +1,6 @@
 <?php
-
+// newPasswordForUser declenche l'envoi de l'email grace a la page
+// data/app/form/admin/user/newPassword.php appeler dans l'index.php
 function modal_NewPassword(){
   ob_start();
 
@@ -8,7 +9,7 @@ function modal_NewPassword(){
   ob_end_clean();
   ob_start();
     ?>
-    <input type="hidden" name="newPasswordForUser" value="1">
+    <input type="hidden" name="newPasswordForUser" value="<?= $_GET['ask-password'] ?>">
     <p>Désirez-vous faire une demande de réinitialisation du mot de passe ?</p>
     <p>Cela enverra un e-mail à l'utilisateur.</p>
     <?php
@@ -143,7 +144,7 @@ function modal_NewPassword(){
                   <li><a href="/admin/utilisateurs/show-user-<?= $value['id'] ?>.php"><i class="far fa-2x fa-eye"></i></a></li>
                   <li><a href="/admin/utilisateurs/supprimer-user-<?= $value['id'] ?>.php"><i class="fas fa-2x fa-trash"></i></a></li>
                   <li><a href="/admin/utilisateurs/modifier-user-<?= $value['id'] ?>.php"><i class="fas fa-2x fa-pen-alt"></i></a></li>
-                  <li><a href="/admin/utilisateurs/demander-un-nouveau-mot-de-passe"><i class="fas fa-undo-alt"></i> <i class="fas fa-2x fa-key"></i></a></li>
+                  <li><a href="/admin/utilisateurs/<?= $value['id'] ?>/demander-un-nouveau-mot-de-passe"><i class="fas fa-undo-alt"></i> <i class="fas fa-2x fa-key"></i></a></li>
                 </ul>
               </span>
             </div>
