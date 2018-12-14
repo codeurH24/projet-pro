@@ -22,6 +22,8 @@ if( isset($_POST['createUserTable'])  ){
   }
 
   $mysqli->close();
+  header('Location: /admin/utilisateurs/');
+  exit('redirection de create user vers admin user');
 }
 
 if( isset($pageDisplay) && $pageDisplay == true ){

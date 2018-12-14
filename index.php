@@ -31,14 +31,15 @@ $pageDisplay = false;
       // CREATION (CRUD)
     require 'data/app/form/user/creations/indexCreation.php'; //  liste les entitées
     require 'data/app/form/user/creations/createCreation.php'; // Create
-    require 'data/app/form/user/creations/deleteCreation.php'; // delete
     require 'data/app/form/user/creations/showCreation.php'; // read
+    require 'data/app/form/user/creations/deleteCreation.php'; // delete
     /*
     ┌─┐┌┬┐┌┬┐┬┌┐┌┬┌─┐┌┬┐┬─┐┌─┐┌┬┐┬┌─┐┌┐┌
     ├─┤ ││││││││││└─┐ │ ├┬┘├─┤ │ ││ ││││
     ┴ ┴─┴┘┴ ┴┴┘└┘┴└─┘ ┴ ┴└─┴ ┴ ┴ ┴└─┘┘└┘
     */
       // UTILISATEUR (CRUD)
+    require 'data/app/form/admin/user/createUser.php'; // create
     require 'data/app/form/admin/user/updateUser.php'; // update
     require 'data/app/form/admin/user/deleteUser.php'; // delete
     // envoi un mail a l'utilisateur qui en a fait la demande.
