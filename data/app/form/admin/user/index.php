@@ -33,12 +33,7 @@ function modal_NewPassword(){
 
   $mysqli = bddConnect();
 
-  if( isset($_GET['section']) and $_GET['section'] == 'delete-user' ){
-    $query = "DELETE FROM `user` WHERE `user`.`id` = ".$_GET['id-user'];
-    bddQuery($mysqli, $query);
-    header('location: /admin/utilisateurs/');
-    exit('user '.$_GET['id-user'].' delete<br />');
-  }
+  
 
   // if( isset($_GET['section']) and $_GET['section'] == 'update-user' ){
   //   $query = "UPDATE `user` SET `nom` = 'florent', `prenom` = 'Corlouer', `pseudo` = 'admin master', `email` = 'cci.corlouer@gmail.fr', `age` = '33', `id_role` = '2' WHERE `user`.`id` = ".$_GET['id-user'];

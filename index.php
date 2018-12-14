@@ -40,6 +40,7 @@ $pageDisplay = false;
     */
       // UTILISATEUR (CRUD)
     require 'data/app/form/admin/user/updateUser.php'; // update
+    require 'data/app/form/admin/user/deleteUser.php'; // delete
     // envoi un mail a l'utilisateur qui en a fait la demande.
     // le demandeur peut-etre un admin en passant pas l'administration du site.
     require 'data/app/form/admin/user/newPassword.php'; // reset passord for user
