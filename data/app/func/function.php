@@ -205,3 +205,25 @@ function redirect_post($url, array $data, array $headers = null) {
         throw new Exception("Error loading '$url', $php_errormsg");
     }
 }
+
+function access(){
+  $mysqli = bddConnect();
+
+  $query = 'SELECT access.*, role.nom FROM `access`
+            INNER JOIN `role` ON role.id = access.role_id
+            WHERE role_id = '.$_SESSION['user']['roleID'].' AND url LIKE \''.$_SERVER['REQUEST_URI'].'\'';
+  $accessList = bddQuery($mysqli, $query);
+  
+  if( count($accessList) > 0){
+    if( isset($accessList[0]['pass_right']) and $accessList[0]['pass_right'] == 1){
+      return true;
+    }else{
+      return false;
+    }
+  }else{
+    return false;
+  }
+  return false;
+
+  $mysqli->close();
+}

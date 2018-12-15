@@ -81,6 +81,24 @@
           case 'delete-role':
               require("data/app/form/admin/role/deleteRole.php");
               break;
+          case 'index-log':
+              require("data/app/form/admin/log/indexLog.php");
+              break;
+          case 'index-access':
+              require("data/app/form/admin/access/indexAccess.php");
+              break;
+          case 'create-access':
+              require("data/app/form/admin/access/createAccess.php");
+              break;
+          case 'show-access':
+              require("data/app/form/admin/access/showAccess.php");
+              break;
+          case 'update-access':
+              require("data/app/form/admin/access/updateAccess.php");
+              break;
+          case 'delete-access':
+              require("data/app/form/admin/access/deleteAccess.php");
+              break;
 
 
           default:

@@ -112,17 +112,4 @@ function modal_NewPassword(){
   </div>
 </div>
 <?php require 'data/view/admin/footerAdmin.php';
-
-
-
-
-
-
-
-
-
-
-
-
-
 } ?>

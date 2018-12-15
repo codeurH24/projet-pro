@@ -63,3 +63,17 @@ form.ghost-form{
   box-shadow:unset;
   background-color: transparent;
 }
+
+
+main form select.form-control:focus{
+  color: black;
+}
+
+main form select.form-control{
+  color: white;
+  border: 0px solid;
+  background: transparent;
+  border-bottom: 1px solid white;
+  width: 90%;
+  margin: auto;
+}

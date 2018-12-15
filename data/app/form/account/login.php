@@ -17,14 +17,17 @@ if( isset($_POST['mail']) and !empty($_POST['mail'])){
         $row = $row[0];
         if($row["password"] == $passwordMD5){
 
+
+
           $_SESSION['user'] = [
             "id" => $row["id"],
             "pseudo" => $row["pseudo"],
+            "roleID" => $row["id_role"]
           ];
 
           // mise a jour de la date de la connexion
           $dateTime = dbDate();
-          $query = "UPDATE `user` SET `date_last_login` = '$dateTime ' WHERE `user`.`id` = 14;";
+          $query = "UPDATE `user` SET `date_last_login` = '$dateTime ' WHERE `user`.`id` = $row[id];";
           bddQuery($mysqli, $query);
         }
       }else{
@@ -36,6 +39,7 @@ if( isset($_POST['mail']) and !empty($_POST['mail'])){
     if (!isset($_SESSION['user']) and empty($_SESSION['user'])){
       //exit("Probleme de session.");
     }else{
+      logCreate($_SESSION['user']['id'], 'Se connect');
       header('Location: /mes-creations/');
       exit("Connexion Reussi.");
     }

@@ -72,6 +72,14 @@ RewriteRule admin/roles/montrer-role-([0-9]+)\.php ?page=admin&section=show-role
 RewriteRule admin/roles/modifier-role-([0-9]+)\.php ?page=admin&section=update-role&id-role=$1 [L] [L]
 RewriteRule admin/roles/supprimer-role-([0-9]+)\.php ?page=admin&section=delete-role&id-role=$1 [L] [L]
 
+RewriteRule admin/log/$ ?page=admin&section=index-log [L]
+
+RewriteRule admin/acces/$ ?page=admin&section=index-access [L]
+RewriteRule admin/acces/creer-acces.php ?page=admin&section=create-access [L] [L]
+RewriteRule admin/acces/montrer-acces-([0-9]+)\.php ?page=admin&section=show-access&id-access=$1 [L] [L]
+RewriteRule admin/acces/modifier-acces-([0-9]+)\.php ?page=admin&section=update-access&id-access=$1 [L] [L]
+RewriteRule admin/acces/supprimer-acces-([0-9]+)\.php ?page=admin&section=delete-access&id-access=$1 [L] [L]
+
 RewriteRule erreur/404-page-non-trouve.html ?page=error&section=404 [L]
 RewriteRule erreur/500-page-non-trouve.html ?page=error&section=500 [L]
 

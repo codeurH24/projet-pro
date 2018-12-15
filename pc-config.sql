@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:3306
--- Généré le :  Sam 15 Décembre 2018 à 14:18
+-- Généré le :  Sam 15 Décembre 2018 à 18:42
 -- Version du serveur :  5.7.24-0ubuntu0.18.04.1
 -- Version de PHP :  7.2.10-0ubuntu0.18.04.1
 
@@ -21,6 +21,28 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `pc-config` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE `pc-config`;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `access`
+--
+
+CREATE TABLE `access` (
+  `id` int(11) NOT NULL,
+  `url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `role_id` int(11) NOT NULL,
+  `pass_right` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Contenu de la table `access`
+--
+
+INSERT INTO `access` (`id`, `url`, `role_id`, `pass_right`) VALUES
+(1, 'admin/1', 1, 1),
+(2, '/admin/creer-categorie.php', 1, 1),
+(3, '/admin/creer-categorie.php', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -464,6 +486,16 @@ CREATE TABLE `log` (
   `date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Contenu de la table `log`
+--
+
+INSERT INTO `log` (`id`, `user_id`, `name_task`, `date`) VALUES
+(1, 14, 'logué sur le site', '2018-12-05 00:00:00'),
+(2, 26, 'Se connect', '2018-12-15 14:57:51'),
+(3, 14, 'Se connect', '2018-12-15 17:05:41'),
+(4, 14, 'Se connect', '2018-12-15 17:49:32');
+
 -- --------------------------------------------------------
 
 --
@@ -530,8 +562,7 @@ INSERT INTO `role` (`id`, `nom`) VALUES
 (1, 'membre'),
 (2, 'contributeur'),
 (3, 'admin'),
-(4, 'super admin'),
-(5, 'role test3');
+(4, 'super admin');
 
 -- --------------------------------------------------------
 
@@ -558,13 +589,19 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `nom`, `prenom`, `pseudo`, `email`, `age`, `password`, `date_registration`, `date_last_login`, `id_adresse`, `id_role`) VALUES
-(14, 'florent', 'Corlouer', 'admin master', 'cci.corlouer@gmail.fr', 33, '81dc9bdb52d04dc20036dbd8313ed055', '2018-09-30 08:10:32', '2018-12-15 12:16:24', 0, 2),
+(14, 'florent', 'Corlouer', 'admin master', 'cci.corlouer@gmail.com', 33, '81dc9bdb52d04dc20036dbd8313ed055', '2018-09-30 08:10:32', '2018-12-15 17:49:32', 0, 4),
 (24, '', '', 'codeurh24', 'codeurh24@gmail.com', 0, '81dc9bdb52d04dc20036dbd8313ed055', '2018-11-04 08:30:42', '2018-11-04 08:30:42', 0, 0),
-(26, NULL, NULL, 'angelo', 'cci.corlouer@gmail.com', 0, '81dc9bdb52d04dc20036dbd8313ed055', '2018-12-04 13:22:25', '2018-12-04 13:22:25', NULL, 0);
+(26, 'Delmos', 'angalo', 'angelo', 'cci.corlouer@gmail.fr', 0, '81dc9bdb52d04dc20036dbd8313ed055', '2018-12-04 13:22:25', '2018-12-04 13:22:25', NULL, 0);
 
 --
 -- Index pour les tables exportées
 --
+
+--
+-- Index pour la table `access`
+--
+ALTER TABLE `access`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `categorie`
@@ -658,6 +695,11 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT pour la table `access`
+--
+ALTER TABLE `access`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
 -- AUTO_INCREMENT pour la table `categorie`
 --
 ALTER TABLE `categorie`
@@ -696,7 +738,7 @@ ALTER TABLE `image_composant`
 -- AUTO_INCREMENT pour la table `log`
 --
 ALTER TABLE `log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT pour la table `marque_composant`
 --

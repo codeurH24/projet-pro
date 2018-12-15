@@ -10,6 +10,7 @@ if ( isset($_SESSION['user'])){
   $UPseudo = $_SESSION['user']['pseudo'];
 }
 require_once("data/app/func/function.php");
+require_once("data/app/func/log.func.php");
 
 // Route main
 require_once("data/route/routeMain.php");
@@ -47,6 +48,11 @@ $pageDisplay = false;
     require 'data/app/form/admin/role/createRole.php'; // create
     require 'data/app/form/admin/role/updateRole.php'; // update
     require 'data/app/form/admin/role/deleteRole.php'; // delete
+
+    // ACCES (CRUD)
+    require 'data/app/form/admin/access/createAccess.php'; // create
+    require 'data/app/form/admin/access/updateAccess.php'; // update
+    require 'data/app/form/admin/access/deleteAccess.php'; // delete
 
     // envoi un mail a l'utilisateur qui en a fait la demande.
     // le demandeur peut-etre un admin en passant pas l'administration du site.
