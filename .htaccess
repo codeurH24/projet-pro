@@ -65,6 +65,13 @@ RewriteRule admin/utilisateurs/show-user-([0-9]+)\.php ?page=admin&section=show-
 RewriteRule admin/utilisateurs/create-user.php ?page=admin&section=create-user [L] [L]
 RewriteRule admin/utilisateurs/([0-9]+)/demander-un-nouveau-mot-de-passe$ ?page=admin&section=index-users&ask-password=$1 [L]
 
+
+RewriteRule admin/roles/$ ?page=admin&section=index-role [L]
+RewriteRule admin/roles/creer-role.php ?page=admin&section=create-role [L] [L]
+RewriteRule admin/roles/montrer-role-([0-9]+)\.php ?page=admin&section=show-role&id-role=$1 [L] [L]
+RewriteRule admin/roles/modifier-role-([0-9]+)\.php ?page=admin&section=update-role&id-role=$1 [L] [L]
+RewriteRule admin/roles/supprimer-role-([0-9]+)\.php ?page=admin&section=delete-role&id-role=$1 [L] [L]
+
 RewriteRule erreur/404-page-non-trouve.html ?page=error&section=404 [L]
 RewriteRule erreur/500-page-non-trouve.html ?page=error&section=500 [L]
 

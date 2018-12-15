@@ -42,6 +42,12 @@ $pageDisplay = false;
     require 'data/app/form/admin/user/createUser.php'; // create
     require 'data/app/form/admin/user/updateUser.php'; // update
     require 'data/app/form/admin/user/deleteUser.php'; // delete
+
+    // ROLE (CRUD)
+    require 'data/app/form/admin/role/createRole.php'; // create
+    require 'data/app/form/admin/role/updateRole.php'; // update
+    require 'data/app/form/admin/role/deleteRole.php'; // delete
+
     // envoi un mail a l'utilisateur qui en a fait la demande.
     // le demandeur peut-etre un admin en passant pas l'administration du site.
     require 'data/app/form/admin/user/newPassword.php'; // reset passord for user

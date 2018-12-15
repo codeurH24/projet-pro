@@ -57,8 +57,15 @@
         </li>
         <li class="nav-item">
           <div class="btn-group dropright w-100">
-            <a class="btn btn-primary  w-100" href="/admin/admin/utilisateurs/" style="color:white">
+            <a class="btn btn-primary  w-100" href="/admin/utilisateurs/" style="color:white">
               <i class="fas fa-2x fa-user-alt icon-white"></i><span>Utilisateurs</span>
+            </a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="btn-group dropright w-100">
+            <a class="btn btn-primary  w-100" href="/admin/roles/" style="color:white">
+              <i class="fas fa-2x fa-user-alt icon-white"></i><span>Roles</span>
             </a>
           </div>
         </li>
@@ -67,19 +74,6 @@
             <a class="btn btn-primary  w-100" href="#" style="color:white">
               <i class="fas fa-2x fa-exclamation-circle"></i></i><span>Logs</span>
             </a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <div class="btn-group dropright w-100">
-            <button type="button" class="btn btn-primary dropdown-toggle w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fas fa-2x fa-user-secret"></i><span>Droits</span>
-            </button>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="/admin/admin/utilisateurs/">Lister</a>
-              <a class="dropdown-item" href="/admin/creer-categorie.php">Creer</a>
-              <a class="dropdown-item" href="/admin/modifier-categorie.php">Modifier</a>
-              <a class="dropdown-item" href="/admin/supprimer-categorie.php">Supprimer</a>
-            </div>
           </div>
         </li>
       </ul>

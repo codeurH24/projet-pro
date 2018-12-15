@@ -66,6 +66,22 @@
           case 'show-user':
               require("data/app/form/admin/user/showUser.php");
               break;
+          case 'index-role':
+              require("data/app/form/admin/role/indexRole.php");
+              break;
+          case 'create-role':
+              require("data/app/form/admin/role/createRole.php");
+              break;
+          case 'show-role':
+              require("data/app/form/admin/role/showRole.php");
+              break;
+          case 'update-role':
+              require("data/app/form/admin/role/updateRole.php");
+              break;
+          case 'delete-role':
+              require("data/app/form/admin/role/deleteRole.php");
+              break;
+
 
           default:
             echo 'page not found';
