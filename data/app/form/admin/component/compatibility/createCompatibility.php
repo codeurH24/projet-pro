@@ -1,0 +1,73 @@
+<?php
+// UPDATE `compatibilite` SET `degrer` = '99', `auteur` = 'codeurh24', `id_composant1` = '12', `id_composant2` = '13', `date_at` = '2018-10-15 14:23:39' WHERE `compatibilite`.`id` = 4;
+$mysqli = bddConnect();
+if( isset($_POST['compatibleEnPourCent']) and !empty($_POST['compatibleEnPourCent'])){
+  $query = "INSERT INTO `compatibilite` (`id`, `degrer`, `auteur`, `id_composant1`, `id_composant2`, `date_at`)
+            VALUES (NULL, '".$_POST['compatibleEnPourCent']."',
+                          '".$_SESSION['user']['pseudo']."',
+                          '".$_POST['composant1']."',
+                          '".$_POST['composant2']."',
+                          '".date("Y-m-d H:i:s")."');";
+  if (!$mysqli->query($query)) {
+    exit("Erreur update RevendeurLnkComposant. $query<br />");
+  }
+  header('Location: /admin/composant/compatibilite/');
+  exit('Creer compatibilité, Echec de la redirection.');
+}
+
+
+if( isset($pageDisplay) && $pageDisplay == true ){
+  $composantList = [];
+  $query = "SELECT * FROM `composant` ORDER BY `composant`.`model` ASC";
+  if ($result = $mysqli->query($query)) {
+      $composantList = $result->fetch_all(MYSQLI_ASSOC);
+      $result->free();
+  }
+  $mysqli->close();
+
+  require 'data/view/admin/headerAdmin.php';
+ ?>
+
+
+
+
+
+ <div class="container-fluid">
+   <div class="row justify-content-center">
+     <div class="col-12 col-md-8 col-xl-6">
+       <div class="text-right mb-3">
+         <a href="/admin/composant/compatibilite/" class="btn btn-secondary">Retour</a>
+       </div>
+       <form method="post">
+         <fieldset>
+           <legend><h2>Créer une compatibilité</h2></legend>
+           <div class="form-group">
+              <label for="composant1">Composant 1</label>
+              <select multiple class="form-control" name="composant1" id="composant1">
+                <?php foreach ($composantList as $value) { ?>
+                  <option value="<?= $value['id']; ?>"><?= $value['model']; ?></option>
+                <?php } ?>
+              </select>
+            </div>
+           <div class="form-group">
+              <label for="composant2">Composant 2</label>
+              <select multiple class="form-control" name="composant2" id="composant2">
+                <?php foreach ($composantList as $value) { ?>
+                  <option value="<?= $value['id']; ?>"><?= $value['model']; ?></option>
+                <?php } ?>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="compatibleEnPourCent">Pourcentage de fiabilité</label>
+              <input type="number" class="form-control" name="compatibleEnPourCent" id="compatibleEnPourCent" value="100" />
+            </div>
+            <div class="text-right">
+              <button type="submit" class="btn btn-primary">Creer une compatibilité</button>
+            </div>
+          </fieldset>
+       </form>
+     </div>
+   </div>
+ </div>
+<?php require 'data/view/admin/footerAdmin.php';
+} ?>

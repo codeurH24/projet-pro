@@ -45,6 +45,26 @@ $pageDisplay = false;
     ├─┤ ││││││││││└─┐ │ ├┬┘├─┤ │ ││ ││││
     ┴ ┴─┴┘┴ ┴┴┘└┘┴└─┘ ┴ ┴└─┴ ┴ ┴ ┴└─┘┘└┘
     */
+    // CATEGORIE (CRUD)
+    require 'data/app/form/admin/category/createCategory.php'; // create
+    require 'data/app/form/admin/category/updateCategory.php'; // update
+    require 'data/app/form/admin/category/deleteCategory.php'; // delete
+
+    // COMPOSANT (CRUD)
+    require 'data/app/form/admin/component/createComponent.php'; // create
+    require 'data/app/form/admin/component/updateComponent.php'; // update
+    require 'data/app/form/admin/component/deleteComponent.php'; // delete
+
+    // REVENDEUR (CRUD)
+    require 'data/app/form/admin/retailer/createRetailer.php'; // create
+    require 'data/app/form/admin/retailer/updateRetailer.php'; // update
+    require 'data/app/form/admin/retailer/deleteRetailer.php'; // delete
+
+    // COMPATIBILITE (CRUD)
+    require 'data/app/form/admin/component/compatibility/createCompatibility.php'; // create
+    require 'data/app/form/admin/component/compatibility/updateCompatibility.php'; // update
+    require 'data/app/form/admin/component/compatibility/deleteCompatibility.php'; // delete
+
       // UTILISATEUR (CRUD)
     require 'data/app/form/admin/user/createUser.php'; // create
     require 'data/app/form/admin/user/updateUser.php'; // update

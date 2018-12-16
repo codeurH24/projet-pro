@@ -5,6 +5,13 @@
         <?php if ( accessElement('/admin/') ){ ?>
           <li class="nav-item">
             <div class="btn-group dropright w-100">
+              <a class="btn btn-primary  w-100" href="/admin/categorie/" style="color:white">
+                <i class="fas fa-2x fa-stream"></i><span>Categories</span>
+              </a>
+            </div>
+          </li>
+          <!-- <li class="nav-item">
+            <div class="btn-group dropright w-100">
               <button type="button" class="btn btn-primary dropdown-toggle w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-2x fa-stream"></i><span>Categorie</span>
               </button>
@@ -14,10 +21,17 @@
                 <a class="dropdown-item" href="/admin/supprimer-categorie.php">Supprimer</a>
               </div>
             </div>
-          </li>
+          </li> -->
         <?php } ?>
         <?php if ( accessElement('/admin/') ){ ?>
           <li class="nav-item">
+            <div class="btn-group dropright w-100">
+              <a class="btn btn-primary  w-100" href="/admin/composant/" style="color:white">
+                <img src="/data/asset/image/gpu.png" alt="carte graphique" width="40" /><span>Composants</span>
+              </a>
+            </div>
+          </li>
+          <!-- <li class="nav-item">
             <div class="btn-group dropright w-100">
               <button type="button" class="btn btn-primary dropdown-toggle w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <img src="/data/asset/image/gpu.png" alt="carte graphique" width="40" /><span>Composant</span>
@@ -37,10 +51,17 @@
                 <a class="btn btn-primary w-100" href="/admin/creer-tag-composant.php">tag</a>
               </div>
             </div>
-          </li>
+          </li> -->
         <?php } ?>
         <?php if ( accessElement('/admin/') ){ ?>
           <li class="nav-item">
+            <div class="btn-group dropright w-100">
+              <a class="btn btn-primary  w-100" href="/admin/revendeur/" style="color:white">
+                <i class="fas fa-2x fa-hand-holding-usd"></i><span>Revendeurs</span>
+              </a>
+            </div>
+          </li>
+          <!-- <li class="nav-item">
             <div class="btn-group dropright w-100">
               <button type="button" class="btn btn-primary dropdown-toggle w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-2x fa-hand-holding-usd"></i><span>Revendeur</span>
@@ -59,7 +80,7 @@
                 </div>
               </div>
             </div>
-          </li>
+          </li> -->
         <?php } ?>
         <?php if ( accessElement('/admin/utilisateurs/') ){ ?>
           <li class="nav-item">

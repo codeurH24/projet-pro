@@ -30,6 +30,7 @@ main form .error{
 
 main form input[type=text],
 main form input[type=email],
+main form input[type=number],
 main form input[type=password]{
   text-shadow: 0 0 0px black;
   background-color: #FFF0;

@@ -19,7 +19,7 @@ if( isset($_POST['idComposantUpdate']) and !empty($_POST['idComposantUpdate'])){
   $mysqli = bddConnect();
   if( !empty($_FILES["imageComposantUpdate"]["name"]) ) {
     $mysqli = bddConnect();
-    $target_dir = "./data/asset/image/composants/";
+    $target_dir = "/data/asset/image/composants/";
     $target_file = $target_dir . basename($_FILES["imageComposantUpdate"]["name"]);
     move_uploaded_file($_FILES["imageComposantUpdate"]["tmp_name"], $target_file);
     $query = "UPDATE `image_composant`
@@ -31,7 +31,8 @@ if( isset($_POST['idComposantUpdate']) and !empty($_POST['idComposantUpdate'])){
 
   }
 
-
+  header('Location: /admin/composant/');
+  exit('Update du composant reussi. Problème de redirection');
 
 
 }
@@ -43,7 +44,7 @@ if ($result = $mysqli->query($query)) {
 }
 
 $composantList = [];
-$query = "SELECT * FROM `composant` ORDER BY `composant`.`model` ASC";
+$query = "SELECT * FROM `composant` WHERE id = ".$_GET['id-composant']." ORDER BY `composant`.`model` ASC";
 if ($result = $mysqli->query($query)) {
     $composantList = $result->fetch_all(MYSQLI_ASSOC);
     $result->free();
@@ -59,7 +60,7 @@ require 'data/view/admin/headerAdmin.php';
 
 $mysqli = bddConnect();
 
-?><h2>Modifier un composant</h2><?php
+
 
 foreach ($composantList as $value) {
 
@@ -76,14 +77,17 @@ if ($result = $mysqli->query($query)) {
 
 
 ?>
-<h4 data-toggle="collapse" data-target="#form<?= $value['id']; ?>" ><?= $value['model']; ?></h4>
+<!-- <h4 data-toggle="collapse" data-target="#form<?= $value['id']; ?>" ><?= $value['model']; ?></h4> -->
 
 
 
 <div class="container-fluid">
   <div class="row justify-content-center">
     <div class="col-12 col-md-11 col-xl-8">
-      <form method="post" id="form<?= $value['id']; ?>" class="collapse" enctype="multipart/form-data" style="padding-bottom:50px">
+      <div class="text-right mb-3">
+        <a href="/admin/composant/" class="btn btn-secondary">Retour</a>
+      </div>
+      <form method="post" id="form<?= $value['id']; ?>" enctype="multipart/form-data" style="padding-bottom:50px">
         <fieldset>
           <legend>Modifier un composant</legend>
             <div class="form-group d-none">

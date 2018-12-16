@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:3306
--- Généré le :  Dim 16 Décembre 2018 à 11:30
+-- Généré le :  Dim 16 Décembre 2018 à 21:50
 -- Version du serveur :  5.7.24-0ubuntu0.18.04.1
 -- Version de PHP :  7.2.10-0ubuntu0.18.04.1
 
@@ -90,7 +90,8 @@ CREATE TABLE `compatibilite` (
 
 INSERT INTO `compatibilite` (`id`, `degrer`, `auteur`, `id_composant1`, `id_composant2`, `date_at`) VALUES
 (1, 100, 'codeurh24', 54, 38, '2018-11-04 16:14:53'),
-(2, 100, 'codeurh24', 38, 53, '2018-11-04 16:35:14');
+(2, 100, 'codeurh24', 38, 53, '2018-11-04 16:35:14'),
+(3, 100, 'admin master', 37, 88, '2018-12-16 21:10:18');
 
 -- --------------------------------------------------------
 
@@ -531,7 +532,9 @@ INSERT INTO `log` (`id`, `user_id`, `name_task`, `date`) VALUES
 (35, 29, 'Se connecte', '2018-12-16 06:07:53'),
 (36, 29, 'Se déconnecte', '2018-12-16 06:15:39'),
 (37, 14, 'Se connecte', '2018-12-16 06:15:47'),
-(38, 14, 'Se connecte', '2018-12-16 11:26:23');
+(38, 14, 'Se connecte', '2018-12-16 11:26:23'),
+(39, 14, 'Se connecte', '2018-12-16 16:27:15'),
+(40, 14, 'Se connecte', '2018-12-16 21:02:29');
 
 -- --------------------------------------------------------
 
@@ -562,7 +565,8 @@ CREATE TABLE `revendeur` (
 INSERT INTO `revendeur` (`id`, `nom`) VALUES
 (2, 'materiel.net'),
 (4, 'cdiscount'),
-(5, 'amazon');
+(5, 'amazon'),
+(6, 'LDLC');
 
 -- --------------------------------------------------------
 
@@ -626,7 +630,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `nom`, `prenom`, `pseudo`, `email`, `age`, `password`, `date_registration`, `date_last_login`, `id_adresse`, `id_role`) VALUES
-(14, 'florent', 'Corlouer', 'admin master', 'cci.corlouer@gmail.com', 33, '81dc9bdb52d04dc20036dbd8313ed055', '2018-09-30 08:10:32', '2018-12-16 11:26:23', 0, 4),
+(14, 'florent', 'Corlouer', 'admin master', 'cci.corlouer@gmail.com', 33, '81dc9bdb52d04dc20036dbd8313ed055', '2018-09-30 08:10:32', '2018-12-16 21:02:29', 0, 4),
 (24, '', '', 'codeurh24', 'codeurh24@gmail.com', 0, '81dc9bdb52d04dc20036dbd8313ed055', '2018-11-04 08:30:42', '2018-12-15 21:18:22', 0, 3),
 (26, 'Delmos', 'angalo', 'angelo', 'angelo@gmail.fr', 0, '81dc9bdb52d04dc20036dbd8313ed055', '2018-12-04 13:22:25', '2018-12-04 13:22:25', NULL, 2),
 (27, '', '', 'Alice', 'alice@gmail.com', 0, '81dc9bdb52d04dc20036dbd8313ed055', '2018-12-15 19:16:44', '2018-12-15 19:16:44', NULL, 1),
@@ -743,12 +747,12 @@ ALTER TABLE `access`
 -- AUTO_INCREMENT pour la table `categorie`
 --
 ALTER TABLE `categorie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT pour la table `compatibilite`
 --
 ALTER TABLE `compatibilite`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT pour la table `compatibility_tag`
 --
@@ -758,7 +762,7 @@ ALTER TABLE `compatibility_tag`
 -- AUTO_INCREMENT pour la table `composant`
 --
 ALTER TABLE `composant`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
 --
 -- AUTO_INCREMENT pour la table `creation`
 --
@@ -773,12 +777,12 @@ ALTER TABLE `creation_conception`
 -- AUTO_INCREMENT pour la table `image_composant`
 --
 ALTER TABLE `image_composant`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
 --
 -- AUTO_INCREMENT pour la table `log`
 --
 ALTER TABLE `log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 --
 -- AUTO_INCREMENT pour la table `marque_composant`
 --
@@ -788,7 +792,7 @@ ALTER TABLE `marque_composant`
 -- AUTO_INCREMENT pour la table `revendeur`
 --
 ALTER TABLE `revendeur`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT pour la table `revendeur_composant`
 --

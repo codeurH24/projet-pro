@@ -4,18 +4,6 @@ $mysqli = bddConnect();
 if( isset($_POST['modelComposantCreate']) and ! empty($_POST['modelComposantCreate']) ){
 
   $tErreur = array();
-  //
-  // $_POST["modelComposantCreate"] = $mysqli->real_escape_string($_POST["modelComposantCreate"]);
-  // $_POST["marqueComposantCreate"] = $mysqli->real_escape_string($_POST["marqueComposantCreate"]);
-  // if( empty($_POST["scoreComposantCreate"])  )
-  //   $_POST["scoreComposantCreate"] = 0;
-  // else
-  //   $_POST["scoreComposantCreate"] = $mysqli->real_escape_string($_POST["scoreComposantCreate"]);
-  //
-  // $_POST["categorieComposantCreate"] = $mysqli->real_escape_string($_POST["categorieComposantCreate"]);
-  //
-  // $query = "INSERT INTO `composant` (`id`, `model`, `marque`, `point_puissance`, `auteur`, `id_cat`, `date_at`)
-  //           VALUES (NULL, '".$_POST["modelComposantCreate"]."', '".$_POST["marqueComposantCreate"]."', '".$_POST["scoreComposantCreate"]."', '".$_SESSION['user']['pseudo']."', '".$_POST["categorieComposantCreate"]."', '".date('Y-m-d H:i:s')."');";
 
   if( empty($tErreur) ){
     safeVar($mysqli, "post");
@@ -35,13 +23,20 @@ if( isset($_POST['modelComposantCreate']) and ! empty($_POST['modelComposantCrea
     if( !empty($_FILES["imageComposantCreate"]) ) {
       $target_dir = "./data/asset/image/composants/";
       $target_file = $target_dir . basename($_FILES["imageComposantCreate"]["name"]);
-      move_uploaded_file($_FILES["imageComposantCreate"]["tmp_name"], $target_file);
-      $query = "INSERT INTO `image_composant` (`id`, `image`, `id_composant`)
-      VALUES (NULL, '".basename($_FILES["imageComposantCreate"]["name"])."', '$lastID');";
-      if (!$mysqli->query($query)) {
-        exit("Erreur creation image composant.<br />");
+      $resultUpload = move_uploaded_file($_FILES["imageComposantCreate"]["tmp_name"], $target_file);
+      if( $resultUpload ){
+        $query = "INSERT INTO `image_composant` (`id`, `image`, `id_composant`)
+        VALUES (NULL, '".basename($_FILES["imageComposantCreate"]["name"])."', '$lastID');";
+        if (!$mysqli->query($query)) {
+          exit("Erreur creation image composant.<br />");
+        }
+      }else{
+        exit('Problème d\'upload Attention au chmod sous linux');
       }
     }// si l'upload de l'image n'est pas vide
+    header('Location: /admin/composant/');
+    exit('Creation du composant reussi. Problème de redirection');
+
   }// si aucune erreurs
 } // si formumaire soumis
 
@@ -58,20 +53,23 @@ require 'data/view/admin/headerAdmin.php';
 <div class="container-fluid">
   <div class="row justify-content-center">
     <div class="col-12 col-md-8 col-xl-6">
+      <div class="text-right mb-3">
+        <a href="/admin/composant/" class="btn btn-secondary">Retour</a>
+      </div>
       <form method="post" enctype="multipart/form-data">
         <fieldset>
           <legend><h2>Creer un composant</h2></legend>
            <div class="form-group">
              <label for="modelComposantCreate">Model</label>
-             <input type="text" name="modelComposantCreate" id="modelComposantCreate" class="form-control" aria-describedby="emailHelp" autocomplete="off">
+             <input type="text" name="modelComposantCreate" id="modelComposantCreate" class="form-control" aria-describedby="emailHelp" autocomplete="off" value="Model test" />
            </div>
            <div class="form-group">
              <label for="marqueComposantCreate">Marque</label>
-             <input type="text" name="marqueComposantCreate" id="marqueComposantCreate" class="form-control" aria-describedby="emailHelp">
+             <input type="text" name="marqueComposantCreate" id="marqueComposantCreate" class="form-control" aria-describedby="emailHelp" value="MSI" />
            </div>
            <div class="form-group">
              <label for="scoreComposantCreate">Score Passmark</label>
-             <input type="number" name="scoreComposantCreate" id="scoreComposantCreate" class="form-control" aria-describedby="emailHelp">
+             <input type="number" name="scoreComposantCreate" id="scoreComposantCreate" class="form-control" aria-describedby="emailHelp" value="1234" />
            </div>
            <div class="form-group">
              <label for="categorieComposantCreate">Categorie</label>

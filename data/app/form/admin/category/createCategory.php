@@ -1,38 +1,35 @@
 <?php
-
-if( isset($_POST['nameCategorie']) and ! empty($_POST['nameCategorie']) ){
-
-  $tErreur = array();
+if( isset($_POST['createCategoryTable'])  ){
   $mysqli = bddConnect();
 
-  // $_POST["nameCategorie"] = $mysqli->real_escape_string($_POST["nameCategorie"]);
-  // $query = "INSERT INTO `categorie` (`id`, `nom`) VALUES (NULL, '".$_POST["nameCategorie"]."')";
+  safeVar($mysqli, "post");
+  bddCreateFlush($mysqli, "categorie", [
+    "nom" => $adminNameCreateCategory
+  ]);
 
-  if( empty($tErreur) ){
-    safeVar($mysqli, "post");
-    bddCreateFlush($mysqli, "categorie", [
-      "nom" => $nameCategorie
-    ]);
-  }
   $mysqli->close();
+  header('Location: /admin/categorie/');
+  exit('redirection de create rcategorie vers admin categorie');
 }
 
 if( isset($pageDisplay) && $pageDisplay == true ){
-require 'data/view/admin/headerAdmin.php';
+  require 'data/view/admin/headerAdmin.php';
 ?>
 <div class="container-fluid">
   <div class="row justify-content-center">
-    <div class="col-12 col-md-8 col-xl-4">
+    <div class="col-12 col-md-8 col-xl-6">
+      <div class="text-right mb-3">
+        <a href="/admin/categorie/" class="btn btn-secondary">Retour</a>
+      </div>
       <form method="post">
         <fieldset>
-          <legend>Creer une Categorie</legend>
+          <legend>Creer une catégorie</legend>
           <div class="form-group">
-            <label for="nom">Nom de Categorie</label>
-            <input name="nameCategorie" type="text" class="form-control" id="nom" aria-describedby="nomHelp" placeholder="Entrer un nom de categorie">
-            <small id="nomHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <label for="adminNameCreateCategory">Nom de la catégorie</label>
+            <input name="adminNameCreateCategory" type="text" class="form-control" id="adminNameCreateCategory" />
           </div>
           <div class="text-right">
-            <button type="submit" class="btn btn-primary">Enregistrer</button>
+            <button type="submit" name="createCategoryTable" class="btn btn-primary">Creer</button>
           </div>
         </fieldset>
       </form>

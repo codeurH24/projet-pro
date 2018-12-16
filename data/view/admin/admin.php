@@ -3,6 +3,9 @@
       if( isset($_GET['section']) ){
         // echo $_GET['section']."<br />";
         switch ($_GET['section']) {
+          case 'index-categorie':
+              require("data/app/form/admin/category/indexCategory.php");
+            break;
           case 'create-categorie':
               require("data/app/form/admin/category/createCategory.php");
             break;
@@ -11,6 +14,9 @@
             break;
           case 'delete-categorie':
               require("data/app/form/admin/category/deleteCategory.php");
+            break;
+          case 'index-composant':
+              require("data/app/form/admin/component/indexComponent.php");
             break;
           case 'create-composant':
               require("data/app/form/admin/component/createComponent.php");
@@ -33,6 +39,9 @@
           case 'create-tagComposant':
               require("data/app/form/admin/component/tag/createTagComponent.php");
               break;
+          case 'index-revendeur':
+              require("data/app/form/admin/retailer/indexRetailer.php");
+            break;
           case 'create-revendeur':
               require("data/app/form/admin/retailer/createRetailer.php");
             break;
@@ -41,6 +50,18 @@
               break;
           case 'delete-revendeur':
               require("data/app/form/admin/retailer/deleteRetailer.php");
+              break;
+          case 'index-compatibility':
+              require("data/app/form/admin/component/compatibility/indexCompatibility.php");
+            break;
+          case 'create-compatibility':
+              require("data/app/form/admin/component/compatibility/createCompatibility.php");
+            break;
+          case 'update-compatibility':
+              require("data/app/form/admin/component/compatibility/updateCompatibility.php");
+              break;
+          case 'delete-compatibility':
+              require("data/app/form/admin/component/compatibility/deleteCompatibility.php");
               break;
           case 'create-revendeurLnkComposant':
               require("data/app/form/admin/retailer/component/createLnkRetailerComponent.php");

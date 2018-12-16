@@ -35,13 +35,13 @@ RewriteRule ^mes-creations/supprimer-une-creation.php$ ?page=mes-creations&secti
 RewriteRule ^mes-creations/activer-une-creation-([0-9]+)\.php$ ?page=mes-creations&section=enable-creation&enableCreation=$1 [L]
 RewriteRule ^mes-creations/$ ?page=mes-creations [L]
 
-RewriteRule admin/creer-categorie.php ?page=admin&section=create-categorie [L]
-RewriteRule admin/modifier-categorie.php ?page=admin&section=update-categorie [L]
-RewriteRule admin/supprimer-categorie.php ?page=admin&section=delete-categorie [L]
+#RewriteRule admin/creer-categorie.php ?page=admin&section=create-categorie [L]
+#RewriteRule admin/modifier-categorie.php ?page=admin&section=update-categorie [L]
+#RewriteRule admin/supprimer-categorie.php ?page=admin&section=delete-categorie [L]
 
-RewriteRule admin/creer-composant.php ?page=admin&section=create-composant [L]
-RewriteRule admin/modifier-composant.php ?page=admin&section=update-composant [L]
-RewriteRule admin/supprimer-composant.php ?page=admin&section=delete-composant [L]
+#RewriteRule admin/creer-composant.php ?page=admin&section=create-composant [L]
+#RewriteRule admin/modifier-composant.php ?page=admin&section=update-composant [L]
+#RewriteRule admin/supprimer-composant.php ?page=admin&section=delete-composant [L]
 
 RewriteRule admin/creer-compatibilite-entre-composant.php ?page=admin&section=create-composantLnkComposant [L]
 RewriteRule admin/modifier-compatibilite-entre-composant.php ?page=admin&section=update-composantLnkComposant [L]
@@ -49,9 +49,9 @@ RewriteRule admin/supprimer-compatibilite-entre-composant.php ?page=admin&sectio
 
 RewriteRule admin/creer-tag-composant.php ?page=admin&section=create-tagComposant [L]
 
-RewriteRule admin/creer-revendeur.php ?page=admin&section=create-revendeur [L]
-RewriteRule admin/modifier-revendeur.php ?page=admin&section=update-revendeur [L]
-RewriteRule admin/supprimer-revendeur.php ?page=admin&section=delete-revendeur [L]
+#RewriteRule admin/creer-revendeur.php ?page=admin&section=create-revendeur [L]
+#RewriteRule admin/modifier-revendeur.php ?page=admin&section=update-revendeur [L]
+#RewriteRule admin/supprimer-revendeur.php ?page=admin&section=delete-revendeur [L]
 
 RewriteRule admin/creer-liaison-composant-revendeur.php ?page=admin&section=create-revendeurLnkComposant [L]
 RewriteRule admin/modifier-liaison-composant-revendeur.php ?page=admin&section=update-revendeurLnkComposant [L]
@@ -79,6 +79,29 @@ RewriteRule admin/acces/creer-acces.php ?page=admin&section=create-access [L] [L
 RewriteRule admin/acces/montrer-acces-([0-9]+)\.php ?page=admin&section=show-access&id-access=$1 [L] [L]
 RewriteRule admin/acces/modifier-acces-([0-9]+)\.php ?page=admin&section=update-access&id-access=$1 [L] [L]
 RewriteRule admin/acces/supprimer-acces-([0-9]+)\.php ?page=admin&section=delete-access&id-access=$1 [L] [L]
+
+RewriteRule admin/categorie/$ ?page=admin&section=index-categorie [L]
+RewriteRule admin/categorie/creer-categorie.php ?page=admin&section=create-categorie [L] [L]
+RewriteRule admin/categorie/montrer-categorie-([0-9]+)\.php ?page=admin&section=show-categorie&id-categorie=$1 [L] [L]
+RewriteRule admin/categorie/modifier-categorie-([0-9]+)\.php ?page=admin&section=update-categorie&id-categorie=$1 [L] [L]
+RewriteRule admin/categorie/supprimer-categorie-([0-9]+)\.php ?page=admin&section=delete-categorie&id-categorie=$1 [L] [L]
+
+RewriteRule admin/composant/$ ?page=admin&section=index-composant [L]
+RewriteRule admin/composant/creer-composant.php ?page=admin&section=create-composant [L]
+RewriteRule admin/composant/modifier-composant-([0-9]+)\.php ?page=admin&section=update-composant&id-composant=$1 [L]
+RewriteRule admin/composant/supprimer-composant-([0-9]+)\.php ?page=admin&section=delete-composant&id-composant=$1 [L]
+
+RewriteRule admin/revendeur/$ ?page=admin&section=index-revendeur [L]
+RewriteRule admin/revendeur/creer-revendeur.php ?page=admin&section=create-revendeur [L] [L]
+RewriteRule admin/revendeur/montrer-revendeur-([0-9]+)\.php ?page=admin&section=show-revendeur&id-revendeur=$1 [L] [L]
+RewriteRule admin/revendeur/modifier-revendeur-([0-9]+)\.php ?page=admin&section=update-revendeur&id-revendeur=$1 [L] [L]
+RewriteRule admin/revendeur/supprimer-revendeur-([0-9]+)\.php ?page=admin&section=delete-revendeur&id-revendeur=$1 [L] [L]
+
+RewriteRule admin/composant/compatibilite/$ ?page=admin&section=index-compatibility [L]
+RewriteRule admin/composant/compatibilite/creer-compatibilite.php ?page=admin&section=create-compatibility [L] [L]
+RewriteRule admin/composant/compatibilite/montrer-compatibilite-([0-9]+)\.php ?page=admin&section=show-compatibility&id-compatibility=$1 [L] [L]
+RewriteRule admin/composant/compatibilite/modifier-compatibilite-([0-9]+)\.php ?page=admin&section=update-compatibility&id-compatibility=$1 [L] [L]
+RewriteRule admin/composant/compatibilite/supprimer-compatibilite-([0-9]+)\.php ?page=admin&section=delete-compatibility&id-compatibility=$1 [L] [L]
 
 RewriteRule erreur/404-page-non-trouve.html ?page=error&section=404 [L]
 RewriteRule erreur/500-page-non-trouve.html ?page=error&section=500 [L]

@@ -1,44 +1,59 @@
 <?php
-$mysqli = bddConnect();
-if( isset($_POST['updateCategorie']) and !empty($_POST['updateCategorie'])){
-  $sql = "";
-  foreach ($_POST['updateCategorie'] as $key => $value) {
-    if( !empty($value)){
-      $sql .= "UPDATE `categorie` SET `nom` = '$value' WHERE `categorie`.`id` = $key;";
+
+
+  if( isset($_POST['updateCategoryTable']) ){
+    $mysqli = bddConnect();
+
+    $query = "UPDATE `categorie`
+              SET
+              `nom` = '".$_POST['nomCategoryUpdate']."'
+              WHERE
+              `id` = ".$_GET['id-categorie'];
+
+    if(bddQuery($mysqli, $query)){
+      bddError($mysqli, $query);
     }
-  }
-  if (!$mysqli->multi_query($sql)) {
-      bddError($mysqli, $sql);
-  }
-}
 
-$query = "SELECT * FROM `categorie` ORDER BY `categorie`.`nom` ASC";
-$categorieComposant = bddQuery($mysqli, $query);
+    $mysqli->close();
+    header('Location: '.$_SERVER['REQUEST_URI']);
+    exit('category update<br />');
+  }
 
-$mysqli->close();
+
 if( isset($pageDisplay) && $pageDisplay == true ){
-require 'data/view/admin/headerAdmin.php';
-?>
+  $mysqli = bddConnect();
 
+
+  $query = "SELECT * FROM `categorie` WHERE `id` = ".$_GET['id-categorie'];
+  $categoryList = bddQuery($mysqli, $query);
+
+  $mysqli->close();
+
+  require 'data/view/admin/headerAdmin.php';
+?>
 <div class="container-fluid">
   <div class="row justify-content-center">
-    <div class="col-12 col-md-8 col-xl-4">
+    <div class="col-12 col-md-8 col-xl-6">
+      <div class="text-right mb-3">
+        <a href="/admin/categorie/" class="btn btn-secondary">Retour</a>
+      </div>
       <form method="post">
         <fieldset>
-          <legend>Modifier une Categorie</legend>
-          <?php foreach ($categorieComposant as $value) { ?>
-            <div class="form-group">
-              <label for="exampleInputPassword1"><?= $value['nom']; ?></label>
-              <input type="text" name="updateCategorie[<?= $value['id']; ?>]" id="exampleInputPassword1" class="form-control" />
-            </div>
-          <?php } ?>
+          <legend>Modification d'une catégorie</legend>
+          <div class="form-group">
+            <label for="nomCategoryUpdate">Nom</label>
+            <input name="nomCategoryUpdate" type="text" class="form-control" id="nomCategoryUpdate" value="<?= $categoryList[0]['nom'] ?>" />
+          </div>
           <div class="text-right">
-            <button type="submit" class="btn btn-primary">Modifier</button>
+            <button type="submit" name="updateCategoryTable" class="btn btn-primary">Modifier</button>
           </div>
         </fieldset>
       </form>
     </div>
   </div>
 </div>
-<?php require 'data/view/admin/footerAdmin.php';
-} ?>
+<?php
+
+require 'data/view/admin/footerAdmin.php';
+
+ } ?>
