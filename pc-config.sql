@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:3306
--- Généré le :  Sam 15 Décembre 2018 à 18:42
+-- Généré le :  Dim 16 Décembre 2018 à 11:30
 -- Version du serveur :  5.7.24-0ubuntu0.18.04.1
 -- Version de PHP :  7.2.10-0ubuntu0.18.04.1
 
@@ -40,9 +40,11 @@ CREATE TABLE `access` (
 --
 
 INSERT INTO `access` (`id`, `url`, `role_id`, `pass_right`) VALUES
-(1, 'admin/1', 1, 1),
-(2, '/admin/creer-categorie.php', 1, 1),
-(3, '/admin/creer-categorie.php', 3, 1);
+(1, '^/admin/*', 1, 0),
+(3, '^/admin/utilisateurs/*', 2, 0),
+(6, '^/admin/roles/*', 2, 0),
+(7, '^/admin/log/*', 2, 0),
+(8, '^/admin/acces/*', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -312,7 +314,8 @@ INSERT INTO `creation` (`id`, `name`, `enable`, `description`, `id_user`, `date_
 (9, 'Ordinateur pour le voisin', 0, 'Mon voisin  besoin d\'un ordinateur pour surfer sur internet', 14, '2018-10-28 03:04:07'),
 (32, 'Config No Name', 1, 'Config No Name', 14, '2018-11-03 14:23:31'),
 (34, 'config X', 0, 'test X', 24, '2018-11-04 09:35:28'),
-(41, 'Config No Name', 1, 'Config No Name', 24, '2018-11-04 09:52:30');
+(41, 'Config No Name', 1, 'Config No Name', 24, '2018-11-04 09:52:30'),
+(42, 'PC familial', 0, 'Besoin d\'un pc pour toute la famille', 14, '2018-12-15 21:37:54');
 
 -- --------------------------------------------------------
 
@@ -494,7 +497,41 @@ INSERT INTO `log` (`id`, `user_id`, `name_task`, `date`) VALUES
 (1, 14, 'logué sur le site', '2018-12-05 00:00:00'),
 (2, 26, 'Se connect', '2018-12-15 14:57:51'),
 (3, 14, 'Se connect', '2018-12-15 17:05:41'),
-(4, 14, 'Se connect', '2018-12-15 17:49:32');
+(4, 14, 'Se connect', '2018-12-15 17:49:32'),
+(5, 14, 'Se connect', '2018-12-15 19:04:30'),
+(6, 24, 'Se connect', '2018-12-15 19:30:00'),
+(7, 28, 'Se connect', '2018-12-15 19:53:00'),
+(8, 14, 'Se connecte', '2018-12-15 20:54:56'),
+(9, 14, 'Se déconnecte', '2018-12-15 20:55:18'),
+(10, 29, 'Se connecte', '2018-12-15 20:55:30'),
+(11, 29, 'Se déconnecte', '2018-12-15 20:56:08'),
+(12, 14, 'Se connecte', '2018-12-15 20:56:14'),
+(13, 14, 'Se déconnecte', '2018-12-15 21:05:10'),
+(14, 28, 'Se connecte', '2018-12-15 21:05:24'),
+(15, 28, 'Se déconnecte', '2018-12-15 21:12:07'),
+(16, 29, 'Se connecte', '2018-12-15 21:12:18'),
+(17, 29, 'Se déconnecte', '2018-12-15 21:12:51'),
+(18, 14, 'Se connecte', '2018-12-15 21:12:59'),
+(19, 14, 'Se déconnecte', '2018-12-15 21:15:02'),
+(20, 28, 'Se connecte', '2018-12-15 21:15:09'),
+(21, 28, 'Se déconnecte', '2018-12-15 21:16:25'),
+(22, 29, 'Se connecte', '2018-12-15 21:16:33'),
+(23, 29, 'Se déconnecte', '2018-12-15 21:18:14'),
+(24, 24, 'Se connecte', '2018-12-15 21:18:22'),
+(25, 24, 'Se déconnecte', '2018-12-15 21:37:01'),
+(26, 28, 'Se connecte', '2018-12-15 21:37:11'),
+(27, 28, 'Se déconnecte', '2018-12-15 21:37:32'),
+(28, 14, 'Se connecte', '2018-12-15 21:37:43'),
+(29, 14, 'Se déconnecte', '2018-12-15 21:39:30'),
+(30, 29, 'Se connecte', '2018-12-15 21:39:38'),
+(31, 14, 'Se connecte', '2018-12-16 05:08:55'),
+(32, 14, 'Se déconnecte', '2018-12-16 05:56:30'),
+(33, 14, 'Se connecte', '2018-12-16 06:00:00'),
+(34, 14, 'Se déconnecte', '2018-12-16 06:00:15'),
+(35, 29, 'Se connecte', '2018-12-16 06:07:53'),
+(36, 29, 'Se déconnecte', '2018-12-16 06:15:39'),
+(37, 14, 'Se connecte', '2018-12-16 06:15:47'),
+(38, 14, 'Se connecte', '2018-12-16 11:26:23');
 
 -- --------------------------------------------------------
 
@@ -589,9 +626,12 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `nom`, `prenom`, `pseudo`, `email`, `age`, `password`, `date_registration`, `date_last_login`, `id_adresse`, `id_role`) VALUES
-(14, 'florent', 'Corlouer', 'admin master', 'cci.corlouer@gmail.com', 33, '81dc9bdb52d04dc20036dbd8313ed055', '2018-09-30 08:10:32', '2018-12-15 17:49:32', 0, 4),
-(24, '', '', 'codeurh24', 'codeurh24@gmail.com', 0, '81dc9bdb52d04dc20036dbd8313ed055', '2018-11-04 08:30:42', '2018-11-04 08:30:42', 0, 0),
-(26, 'Delmos', 'angalo', 'angelo', 'cci.corlouer@gmail.fr', 0, '81dc9bdb52d04dc20036dbd8313ed055', '2018-12-04 13:22:25', '2018-12-04 13:22:25', NULL, 0);
+(14, 'florent', 'Corlouer', 'admin master', 'cci.corlouer@gmail.com', 33, '81dc9bdb52d04dc20036dbd8313ed055', '2018-09-30 08:10:32', '2018-12-16 11:26:23', 0, 4),
+(24, '', '', 'codeurh24', 'codeurh24@gmail.com', 0, '81dc9bdb52d04dc20036dbd8313ed055', '2018-11-04 08:30:42', '2018-12-15 21:18:22', 0, 3),
+(26, 'Delmos', 'angalo', 'angelo', 'angelo@gmail.fr', 0, '81dc9bdb52d04dc20036dbd8313ed055', '2018-12-04 13:22:25', '2018-12-04 13:22:25', NULL, 2),
+(27, '', '', 'Alice', 'alice@gmail.com', 0, '81dc9bdb52d04dc20036dbd8313ed055', '2018-12-15 19:16:44', '2018-12-15 19:16:44', NULL, 1),
+(28, '', '', 'Bob', 'bob@gmail.com', 0, '81dc9bdb52d04dc20036dbd8313ed055', '2018-12-15 19:17:13', '2018-12-15 21:37:11', NULL, 1),
+(29, '', '', 'Charlie', 'charlie@gmail.com', 0, '81dc9bdb52d04dc20036dbd8313ed055', '2018-12-15 19:18:03', '2018-12-16 06:07:53', NULL, 2);
 
 --
 -- Index pour les tables exportées
@@ -698,7 +738,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT pour la table `access`
 --
 ALTER TABLE `access`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT pour la table `categorie`
 --
@@ -723,7 +763,7 @@ ALTER TABLE `composant`
 -- AUTO_INCREMENT pour la table `creation`
 --
 ALTER TABLE `creation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 --
 -- AUTO_INCREMENT pour la table `creation_conception`
 --
@@ -738,7 +778,7 @@ ALTER TABLE `image_composant`
 -- AUTO_INCREMENT pour la table `log`
 --
 ALTER TABLE `log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 --
 -- AUTO_INCREMENT pour la table `marque_composant`
 --
@@ -758,12 +798,12 @@ ALTER TABLE `revendeur_composant`
 -- AUTO_INCREMENT pour la table `role`
 --
 ALTER TABLE `role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- Contraintes pour les tables exportées
 --

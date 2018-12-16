@@ -2,29 +2,41 @@
 
 
   if( isset($_POST['updateUserTable']) ){
-    $mysqli = bddConnect();
 
-    $query = "UPDATE `user`
-              SET
-              `nom` = '".$_POST['nomUserUpdate']."',
-              `prenom` = '".$_POST['prenomUserUpdate']."',
-              `pseudo` = '".$_POST['pseudoUserUpdate']."',
-              `email` = '".$_POST['emailUserUpdate']."',
-              `age` = '".$_POST['ageUserUpdate']."',
-              `id_role` = '".$_POST['IDRoleUserUpdate']."'
-              WHERE
-              `user`.`id` = ".$_POST['idUserUpdate'];
+    // si tu n 'est pas admin ou surper admin alors tu ne pas pas modifier un utilisateur
+    if( isset($_SESSION['user']['roleID']) and ($_SESSION['user']['roleID'] == 3 or $_SESSION['user']['roleID'] == 4) ){
+      //si tu est admin alors du ne peux pas changer le role en super admin or admin
+      if( $_SESSION['user']['roleID'] == 3 and ($_POST['IDRoleUserUpdate'] == 4 or $_POST['IDRoleUserUpdate'] == 3)){
+        $_POST['IDRoleUserUpdate'] = 2;
+      }
 
-    if(bddQuery($mysqli, $query)){
-      bddError($mysqli, $query);
+
+
+
+      $mysqli = bddConnect();
+
+      $query = "UPDATE `user`
+                SET
+                `nom` = '".$_POST['nomUserUpdate']."',
+                `prenom` = '".$_POST['prenomUserUpdate']."',
+                `pseudo` = '".$_POST['pseudoUserUpdate']."',
+                `email` = '".$_POST['emailUserUpdate']."',
+                `age` = '".$_POST['ageUserUpdate']."',
+                `id_role` = '".$_POST['IDRoleUserUpdate']."'
+                WHERE
+                `user`.`id` = ".$_POST['idUserUpdate'];
+
+      if(bddQuery($mysqli, $query)){
+        bddError($mysqli, $query);
+      }
+      if($_SESSION['user']['id'] == $_GET['id-user'] ){
+        $_SESSION['user']['pseudo'] = $_POST['pseudoUserUpdate'];
+      }
+
+      $mysqli->close();
+      header('Location: '.$_SERVER['REQUEST_URI']);
+      exit('user update<br />');
     }
-    if($_SESSION['user']['id'] == $_GET['id-user'] ){
-      $_SESSION['user']['pseudo'] = $_POST['pseudoUserUpdate'];
-    }
-
-    $mysqli->close();
-    header('Location: '.$_SERVER['REQUEST_URI']);
-    exit('user update<br />');
   }
 
 

@@ -31,15 +31,22 @@
                   </div>
                 </div>
                 <div class="col-2 col-sm-4 tools">
-                  <!-- <a href="#"><i class="fas fa-2x fa-info-circle"></i></a>
-                  <a href="#"><i class="fas fa-2x fa-shopping-cart"></i></a> -->
-                  <form method="post">
-                    <input type="hidden" name="addToCreation"  value="<?= $id ?>" />
-                    <!-- <button href="#" class="btn btn-primary" style="min-width:10rem;">Ajouter</button> -->
-                    <button type="submit" name="button" title="Ajouter à la config">
-                      <i class="fas fa-arrow-circle-up"></i>
-                    </button>
-                  </form>
+                  <?php if (empty($_SESSION['user'])){ ?>
+                    <form method="post">
+                      <button type="submit" name="button" title="Ajouter à la config">
+                        <i class="fas fa-arrow-circle-up"></i>
+                        <p>Vous devez vous connecter pour utiliser cette fonctionnalité</p>
+                      </button>
+                    </form>
+                  <?php }else { ?>
+                    <form method="post">
+                      <input type="hidden" name="addToCreation"  value="<?= $id ?>" />
+                      <button type="submit" name="button" title="Ajouter à la config">
+                        <i class="fas fa-arrow-circle-up"></i>
+                        <p>Ajouter</p>
+                      </button>
+                    </form>
+                  <?php } ?>
                 </div>
               </div>
             </div>

@@ -7,7 +7,7 @@ if ( isset($UID) ){
       if( isset($creaionActiveForMenu[0]) ){
         $creaionActiveForMenu = $creaionActiveForMenu[0];
       }else{
-        $creaionActiveForMenu = false;  
+        $creaionActiveForMenu = false;
       }
 
     }
@@ -55,9 +55,10 @@ if ( isset($UID) ){
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="/mes-creations/">Mes Créations</a>
-          <a class="dropdown-item" href="/mon-compte/">Mon Profile</a>
+          <?php if ( accessElement('/admin/') ){ ?>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="/admin/">Administration</a>
+          <?php } ?>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="/logout.php">Se Déconnecter</a>
         </div>

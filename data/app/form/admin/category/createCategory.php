@@ -25,9 +25,6 @@ require 'data/view/admin/headerAdmin.php';
     <div class="col-12 col-md-8 col-xl-4">
       <form method="post">
         <fieldset>
-          <p>
-          <?= access() ? 'Tu passe': 'Tu ne passe pas'; ?>
-          </p>
           <legend>Creer une Categorie</legend>
           <div class="form-group">
             <label for="nom">Nom de Categorie</label>

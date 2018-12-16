@@ -11,7 +11,7 @@ if( isset($pageDisplay) && $pageDisplay == true ){
 
   $mysqli = bddConnect();
 
-  $query = 'SELECT * FROM `log`';
+  $query = 'SELECT * FROM `log` ORDER BY date DESC LIMIT 100';
   $logList = bddQuery($mysqli, $query);
 
   $mysqli->close();

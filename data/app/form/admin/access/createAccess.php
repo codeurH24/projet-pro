@@ -11,7 +11,7 @@ if( isset($_POST['createAccessTable'])  ){
   bddCreateFlush($mysqli, "access", [
     "url" => $URLAccessCreate,
     "role_id" => $IDRoleUserCreate,
-    "pass_right" => '1'
+    "pass_right" => '0'
   ]);
 
   $mysqli->close();

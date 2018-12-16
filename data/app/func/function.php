@@ -211,19 +211,63 @@ function access(){
 
   $query = 'SELECT access.*, role.nom FROM `access`
             INNER JOIN `role` ON role.id = access.role_id
-            WHERE role_id = '.$_SESSION['user']['roleID'].' AND url LIKE \''.$_SERVER['REQUEST_URI'].'\'';
+            WHERE role_id = '.$_SESSION['user']['roleID'];//.' AND url LIKE \''.$_SERVER['REQUEST_URI'].'%\'';
   $accessList = bddQuery($mysqli, $query);
-  
-  if( count($accessList) > 0){
-    if( isset($accessList[0]['pass_right']) and $accessList[0]['pass_right'] == 1){
-      return true;
-    }else{
-      return false;
+
+  if( $accessList !== false and count($accessList) > 0 ){
+
+    foreach ($accessList as $key => $value) {
+      $value['url'] = str_replace('/', '\/', $value['url']);
+      if (preg_match('/'.$value['url'].'/i', $_SERVER['REQUEST_URI'])) {
+
+          if( isset($accessList[0]['pass_right']) and $accessList[0]['pass_right'] == 1){
+            return true;
+          }else{
+            return false;
+          }
+      }
     }
   }else{
-    return false;
+    return true;
   }
-  return false;
+  return true;
 
   $mysqli->close();
+}
+
+function accessElement($url){
+  $mysqli = bddConnect();
+
+  $query = 'SELECT access.*, role.nom FROM `access`
+            INNER JOIN `role` ON role.id = access.role_id
+            WHERE role_id = '.$_SESSION['user']['roleID'];//.' AND url LIKE \''.$_SERVER['REQUEST_URI'].'%\'';
+  $accessList = bddQuery($mysqli, $query);
+
+  if( $accessList !== false and count($accessList) > 0 ){
+
+    foreach ($accessList as $key => $value) {
+      $value['url'] = str_replace('/', '\/', $value['url']);
+      if (preg_match('/'.$value['url'].'/i', $url)) {
+
+          if( isset($accessList[0]['pass_right']) and $accessList[0]['pass_right'] == 1){
+            return true;
+          }else{
+            return false;
+          }
+      }
+    }
+  }else{
+    return true;
+  }
+  return true;
+
+  $mysqli->close();
+}
+
+function isNumber($value){
+  if (preg_match("/^[0-9]*$/i", $value )) {
+      return true;
+  } else {
+      return false;
+  }
 }

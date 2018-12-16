@@ -1,8 +1,11 @@
-
-
 <?php
-print_r($_POST);
+
+
 if( isset($_POST['addToCreation']) and ! empty($_POST['addToCreation']) ){
+  if (empty($_SESSION['user'])){
+    header('Location: http://'.$_SERVER['HTTP_HOST']);
+    exit('Impossible sans etre inscrit.');
+  }
   $safeVar = safeVar($mysqli, "post");
   $creationsEnable = bddQuery($mysqli, "SELECT * FROM `creation` WHERE `enable` = 1 AND `id_user` = $UID");
 

@@ -12,6 +12,12 @@ if ( isset($_SESSION['user'])){
 require_once("data/app/func/function.php");
 require_once("data/app/func/log.func.php");
 
+
+if ( access() === false ) {
+  header('Location: http://'.$_SERVER['HTTP_HOST']);
+}
+
+
 // Route main
 require_once("data/route/routeMain.php");
 

@@ -39,7 +39,7 @@ if( isset($_POST['mail']) and !empty($_POST['mail'])){
     if (!isset($_SESSION['user']) and empty($_SESSION['user'])){
       //exit("Probleme de session.");
     }else{
-      logCreate($_SESSION['user']['id'], 'Se connect');
+      logCreate($_SESSION['user']['id'], 'Se connecte');
       header('Location: /mes-creations/');
       exit("Connexion Reussi.");
     }
