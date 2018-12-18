@@ -16,12 +16,10 @@
           </div>
         </li>
         <li class="nav-item">
-          <div class=" w-100">
-            <button type="button" class="btn btn-primary w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <a href="#" class="w-100" style="color:#FFF;">
-                <i style="height:100%;display:inline-block;" class="fas fa-2x fa-lock"></i><span>Modifier<br />le mot de passe</span>
-              </a>
-            </button>
+          <div class="btn-group dropright w-100">
+            <a class="btn btn-primary  w-100" href="/mon-compte/changer-mon-mot-de-passe/" style="color:white">
+              <i class="fas fa-2x fa-lock"></i><span>Modifier<br />Le mot de passe</span>
+            </a>
           </div>
         </li>
       </ul>

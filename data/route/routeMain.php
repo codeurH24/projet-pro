@@ -27,7 +27,7 @@ $requirePage = [
   'error' =>
     ['url' => 'data/view/error/error.php','connect' => false],
   'change-password' =>
-    ['url' => 'data/view/pages/change-password.php','connect' => false]
+    ['url' => 'data/app/form/user/changePassword/indexChangePassword.php','connect' => true]
 ];
 
 
