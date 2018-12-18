@@ -339,6 +339,9 @@ nav input[name=searchInput]{
   box-shadow: 0 0 10px #000;
   background: linear-gradient(to bottom, #565353 0%,#383838 100%);
 }
+.indexUser a{
+  color: white;
+}
 .indexUser div{
   padding: 5px;
 }

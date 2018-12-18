@@ -120,6 +120,21 @@
           case 'delete-access':
               require("data/app/form/admin/access/deleteAccess.php");
               break;
+          case 'index-resaleLink':
+              require("data/app/form/admin/resaleLink/indexResaleLink.php");
+              break;
+          case 'create-resaleLink':
+              require("data/app/form/admin/resaleLink/createResaleLink.php");
+              break;
+          case 'show-resaleLink':
+              require("data/app/form/admin/resaleLink/showResaleLink.php");
+              break;
+          case 'update-resaleLink':
+              require("data/app/form/admin/resaleLink/updateResaleLink.php");
+              break;
+          case 'delete-resaleLink':
+              require("data/app/form/admin/resaleLink/deleteResaleLink.php");
+              break;
 
 
           default:

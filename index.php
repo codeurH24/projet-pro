@@ -12,11 +12,11 @@ if ( isset($_SESSION['user'])){
 require_once("data/app/func/function.php");
 require_once("data/app/func/log.func.php");
 
-
-if ( access() === false ) {
-  header('Location: http://'.$_SERVER['HTTP_HOST']);
+if ( isset($_SESSION['user'])){
+  if ( access() === false ) {
+    header('Location: http://'.$_SERVER['HTTP_HOST']);
+  }
 }
-
 
 // Route main
 require_once("data/route/routeMain.php");
@@ -59,6 +59,11 @@ $pageDisplay = false;
     require 'data/app/form/admin/retailer/createRetailer.php'; // create
     require 'data/app/form/admin/retailer/updateRetailer.php'; // update
     require 'data/app/form/admin/retailer/deleteRetailer.php'; // delete
+
+    // LIEN DE REVENTE (CRUD)
+    // require 'data/app/form/admin/resaleLink/createResaleLink.php'; // create
+    // require 'data/app/form/admin/resaleLink/updateResaleLink.php'; // update
+    require 'data/app/form/admin/resaleLink/deleteResaleLink.php'; // delete
 
     // COMPATIBILITE (CRUD)
     require 'data/app/form/admin/component/compatibility/createCompatibility.php'; // create

@@ -13,12 +13,17 @@
   <div class="row justify-content-center">
     <div class="col-8 mb-3">
       <div class="row">
-        <div class="col-6">
+        <div class="col-3">
           <div class="text-left">
             <a href="/admin/composant/compatibilite/" class="btn btn-secondary">Compatibilité</a>
           </div>
         </div>
-        <div class="col-6">
+        <div class="col">
+          <div class="text-left">
+            <a href="/admin/resaleLink/" class="btn btn-secondary">Lien de revente</a>
+          </div>
+        </div>
+        <div class="col-5">
           <div class="text-right">
             <a href="/admin/composant/creer-composant.php" class="btn btn-secondary">Nouveau Composant</a>
           </div>

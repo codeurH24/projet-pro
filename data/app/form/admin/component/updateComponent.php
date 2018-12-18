@@ -1,7 +1,7 @@
 <?php
-$mysqli = bddConnect();
-if( isset($_POST['idComposantUpdate']) and !empty($_POST['idComposantUpdate'])){
 
+if( isset($_POST['idComposantUpdate']) and !empty($_POST['idComposantUpdate'])){
+  $mysqli = bddConnect();
   $sql = "UPDATE `composant`
           SET `model` = '".$_POST['modelComposantUpdate']."',
              `marque` = '".$_POST['marqueComposantUpdate']."',
@@ -30,52 +30,46 @@ if( isset($_POST['idComposantUpdate']) and !empty($_POST['idComposantUpdate'])){
     }
 
   }
+  $mysqli->close();
 
   header('Location: /admin/composant/');
   exit('Update du composant reussi. Problème de redirection');
-
-
 }
-
-$query = "SELECT * FROM `categorie` ORDER BY `categorie`.`nom` ASC";
-if ($result = $mysqli->query($query)) {
-    $categorieComposant = $result->fetch_all(MYSQLI_ASSOC);
-    $result->free();
-}
-
-$composantList = [];
-$query = "SELECT * FROM `composant` WHERE id = ".$_GET['id-composant']." ORDER BY `composant`.`model` ASC";
-if ($result = $mysqli->query($query)) {
-    $composantList = $result->fetch_all(MYSQLI_ASSOC);
-    $result->free();
-}
-
-
-
-$mysqli->close();
 
 if( isset($pageDisplay) && $pageDisplay == true ){
-require 'data/view/admin/headerAdmin.php';
+  $mysqli = bddConnect();
+
+  $query = "SELECT * FROM `categorie` ORDER BY `categorie`.`nom` ASC";
+  if ($result = $mysqli->query($query)) {
+      $categorieComposant = $result->fetch_all(MYSQLI_ASSOC);
+      $result->free();
+  }
+
+  $composantList = [];
+  $query = "SELECT * FROM `composant` WHERE id = ".$_GET['id-composant']." ORDER BY `composant`.`model` ASC";
+  if ($result = $mysqli->query($query)) {
+      $composantList = $result->fetch_all(MYSQLI_ASSOC);
+      $result->free();
+  }
+  $mysqli->close();
+
+  require 'data/view/admin/headerAdmin.php';
 
 
-$mysqli = bddConnect();
+  $mysqli = bddConnect();
 
 
 
-foreach ($composantList as $value) {
+  foreach ($composantList as $value) {
 
-// SELECT * FROM `image_composant` WHERE `id_composant` = 14
-$query = "SELECT * FROM `image_composant` WHERE `id_composant` = ".$value['id'];
+  // SELECT * FROM `image_composant` WHERE `id_composant` = 14
+  $query = "SELECT * FROM `image_composant` WHERE `id_composant` = ".$value['id'];
 
-if ($result = $mysqli->query($query)) {
-    $row = $result->fetch_assoc();
-    $image = $row["image"];
-    $result->free();
-}
-
-
-
-
+  if ($result = $mysqli->query($query)) {
+      $row = $result->fetch_assoc();
+      $image = $row["image"];
+      $result->free();
+  }
 ?>
 <!-- <h4 data-toggle="collapse" data-target="#form<?= $value['id']; ?>" ><?= $value['model']; ?></h4> -->
 
@@ -141,4 +135,6 @@ if ($result = $mysqli->query($query)) {
 
  $mysqli->close(); ?>
 <?php require 'data/view/admin/footerAdmin.php';
-} ?>
+}
+
+?>

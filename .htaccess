@@ -103,6 +103,12 @@ RewriteRule admin/composant/compatibilite/montrer-compatibilite-([0-9]+)\.php ?p
 RewriteRule admin/composant/compatibilite/modifier-compatibilite-([0-9]+)\.php ?page=admin&section=update-compatibility&id-compatibility=$1 [L] [L]
 RewriteRule admin/composant/compatibilite/supprimer-compatibilite-([0-9]+)\.php ?page=admin&section=delete-compatibility&id-compatibility=$1 [L] [L]
 
+RewriteRule admin/resaleLink/$ ?page=admin&section=index-resaleLink [L]
+RewriteRule admin/resaleLink/creer-lien-de-revente.php ?page=admin&section=create-resaleLink [L] [L]
+RewriteRule admin/resaleLink/montrer-lien-de-revente-([0-9]+)\.php ?page=admin&section=show-resaleLink&id-resaleLink=$1 [L] [L]
+RewriteRule admin/resaleLink/modifier-lien-de-revente-([0-9]+)\.php ?page=admin&section=update-resaleLink&id-resaleLink=$1 [L] [L]
+RewriteRule admin/resaleLink/supprimer-lien-de-revente-([0-9]+)\.php ?page=admin&section=delete-resaleLink&id-resaleLink=$1 [L] [L]
+
 RewriteRule erreur/404-page-non-trouve.html ?page=error&section=404 [L]
 RewriteRule erreur/500-page-non-trouve.html ?page=error&section=500 [L]
 

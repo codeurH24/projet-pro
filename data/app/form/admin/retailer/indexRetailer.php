@@ -15,8 +15,17 @@
 <div class="container-fluid">
   <div class="row justify-content-center">
     <div class="col-8 mb-3">
-      <div class="text-right">
-        <a href="/admin/revendeur/creer-revendeur.php" class="btn btn-secondary">Nouveau Revendeur</a>
+      <div class="row">
+        <div class="col">
+          <div class="text-left">
+            <a href="/admin/resaleLink/" class="btn btn-secondary">Lien de revente</a>
+          </div>
+        </div>
+        <div class="col">
+          <div class="text-right">
+            <a href="/admin/revendeur/creer-revendeur.php" class="btn btn-secondary">Nouveau Revendeur</a>
+          </div>
+        </div>
       </div>
     </div>
     <div class="col-12 col-md-11 col-lg-8 indexUser">
