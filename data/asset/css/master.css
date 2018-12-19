@@ -203,7 +203,7 @@ h1{
   display:inline-block;
   position: relative;
 }
-.icon-white {color: #AAA}
+.icon-white {color: #FFF}
 .icon-white:hover,
 button:hover .icon-white{color: white}
 
