@@ -11,7 +11,8 @@
         require_once("data/app/form/account/registration.php");
         break;
       case 'registration-success':
-        require_once("data/view/account/registration-success.php");
+        // require_once("data/view/account/registration-success.php");
+        require_once("data/app/form/account/registration.php");
         break;
 
       default:

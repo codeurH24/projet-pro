@@ -120,6 +120,6 @@
         <?php } ?>
       </ul>
     </div>
-    <div class="col-11 col-md-8 col-lg-9 col-xl-10 content-admin" style="">
+    <div class="col-11 col-md-8 col-lg-9 col-xl-10 content-admin">
       <?php require "data/view/account/identity.php"; ?>
       <h1></i>Administration</h1>

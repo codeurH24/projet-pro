@@ -1,4 +1,8 @@
-<main class="container-fluid composants"><?php
+<main class="container-fluid composants" style="">
+  <div class="containerIdentity">
+    <?php require "data/view/account/identity.php"; ?>
+  </div>
+<?php
 
 
 

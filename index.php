@@ -19,7 +19,9 @@ if ( isset($_SESSION['user'])){
 }
 
 // Route main
+
 require_once("data/route/routeMain.php");
+require_once("data/route/routeCreation.php");
 
 // traitement des formulaires
 $pageDisplay = false;
@@ -120,6 +122,7 @@ $pageDisplay = false;
   </head>
   <body>
     <?php require_once('data/view/header.php'); ?>
+    <?php //require "data/view/account/identity.php"; ?>
     <?php require_once('data/view/main.php'); ?>
     <?php require_once('data/view/footer.php'); ?>
 

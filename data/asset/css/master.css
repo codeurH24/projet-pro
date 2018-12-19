@@ -293,8 +293,8 @@ main .content-admin,
 main .content-creation{
   padding-top:0;
 }
-.content-admin .identity,
-.content-creation  .identity{
+.identity,
+.identity{
   background-color: #000;
   color: wheat;
   display: block;
@@ -313,6 +313,13 @@ main .content-creation{
   height: 100%;
   background-color: #00F;
   background: linear-gradient(45deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 52%,rgba(0,0,0,1) 53%,rgba(0,0,0,1) 100%);
+}
+
+.containerIdentity{
+  width:30%;
+  margin-left:auto;
+  background:transparent;
+  margin-right:-15px;
 }
 
 .buttonReturn{

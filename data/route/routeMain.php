@@ -37,10 +37,6 @@ if(! isset($_GET['page'])){
   // require_once($requireDefaultPage );
   $routeMainPage = $requireDefaultPage;
 }else{
-
-
-
-
   $page = $_GET['page'];
   if( isset($requirePage[$page])){
     if($requirePage[$page]['connect'] === true){

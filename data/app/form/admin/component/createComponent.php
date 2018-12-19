@@ -61,15 +61,15 @@ require 'data/view/admin/headerAdmin.php';
           <legend><h2>Creer un composant</h2></legend>
            <div class="form-group">
              <label for="modelComposantCreate">Model</label>
-             <input type="text" name="modelComposantCreate" id="modelComposantCreate" class="form-control" aria-describedby="emailHelp" autocomplete="off" value="Model test" />
+             <input type="text" name="modelComposantCreate" id="modelComposantCreate" class="form-control" aria-describedby="emailHelp" autocomplete="off" />
            </div>
            <div class="form-group">
              <label for="marqueComposantCreate">Marque</label>
-             <input type="text" name="marqueComposantCreate" id="marqueComposantCreate" class="form-control" aria-describedby="emailHelp" value="MSI" />
+             <input type="text" name="marqueComposantCreate" id="marqueComposantCreate" class="form-control" aria-describedby="emailHelp" />
            </div>
            <div class="form-group">
              <label for="scoreComposantCreate">Score Passmark</label>
-             <input type="number" name="scoreComposantCreate" id="scoreComposantCreate" class="form-control" aria-describedby="emailHelp" value="1234" />
+             <input type="number" name="scoreComposantCreate" id="scoreComposantCreate" class="form-control" aria-describedby="emailHelp" />
            </div>
            <div class="form-group">
              <label for="categorieComposantCreate">Categorie</label>
