@@ -41,8 +41,16 @@ $sql = "SELECT composant.model
 
 
 <!-- liste les créations pour pouvoir manipuler ces configs par la suite et avoir un aperçu pour le moment -->
-<?php foreach ($creationList as $creation) { ?>
-  <div class="creationsIndex">
+<?php foreach ($creationList as $key => $creation) {
+
+  // met en évidence le premier element car il est actif
+  if ($creation['enable']){
+    ?><div class="creationsIndex active"><?php
+  }else{
+    ?><div class="creationsIndex"><?php
+  }
+  ?>
+
     <!-- titre de la creation -->
     <h4 data-toggle="collapse" data-target="#form<?= $creation['id']; ?>" class="d-inline-block">
       <?= $creation['name']; ?>

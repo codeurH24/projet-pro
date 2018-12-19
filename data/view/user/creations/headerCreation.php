@@ -2,7 +2,7 @@
   <div class="row justify-content-center" style="flex:1;flex-direction: column;justify-content: flex-start;align-items: stretch;align-content: stretch;display: flex;flex-direction: row;justify-content: flex-start;align-items: stretch;align-content: stretch;">
     <div class="col-1 col-md-4 col-lg-3 col-xl-3 menu-left">
       <ul class="nav flex-column">
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <div class="btn-group dropright w-100">
             <button type="button" class="btn btn-primary dropdown-toggle w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fas fa-2x fa-screwdriver"></i><span>Mes créations</span>
@@ -13,6 +13,13 @@
               <a class="dropdown-item" href="/mes-creations/modifier-une-creation.php">Modifier</a>
               <a class="dropdown-item" href="/mes-creations/supprimer-une-creation.php">Supprimer</a>
             </div>
+          </div>
+        </li> -->
+        <li class="nav-item">
+          <div class="btn-group dropright w-100">
+            <a class="btn btn-primary  w-100" href="/mes-creations/" style="color:white">
+              <i class="fas fa-2x fa-screwdriver"></i><span>Mes créations</span>
+            </a>
           </div>
         </li>
         <li class="nav-item">

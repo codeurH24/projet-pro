@@ -177,6 +177,7 @@ h1{
   padding-left: 30px;
   margin-top: 7px;
 }
+
 .creationsIndex .info{
   padding-left: 30px;
   padding-bottom: 30px;
@@ -203,6 +204,12 @@ h1{
   display:inline-block;
   position: relative;
 }
+
+.creationsIndex.active {
+  border: 3px solid #FFC600;
+}
+
+
 .icon-white {color: #FFF}
 .icon-white:hover,
 button:hover .icon-white{color: white}
