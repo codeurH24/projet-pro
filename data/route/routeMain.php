@@ -26,8 +26,10 @@ $requirePage = [
     ['url' => 'data/view/admin/admin.php','connect' => true],
   'error' =>
     ['url' => 'data/view/error/error.php','connect' => false],
+  'change-password-forgotten' =>
+    ['url' => 'data/app/form/user/changePassword/indexChangePassword.php','connect' => true],
   'change-password' =>
-    ['url' => 'data/app/form/user/changePassword/indexChangePassword.php','connect' => true]
+    ['url' => 'data/view/pages/change-password.php','connect' => false]
 ];
 
 

@@ -54,7 +54,7 @@ if ( isset($UID) ){
           <i class="fas fa-2x fa-user-alt"></i> Mon compte
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/mes-creations/">Mes Créations</a>
+          <a class="dropdown-item" href="/mes-creations/">Tableau de bord</a>
           <?php if ( accessElement('/admin/') ){ ?>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="/admin/">Administration</a>

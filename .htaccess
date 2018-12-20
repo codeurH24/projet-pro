@@ -11,7 +11,7 @@ RewriteRule ^mon-compte/connexion/$ ?page=account&section=login [L]
 RewriteRule ^mon-compte/inscription/$ ?page=account&section=registration [L]
 RewriteRule ^mon-compte/inscription/reussi.php$ ?page=account&section=registration-success [L]
 
-RewriteRule ^mon-compte/changer-mon-mot-de-passe/$ ?page=change-password&section=index-change-password [L]
+RewriteRule ^mon-compte/changer-mon-mot-de-passe/$ ?page=change-password-forgotten&section=index-change-password [L]
 
 RewriteRule composants-processeur-([0-9]*)\.php$ ?page=composants-processeur&limit=$1 [L]
 RewriteRule composants-processeur.php ?page=composants-processeur [L]

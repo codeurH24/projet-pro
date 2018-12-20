@@ -1,8 +1,5 @@
 <?php
 
-if( !isset($_SESSION['user']) ){
-  header('Location: http://'.$_SERVER['HTTP_HOST']);
-}
 
 
 if( isset($_POST['changePasswordUserFromUser'])  ){
@@ -29,7 +26,7 @@ if( isset($_POST['changePasswordUserFromUser'])  ){
           bddError($mysqli, $query);
         }
         $mysqli->close();
-        header('Location: /mon-compte/changer-mon-mot-de-passe/');
+        header('Location: /change-mot-de-passse/success.php');
         exit('Redirection Echec sur la page indexChangePassword');
       }else{
         $error = 'Ce n\'est pas le bon mot de passe actuel';
@@ -47,6 +44,11 @@ if( isset($_POST['changePasswordUserFromUser'])  ){
 }
 
 if( isset($pageDisplay) && $pageDisplay == true ){
+
+  if( !isset($_SESSION['user']) ){
+    header('Location: http://'.$_SERVER['HTTP_HOST']);
+  }
+
 
   require 'data/view/user/creations/headerCreation.php';
 ?>

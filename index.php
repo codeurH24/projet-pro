@@ -94,8 +94,11 @@ $pageDisplay = false;
     // Déconnexion du site
     require 'data/view/user/logout.php'; //
 
-    // redirecon pour confirmer le changement du mot de passe
+    // rediretion pour confirmer le changement du mot de passe avec succes
     require 'data/view/pages/change-password.php';
+
+    // Enregistrement du nouveau mot de passe user et redirection
+    require 'data/app/form/user/changePassword/indexChangePassword.php';
 
 
  ?><!doctype html>
